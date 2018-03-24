@@ -1,0 +1,42 @@
+
+html,body{ height:100%; }
+#yidong{ height:100%; display:flex; flex-direction:column; }
+
+/***************header******************/
+#yidong .y_header{ height:50px; background:red; }
+
+
+
+
+
+
+
+
+
+
+
+/***************main******************/
+#yidong .y_main{ flex:1; background:pink; overflow-x:hidden; }
+
+
+
+
+
+
+
+
+
+
+
+
+/***************footer******************/
+#yidong .y_footer{ height:50px; background:black; }
+
+
+
+
+
+/************字体的媒体查询**************/
+@media screen and (min-width:992px){
+    
+}
