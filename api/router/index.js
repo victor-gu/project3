@@ -7,7 +7,7 @@ const users = require("./users");
 const order = require("./order");
 const frontproducts = require("./frontProducts");
 
-const products = require("./product");
+const products = require("./backProduct");
 const updatefile = require("./updatefile");
 
 // 提供跨域支持
