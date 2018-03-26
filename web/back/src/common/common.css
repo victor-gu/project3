@@ -1,0 +1,13 @@
+ul,li{list-style:none}
+.fl{float:left;}
+.fr{float:right;}
+*{box-sizing:border-box;padding:0;margin:0;}
+.clearfix::after{
+	display:block;
+	content:"";
+	height:0;
+	clear:both;
+	overflow:hidden;
+	visibility:hidden;
+	zoom:1;
+}

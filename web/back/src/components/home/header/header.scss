@@ -1,0 +1,26 @@
+.home-header{
+	height:60px;
+	display:flex;
+	justify-content:space-between;
+	background-color:#6ACBDB;
+	.header-l{
+		width:30%;
+		text-align:center;
+		align-self:center;
+		font-size:30px;
+		font-weight:bold;
+		font-family:"仿宋";
+	}
+	.header-r{
+		width:30%;
+		display:flex;
+		>div{
+			flex:1;
+			text-align:center;
+			align-self:center;
+		}
+		.lan{
+			
+		}
+	}
+}

@@ -1,0 +1,31 @@
+.con-admin{
+	height:42px;
+	line-height:42px;
+
+}
+.bgs{
+	position:relative;
+}
+.con-admin-box{
+	position:absolute;
+	left:65px;
+	top:50px;
+
+	.pic{
+		padding:10px;
+		border:1px solid #ccc;
+		>img{
+			display:block;
+			width:250px;
+			height:250px;
+		}
+	}
+	.btn-update-pic{
+		margin:10px auto;
+		display:block;
+		cursor:pointer;
+	}
+	.infor{
+		margin-left:60px;
+	}
+}
