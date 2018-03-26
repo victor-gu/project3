@@ -58,7 +58,7 @@ module.exports = {
                 end = "999999999999";
             }
             console.log(start, end);
-            db.mongodb.select("products",{price:{$gte: start, $lte: end}}).then((data) => {
+            db.mongodb.select("products", {price:{$gte: start, $lte: end}}).then((data) => {
                 res.send({status:true, count:data.length, data:data});
             })
         })
