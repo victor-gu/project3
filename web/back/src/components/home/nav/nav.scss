@@ -1,0 +1,16 @@
+.con-nav-box{
+	width:100%;
+
+	ul>li{
+		height:48px;
+		text-align:center;
+		background-color:#38414A;
+		display:flex;
+		justify-content:center;
+
+		.tza{
+			color:#E5E5E7;
+			align-self:center;
+		}
+	}
+}

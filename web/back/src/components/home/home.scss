@@ -1,0 +1,25 @@
+.body{
+	position:fixed;
+	top:60px;
+	left:0;
+	right:0;
+	bottom:0;
+	.nav{
+		width:14%;
+		position:fixed;
+		left:0;
+		top:60px;
+		bottom:0;
+		background-color:#38414A;
+
+	}
+	.containers{
+		position:absolute;
+		padding:15px;
+		left:14%;
+		top:0;
+		bottom:0;
+		right:0;
+		overflow:auto;
+	}
+}

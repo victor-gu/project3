@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --progress --colors",
-    "start": "webpack-dev-server --devtool eval --progress --port 88 --open --colors --content-base ./"
+    "start": "webpack-dev-server --devtool eval --progress --port 8800 --open --colors --content-base ./"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -40,6 +40,7 @@
   "author": "DK.Lan",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^4.0.0",
     "element-react": "^1.1.4",
     "element-theme-default": "^1.4.2",
     "events": "^1.1.1",
