@@ -1,0 +1,13 @@
+标签名: hot-img 随机数量
+	华为手机-img 10张
+	荣耀手机-img 10张
+	笔记本&平板-img 10张
+	智能穿戴-img 6张
+	智能家居-img 6张
+	专属配件-img 5张
+	通用配件-img 6张
+	生态产品-img 9张
+
+属性名:label(值:标签名),tlttle,price,hot
+
+api接口:label属性查询生成列表
