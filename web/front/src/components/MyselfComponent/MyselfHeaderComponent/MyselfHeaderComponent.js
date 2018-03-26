@@ -7,20 +7,20 @@ import './lzfheader.css'
 
 export default class MyselfComponent extends React.Component{
 
-    componentWillMount(){
-        // 吸顶菜单功能
-        window.addEventListener('scroll', ()=>{
-            var header = this.refs.lzf_header;
-            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            // console.log(scrollTop);
-            // console.log(header.className);
-            if(scrollTop > 120){
-                header.className = 'lzf_topnavfixed';
-            }else if(scrollTop<120){
-                header.className = 'lzf_topnav';
-            }
-        })    
-    }
+    // componentWillMount(){
+    //     // 吸顶菜单功能
+    //     window.addEventListener('scroll', ()=>{
+    //         var header = this.refs.lzf_header;
+    //         var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+    //         // console.log(scrollTop);
+    //         // console.log(header.className);
+    //         if(scrollTop > 120){
+    //             header.className = 'lzf_topnavfixed';
+    //         }else if(scrollTop<120){
+    //             header.className = 'lzf_topnav';
+    //         }
+    //     })    
+    // }
 
 
     render(){

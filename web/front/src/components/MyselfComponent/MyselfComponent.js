@@ -5,7 +5,7 @@ import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
 import '../MyselfComponent/iconfont/lzffont/iconfont.css'
-// import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
+import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
 import Nav from '../nav/NavComponent.js'
 
 export default class MyselfComponent extends Component{
@@ -25,16 +25,9 @@ export default class MyselfComponent extends Component{
         return (
             <div className="myself">
 
-                <div className="lzf_topnav" ref="lzf_header">
-                    <div className="left_topnav">
-                        <p>登录 / 注册 </p>
-                        <h5 className="lzf_profit">享受更多会员权益</h5>
-                    </div>
-                    <div className="right_topnav">
-                        <i className="iconfont icon-bell"></i>
-                    </div>
-                </div>
-
+               
+                <MyselfHeaderComponent/>
+                
                 <div className="lzf_mainbody">
 
                     <div id="lzf_topthree">
