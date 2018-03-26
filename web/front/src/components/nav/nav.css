@@ -8,24 +8,30 @@
     width:100%;
 }
 .nav>ul>li{
-    display:flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     height:1.32rem;
     width:25%;
     text-align: center;
 }
-.nav>ul>li>i{
+.nav>ul>li>a{
+     display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size:20px ;
+    display:block;
+    height:1.32rem;
+    width:100%;
+    color:black;
+}
+.nav>ul>li>a>i{
     flex:1.2;
     display:block;
     font-size:50px;
     line-height:bottom;
     line-height: 0.733333rem;
 }
-.nav>ul>li>span{
+.nav>ul>li>a>span{
     display:block;
     flex:0.8;
     color:#333;
     font-size: 20px;
-    /*line-height: 0;*/
 }
