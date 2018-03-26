@@ -1,0 +1,334 @@
+.myself{background:#efefef;}
+
+.lzf_topnav{
+    width:100%;
+    height:1.6rem;
+    padding-left:0.373333rem;
+    padding-top:0.22rem;
+    background:rgb(191,31,31);
+    display:flex;
+    justify-content:space-between;
+}
+.lzf_topnav .left_topnav{display:flex;
+    flex-direction: column;
+    width:50%;height:1.6rem;
+    color:white;
+    font-size:0.346667rem;}
+.lzf_topnav .left_topnav .lzf_profit{
+    margin-top:0.066667rem;
+    font-size:0.30rem;
+}
+.lzf_topnav .right_topnav{
+    display:flex;
+    padding-left:3.766667rem;
+    width:50%;
+}
+.lzf_topnav .right_topnav .iconfont{
+    display:inline-block;
+    line-height:1.23rem;
+    font-size:0.6rem;
+    color:white;
+}
+
+
+/*上下分别是吸顶前和吸顶后的样式*/
+
+.lzf_topnavfixed{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:1.3rem;
+    line-height:1.3rem;
+    padding-left:0.373333rem;
+    background:rgb(191,31,31);
+    display:flex;
+    justify-content:space-between;
+    font-size:0.33rem;
+
+}
+.lzf_topnavfixed .left_topnav{
+    display:flex;
+    width:50%;
+    line-height:1.3rem;
+    color:white;
+    justify-content:space-around;
+}
+
+.lzf_topnavfixed .right_topnav{
+    display:flex;
+    padding-left:3.766667rem;
+    width:50%;
+}
+.lzf_topnavfixed .right_topnav .iconfont{
+    display:inline-block;
+    font-size:0.6rem;
+    color:white;
+}
+
+/*分割线------*/
+
+#lzf_topthree{
+    width:100%;
+    height:1.866667rem;
+    margin-bottom:0.186667rem;
+    background:#fff;
+}
+#lzf_topthree ul{
+    position:relative;
+    font-size:0.3rem;
+    display:flex;
+    justify-content:space-around;
+}
+#lzf_topthree ul li{
+    padding-top:0.76rem;
+    display:flex;
+    flex-direction:column;
+    width:33.333%;
+    justify-content:center;
+}
+#lzf_topthree ul li p{
+    text-align:center;
+}
+#lzf_topthree ul li .lzf_top0{
+    display:flex;
+    justify-content:center;
+}
+#lzf_topthree ul li .lzf_top0 img{
+    width:0.582226667rem;
+    height:0.536667rem;
+    vertical-align:top;
+}
+#lzf_topthree ul li .lzf_top0 span{
+    margin-left:0.22rem;
+    font-size:0.346667rem;
+    color:rgb(136,136,136);
+    vertical-align:top;
+}
+
+
+#lzf_topthree ul .userimg{
+    width:1.6rem;
+    height:1.6rem;
+    position:absolute;
+    left:50%;
+    top:-12%;
+    transform:translate(-50%, -50%);
+}
+
+
+
+
+
+
+#lzf_orderlist{
+    width:100%;
+    height:2.666667rem;
+    margin-bottom:0.2222rem;
+    background:white;
+}
+#lzf_orderlist .title{
+    font-size:0.37rem;
+    display:flex;
+    justify-content:space-between;
+    padding-left:0.48rem;
+    padding-right:0.48rem;
+    height:0.986667rem;
+    line-height:0.986667rem;
+    border-bottom:0.026667rem solid #efefef;
+}
+
+#lzf_orderlist .title h4{
+    display:flex;
+    text-align:right;
+    font-size:0.3333rem;
+    /*justify-content:flex-end;*/
+    color:#ccc;
+}
+
+#lzf_orderlist .lzf_fivelist{
+    display:flex;
+
+    justify-content: space-around;
+    width:100%;
+    height:1.68rem;
+}
+#lzf_orderlist .lzf_fivelist li{
+    padding-top:0.32rem;
+    width:25%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    font-size:0.37rem;
+}
+
+#lzf_orderlist .lzf_fivelist li img{
+    width:0.586667rem;
+    height:0.586667rem;
+}
+#lzf_orderlist .lzf_fivelist li span{
+    text-align:center;
+    font-size:0.31rem;
+    margin-top:0.111rem;
+}
+
+
+/*下面的代码是我的vmail和我的服务的公共样式*/
+.lzf_liststyle0{
+    height:5.146667rem;
+    width:100%;
+    margin-bottom:0.2222rem;
+    background:white;
+}
+.lzf_liststyle0 h3{
+    font-size:0.38rem;
+    height:1.013333rem;
+    line-height:1.013333rem;
+    padding-left:0.48rem;
+    border-bottom:0.026667rem solid #efefef ;
+}
+.lzf_liststyle0 ul{
+    font-size:0.32rem;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+}
+.lzf_liststyle0 ul li{
+    width:25%;
+    height:2.053333rem;
+    padding-top:0.373333rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.lzf_liststyle0 ul li img{
+    width:0.88rem;
+    height:0.88rem;
+}
+.lzf_liststyle0 ul li span{
+    text-align:center;
+    font-size:0.31rem;
+    margin-top:0.111rem;
+}
+/*上面的代码是我的vmail和我的服务的公共样式*/
+
+#adpic{width:100%;height:2.266667rem;margin-bottom:0.666667rem;}
+#adpic img{width:100%;height:2.266667rem;}
+
+#lzf_mesbox{width:100%;height:11.466667rem;background:white;}
+#lzf_mesbox h3{
+    font-size:0.38rem;
+    height:1.013333rem;
+    line-height:1.013333rem;
+    padding-left:0.48rem;
+    border-bottom:0.026667rem solid #efefef ;
+}
+
+#lzf_mesbox ul li{
+    width:100%;height:3.466667rem;
+    border-bottom:0.026667rem solid #efefef;
+}
+
+#lzf_mesbox ul li .title{
+    height:1.066667rem;
+    line-height:1.066667rem;
+    width:100%;
+    padding-left:0.426667rem;
+    font-size:0.36rem;
+}
+#lzf_mesbox ul li .title .time{
+    margin-left:0.433333rem;
+    font-size:0.3rem;
+    color:#ccc;
+}
+
+#lzf_mesbox ul li .prolist{
+    margin-left:0.426667rem;
+    margin-right:0.426667rem;
+    background:#efefef;
+    display:flex;
+    justify-content:flex-start;
+}
+#lzf_mesbox ul li .prolist img{
+    width:1.9rem;
+    height:1.9rem;
+    padding:0.23rem;
+}
+#lzf_mesbox ul li .prolist .msglist{
+    font-size:0.306667rem;
+    display:flex;
+    flex-direction:column;
+    padding-top:0.533333rem;
+    padding-left:0.306667rem;
+}
+#lzf_mesbox ul li .prolist .msglist .proname{
+    font-size:0.36rem;
+    color:rgb(202,20,29);
+}
+
+
+#loginnotice {
+    width:100%;
+    height:1.466667rem;
+    font-size:0.35rem;
+    padding-bottom:0.64rem;
+    line-height:1.466667rem;
+    text-align:center;
+    color:rgb(136,136,136);
+}
+#loginnotice .loginlink{margin-left:0.12rem;
+    text-decoration:underline;}
+
+
+#aboutus{
+    background:white;
+    display:flex;
+    flex-direction:column;
+    font-size:0.34rem;
+    padding-left:0.533333rem;
+    padding-right:0.533333rem;
+}
+#aboutus .lzf_login1{
+    height:1.333333rem;
+    padding-top:0.426667rem;
+    display:flex;
+    justify-content: center;
+    border-bottom:0.013333rem solid #ccc;
+}
+#aboutus .lzf_login1 p{
+    /*display:flex;*/
+    text-align:center;
+}
+#aboutus .lzf_login1 p span{
+    padding-left:0.586667rem;
+    padding-right:0.586667rem;
+    border-right:0.013333rem solid #ccc;
+}
+#aboutus .lzf_login1 p span:last-child{
+    border-right:none;
+}
+
+/*其余样式查看前面的lzf_liststyle0*/
+#aboutus ul{
+    border-bottom:0.013333rem solid #ccc;
+    padding-bottom:0.453333rem;
+}
+#aboutus ul li{
+    padding-top:0.11rem;
+    width:33.333333%;
+    color:#ccc;
+}
+#aboutus ul li i{
+    
+    font-size:1.1rem;
+}
+
+#aboutus .lzf_license{
+    margin-top:0.19rem;
+    /*background:pink;*/
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    height:1.706667rem;
+    text-align:center;
+}
