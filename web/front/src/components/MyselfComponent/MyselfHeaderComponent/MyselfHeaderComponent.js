@@ -6,26 +6,7 @@ import '../iconfont/lzffont/iconfont.css'
 import './lzfheader.css'
 
 export default class MyselfComponent extends React.Component{
-   
-    // constructor(props){
-    //     super(props);
-    //     this.state = {
-    //         currentclassName: "lzf_topnav"
-    //     }
-    // }
-    componentDidMount(){
-        // 吸顶菜单功能
-        window.addEventListener('scroll', ()=>{
-            var header = this.refs.lzf_header;
-            var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            if(scrollTop > 120){
-                header.className = 'lzf_topnavfixed';
-            }else if(scrollTop<120){
-                header.className = 'lzf_topnav';
-            }
-        })    
-    }
-    
+
     render(){
         return(
             <div className = "lzf_topnavfixed" ref="lzf_header">
