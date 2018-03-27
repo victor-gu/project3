@@ -1,25 +1,49 @@
 import React,{Component} from 'react' 
-import NavComponent from '../nav/NavComponent'
-import '../../common/common.css'
 
+
+
+import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
 import '../MyselfComponent/iconfont/lzffont/iconfont.css'
-import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
 
-//引入公共的底部导航栏
-import NavComponent1 from '../nav/NavComponent.js'
+//请求数据的二次封装函数http
+import http from '../../utils/httpclient.js'
+
+// 引入我自己的独有的吸顶导航栏
+import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
+// 公共的底部导航栏组件
+import NavComponent from '../nav/NavComponent'
 
 export default class MyselfComponent extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            dataset: []
+        }
+    }
+    //http://10.3.136.210:8080/products?page=2&limit=10
+    componentDidMount(){
+        http.get('http://10.3.136.210:8080/products',{page:2, limit:5}).then((res)=>{
+            // console.log(res);
+            console.log(res.data);
+            this.setState({
+                dataset: res.data
+            })
+        })
+        // console.log(dataset);
+    }
     render(){
+        // console.log(dataset);
         return (
             <div className="home">             
                <div className="homeHeader"></div>
 
                <div className="homeContent">
 
-                     <div className="myself">                 
-                         <MyselfHeaderComponent/>
+                     <div className="myself">           
+
+                         <MyselfHeaderComponent ref="lzf_header"/>
 
                          <div className="lzf_mainbody">
                              <div id="lzf_topthree">
@@ -154,50 +178,28 @@ export default class MyselfComponent extends Component{
 
                              <div id="lzf_mesbox">
                                  <h3>我的消息</h3>
-
                                  <ul>
-                                     <li>
-                                         <div className="title">
-                                             <span>为您推荐</span>
-                                             <span className="time">今天12:00</span>
-                                         </div>
+                                    {this.state.dataset.map(item =>
+                                        // {
+                                        //     this.state.dataset.map(item => {
+                                        //     <li key={item._id}>
+                                        //         <div className="title">
+                                        //             <span>为您推荐</span>
+                                        //             <span className="time">今天12:00</span>
+                                        //         </div>
 
-                                         <div className="prolist">
-                                             <img src="https://res.vmallres.com/pimages//recommendmsg/2017122911347005.png"/>
-                                             <div className="msglist">
-                                                 <span className="proname">荣耀九青春版</span>
-                                                 <span>每周一二三开枪</span>
-                                             </div>                               
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <div className="title">
-                                             <span>为您推荐</span>
-                                             <span className="time">今天12:00</span>
-                                         </div>
-
-                                         <div className="prolist">
-                                             <img src="https://res.vmallres.com/pimages//recommendmsg/2018032611181867.png"/>
-                                             <div className="msglist">
-                                                 <span className="proname">华为MATE10 PROJECT</span>
-                                                 <span>每周一二三开枪</span>
-                                             </div>                               
-                                         </div>
-                                     </li>
-                                     <li>
-                                         <div className="title">
-                                             <span>为您推荐</span>
-                                             <span className="time">今天12:00</span>
-                                         </div>
-
-                                         <div className="prolist">
-                                             <img src="https://res.vmallres.com/pimages//recommendmsg/2018032611172783.png"/>
-                                             <div className="msglist">
-                                                 <span className="proname">华为畅玩lemon</span>
-                                                 <span>每周一二三开枪</span>
-                                             </div>                               
-                                         </div>
-                                     </li>
+                                        //         <div className="prolist">
+                                        //             <img src="https://res.vmallres.com/pimages//recommendmsg/2017122911347005.png"/>
+                                        //             <div className="msglist">
+                                        //                 <span className="proname">{item.title}</span>
+                                        //                 <span>每周一二三开枪</span>
+                                        //             </div>                               
+                                        //         </div>
+                                        //     </li>
+                                        //     )
+                                        // }
+                                       <li key={item._id}><div className="title"><span>为您推荐</span><span className="time">今天12:00</span></div><div className="prolist"><img src="./src/img/1.jpg"/><div className="msglist"><span className="proname">{item.title}</span><span>￥{item.price}</span></div></div></li>
+                                    )}
                                  </ul>
                              </div>
 
@@ -233,12 +235,13 @@ export default class MyselfComponent extends Component{
                                      <p>VMALL.COM 版权所有</p>
                                  </div>
                              </div>              
-                         </div>                   
+                         </div>  
+
                      </div>
                      
                </div>
 
-               <div className="homeFooter"><NavComponent1/></div>
+               <div className="homeFooter"><NavComponent/></div>
 
             </div>
         )

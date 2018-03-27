@@ -1,7 +1,9 @@
-.home .homeHeader .homeHeader_1{
+
+.homepage .homeHeader .homeHeader_1{
+    /*background-color: white;*/
     height:1.066667rem;
     width:100%;
-    background-color: yellow;
+    /*background-color: yellow;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -14,69 +16,170 @@
     line-height: 1.066667rem;
     border-bottom: 0.013333rem solid;
 }
-.home .homeHeader .homeHeader_1 .homeInput{
+.homepage .homeHeader .homeHeader_1 .homeInput{
     height:0.8rem;
     width:7.066667rem;
     position:relative;
     padding:0.16rem 0;
     line-height: 0;
 }
-.home .homeHeader .homeHeader_1 .homeInput input{
+.homepage .homeHeader .homeHeader_1 .homeInput input{
     height:0.8rem;
     width:6.133333rem;
     border-radius:0.4rem 0.4rem ;
     border:0;
     padding: 0 0 0 0.933333rem;
     font-size: 36px;
-    color:lightgray;
+    color:black;
+    background-color: lightgray;
 } 
-.home .homeHeader .homeHeader_1 .homeInput i{
+.homepage .homeHeader .homeHeader_1 .homeInput i{
     font-size: 50px;
     position:absolute;
-    top: 50%;
+    top: 67%;
     left:0.266667rem;
     transform: translate(0, -50%);
-    color:lightgray;
+    color:gray;
 }
-.home .homeHeader .homeHeader_1>i{
+.homepage .homeHeader .homeHeader_1>i{
     font-size: 48px;
 }
 
 
 
-
-.home .homeContent .lunbo{
+.wayslContent{
+    background-color:#ccc;
+}
+.homepage .homeContent .lunbo{
     height:5.333333rem;
     width:100%;
     border-bottom: 0.013333rem solid;
 }
-.home .homeContent .contenBanner {
+.homepage .homeContent .contenBanner {
+    background-color: white;
     height:2.133333rem;
     width:100%;
     border-bottom: 0.013333rem solid ;
 }
-.home .homeContent .contenBanner ul{
+.homepage .homeContent .contenBanner ul{
     height:2.133333rem;
     width:100%;
     display:flex;
     justify-content: space-around;
     align-items:center;
 }
-.home .homeContent .contenBanner ul li{
+.homepage .homeContent .contenBanner ul li{
     width: 1.333333rem;
     height:1.333333rem;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
-    line-height: 1.333333rem;
-    border:0.013333rem solid;
-}
-.home .homeContent .contenBanner ul li img{
-    height:0.8rem;
-    width:0.8rem;
 
 }
-.home .homeContent .contenBanner ul li span{
+.homepage .homeContent .contenBanner ul li div{
+   flex:1;
+   width:100%;
+}
+.homepage .homeContent .contenBanner ul li div img{
+    height:0.9rem;
+    width:0.9rem;
+    margin-left: 0.266667rem;
+}
+.homepage .homeContent .contenBanner ul li span{
     font-size: 24px;
+    flex:1;
+}
+
+
+
+
+
+
+.homepage .Sections{
+    height:15.466667rem;
+    width:100%;
+    background-color: white;
+    border-top: solid 0.013333rem;
+}
+
+
+
+
+
+.wayslContent_buttom{
+    height:5.333333rem;
+    width:100%;
+    border-bottom: 0.013333rem solid #ccc;
+    padding:0 0.613333rem 0 0.613333rem;
+    font-size: 24px;
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 0.12rem;
+    background-color: white;
+    border-top: 0.013333rem solid #ccc;
+}
+.wayslContent_buttom div{
+    border-bottom: 0.013333rem solid #ccc;
+    height: 1.333333rem;
+     width:100%;
+     display:flex;
+     text-align: center;
+}
+
+.wayslContent_buttom .content_buttom_1{
+   justify-content: space-evenly;
+   align-items: center;
+}
+.wayslContent_buttom .content_buttom_2{
+    justify-content: space-around;
+    height: 1.933333rem;
+
+} 
+.wayslContent_buttom .content_buttom_2 ul{
+    display:flex;
+    justify-content: space-around;
+    height: 1.933333rem;
+    width:100%;
+    padding-top: 0.33333rem;
+} 
+.wayslContent_buttom .content_buttom_2 li{
+    height:1.546667rem;
+    width:1.0rem;
+    align-items: center;
+} 
+
+.wayslContent_buttom .content_buttom_2 i{
+    display:block;
+    height:1.013333rem;
+    width:1.013333rem;
+    background: url('./img/bg-bottom.png') no-repeat center top;
+    background-size: auto 100%;
+}
+.wayslContent_buttom .content_buttom_2 .kehu{
+    background: url('./img/bg-bottom.png') no-repeat left top;
+    background-size: auto 100%;
+}
+.wayslContent_buttom .content_buttom_2 .diannao{
+    background: url('./img/bg-bottom.png') no-repeat right top;
+    background-size: auto 100%;
+}
+.wayslContent_buttom .content_buttom_2 span{
+   
+}
+.wayslContent_buttom .content_buttom_3{
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 20px;
+    height:1.6rem;
+} 
+.wayslContent_buttom .content_buttom_3 ul{
+    display:flex;
+    justify-content: space-around;  
+} 
+.wayslContent_buttom .content_buttom_3 .waysl_content_p{
+    display:flex;
+    justify-content: space-around;
+
 }

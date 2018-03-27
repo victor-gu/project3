@@ -46,7 +46,6 @@ body,html{
 }
 .home .homeHeader .homeHeader_1{
     height:1.066667rem;
-    background-color: yellow;
     position: fixed;
     top: 0;
     left: 0;
@@ -68,7 +67,11 @@ body,html{
 /*@media screen and (min-width: 992px) {
     html {font-size: 14px;}
 }
+
 */
+
+
+
 @font-face {font-family: "iconfont";
   src: url('../iconfont/iconfont.eot?t=1521969453583'); /* IE9*/
   src: url('../iconfont/iconfont.eot?t=1521969453583#iefix') format('embedded-opentype'), /* IE6-IE8 */
