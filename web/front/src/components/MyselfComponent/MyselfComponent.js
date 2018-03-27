@@ -1,14 +1,17 @@
 import React,{Component} from 'react' 
-import NavComponent from '../nav/NavComponent'
-import '../../common/common.css'
 
+
+
+import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
 import '../MyselfComponent/iconfont/lzffont/iconfont.css'
-import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
 
-//引入公共的底部导航栏
-import NavComponent1 from '../nav/NavComponent.js'
+
+// 引入我自己的独有的吸顶导航栏
+import MyselfHeaderComponent from './MyselfHeaderComponent/MyselfHeaderComponent.js'
+// 公共的底部导航栏组件
+import NavComponent from '../nav/NavComponent'
 
 export default class MyselfComponent extends Component{
     render(){
@@ -18,8 +21,9 @@ export default class MyselfComponent extends Component{
 
                <div className="homeContent">
 
-                     <div className="myself">                 
-                         <MyselfHeaderComponent/>
+                     <div className="myself">           
+
+                         <MyselfHeaderComponent ref="lzf_header"/>
 
                          <div className="lzf_mainbody">
                              <div id="lzf_topthree">
@@ -233,12 +237,13 @@ export default class MyselfComponent extends Component{
                                      <p>VMALL.COM 版权所有</p>
                                  </div>
                              </div>              
-                         </div>                   
+                         </div>  
+
                      </div>
                      
                </div>
 
-               <div className="homeFooter"><NavComponent1/></div>
+               <div className="homeFooter"><NavComponent/></div>
 
             </div>
         )
