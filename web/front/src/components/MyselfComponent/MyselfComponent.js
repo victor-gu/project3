@@ -23,7 +23,7 @@ export default class MyselfComponent extends Component{
 
                      <div className="myself">           
 
-                         <MyselfHeaderComponent/>
+                         <MyselfHeaderComponent ref="lzf_header"/>
 
                          <div className="lzf_mainbody">
                              <div id="lzf_topthree">
@@ -238,7 +238,7 @@ export default class MyselfComponent extends Component{
                                  </div>
                              </div>              
                          </div>  
-                                          
+
                      </div>
                      
                </div>
