@@ -46,14 +46,15 @@
     display:flex;
     line-height:1.3rem;
     justify-content:flex-start;
-    margin-right:4.0rem;
 }
 .lzf_topnavfixed .left_topnav p{width:1.733333rem;}
 
 
 
 .lzf_topnavfixed .right_topnav .iconfont{
-    display:inline-block;
+    position:absolute;
+    right:0.293333rem;
+    top:0;
     line-height:1.3rem;
     font-size:0.6rem;
     color:white;
