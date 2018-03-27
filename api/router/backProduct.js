@@ -5,15 +5,15 @@ module.exports = {
     register:(app) => {
 
         // 查找所有商品,及分页
-        app.get("/products", (req, res) => {
-            let page = req.query.page;
-            let limit = req.query.limit;
-            page1 = page ? (page-1)*limit : 0;
-            limit1 = limit ? page*limit : 99999;
-            db.mongodb.select("products",{}).then((data) => {
-                res.send({status:true, count:data.length, data:data.slice(page1, limit1)});
-            })
-        })
+        // app.get("/products", (req, res) => {
+        //     let page = req.query.page;
+        //     let limit = req.query.limit;
+        //     page1 = page ? (page-1)*limit : 0;
+        //     limit1 = limit ? page*limit : 99999;
+        //     db.mongodb.select("products",{}).then((data) => {
+        //         res.send({status:true, count:data.length, data:data.slice(page1, limit1)});
+        //     })
+        // })
 
         // 查找所有管理员信息,及分页
         app.get("/admin", (req, res) => {
@@ -21,6 +21,7 @@ module.exports = {
             let limit = req.query.limit;
             page1 = page ? (page-1)*limit : 0;
             limit1 = limit ? page*limit : 99999;
+            console.log("fffffff");
             db.mongodb.select("admin",{}).then((data) => {
                 res.send({status:true, count:data.length, data:data.slice(page1, limit1)});
             })
@@ -28,6 +29,7 @@ module.exports = {
 
         // 查找所有用户信息,及分页
         app.get("/users", (req, res) => {
+            console.log(req.query);
             let page = req.query.page;
             let limit = req.query.limit;
             page1 = page ? (page-1)*limit : 0;
@@ -63,12 +65,14 @@ module.exports = {
 
 
         // 商品的模糊查询，可以传一个title，不传title代表查询所有，也可以传page和limit来进行分页查询
-        app.get("/dimproducts", (req, res) => {
+        app.get("/products", (req, res) => {
+            console.log(req.query);
             let title = req.query.title;
             let page = req.query.page;
             let limit = req.query.limit;
             page1 = page ? (page-1)*limit : 0;
             limit1 = limit ? page*limit : 99999;
+            console.log( req.query.title);
             let pramas = new RegExp(title);
             db.mongodb.select("products",{$or:[{title:pramas},{name:pramas},{category:pramas}]}).then((data) => {
                 res.send({status:true, count:data.length, data:data.slice(page1, limit1)});

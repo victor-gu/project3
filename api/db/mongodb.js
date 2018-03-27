@@ -16,7 +16,7 @@ module.exports = {
 
     // 查询
     select:(_collection, _condition) => {
-        return new Promise((resolve, reject) => {console.log(_condition);
+        return new Promise((resolve, reject) => {
             db.db("project3").collection(_collection).find(_condition).toArray((_error, _data) => {
                 if(_error){
                     reject(_error);
@@ -28,7 +28,7 @@ module.exports = {
     },
 
     // 更新
-    update:(_collection, id, _condition) => {console.log(_condition, id);
+    update:(_collection, id, _condition) => {
         return new Promise((resolve, reject) => {
             db.db("project3").collection(_collection).update({_id:id}, _condition).then((result, error) => {
                 resolve(result);
@@ -47,7 +47,7 @@ module.exports = {
     },
 
     // 删除
-    delete:(_collection, _condition) => {  console.log(_condition);
+    delete:(_collection, _condition) => {
         return new Promise((resolve, reject) => {
             db.db("project3").collection(_collection).remove(_condition).then((result, error) => {
                 resolve(result);
