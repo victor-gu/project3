@@ -32,23 +32,24 @@ export default class HomeComponent extends Component{
                     <div className="contenBanner">
                         <ul>
                             <li>
-                                <img src="#" alt=""/>
+
+                                <div><img src="../../../src/components/home/img/nav1.jpg" /></div>
                                 <span>优选配件</span>
                             </li>
                             <li>
-                                <img src="#" alt=""/>
+                                <div><img src="../../../src/components/home/img/nav2.jpg" /></div>
                                 <span>会员领劵</span>
                             </li>
                             <li>
-                                <img src="#" alt=""/>
+                                <div><img src="../../../src/components/home/img/nav3.jpg" /></div>
                                 <span>新品预定</span>
                             </li>
                             <li>
-                                <img src="#" alt=""/>
+                                <div><img src="../../../src/components/home/img/nav4.jpg" /></div>
                                 <span>以旧换新</span>
                             </li>
                             <li>
-                                <img src="#" alt=""/>
+                                <div><img src="../../../src/components/home/img/nav5.jpg"/></div>
                                 <span>数码特惠</span>
                             </li>
                            

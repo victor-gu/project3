@@ -1,7 +1,7 @@
 .home .homeHeader .homeHeader_1{
     height:1.066667rem;
     width:100%;
-    background-color: yellow;
+    /*background-color: yellow;*/
     position: fixed;
     top: 0;
     left: 0;
@@ -29,6 +29,7 @@
     padding: 0 0 0 0.933333rem;
     font-size: 36px;
     color:lightgray;
+    background-color: lightgray;
 } 
 .home .homeHeader .homeHeader_1 .homeInput i{
     font-size: 50px;
@@ -36,7 +37,7 @@
     top: 50%;
     left:0.266667rem;
     transform: translate(0, -50%);
-    color:lightgray;
+    color:gray;
 }
 .home .homeHeader .homeHeader_1>i{
     font-size: 48px;
@@ -67,16 +68,20 @@
     height:1.333333rem;
     display:flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     text-align: center;
-    line-height: 1.333333rem;
-    border:0.013333rem solid;
-}
-.home .homeContent .contenBanner ul li img{
-    height:0.8rem;
-    width:0.8rem;
 
+}
+.home .homeContent .contenBanner ul li div{
+   flex:1;
+   width:100%;
+}
+.home .homeContent .contenBanner ul li div img{
+    height:0.9rem;
+    width:0.9rem;
+    margin-left: 0.266667rem;
 }
 .home .homeContent .contenBanner ul li span{
     font-size: 24px;
+    flex:1;
 }
