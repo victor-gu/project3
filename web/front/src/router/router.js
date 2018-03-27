@@ -9,6 +9,12 @@ import LoginComponent from '../components/login/LoginComponent'
 import RegComponent from '../components/reg/RegComponent'
 
 
+import DetailsComponent from "../components/DetailsComponent/DetailsComponent";
+import GoodsComponent from "../components/DetailsComponent/GoodsComponent/GoodsComponent";
+import PictureComponent from "../components/DetailsComponent/PictureComponent/PictureComponent";
+import ParamsComponent from "../components/DetailsComponent/ParamsComponent/ParamsComponent";
+import EvaluateComponent from "../components/DetailsComponent/EvaluateComponent/EvaluateComponent";
+
 
 export default (
     <Route>
@@ -18,6 +24,13 @@ export default (
         <Route path="/mine" component={MyselfComponent} />
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
+
+        <Route path="/details" component={DetailsComponent}>
+            <Route path="/goods" component={GoodsComponent}/>
+            <Route path="/picture" component={PictureComponent}/>
+            <Route path="/params" component={ParamsComponent}/>
+            <Route path="/evaluate" component={EvaluateComponent}/>
+        </Route>
     </Route>
   
 )

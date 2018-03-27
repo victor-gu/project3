@@ -23,7 +23,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -37,7 +37,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -51,7 +51,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -65,7 +65,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -79,7 +79,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -93,7 +93,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -107,7 +107,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">
@@ -121,7 +121,7 @@ export default class CartComponent extends Component{
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
-                            <img src="./src/img/1.jpg"/>
+                            <img src="./src/components/cart/img/1.jpg"/>
                         </div>
                         
                         <div className="tit">

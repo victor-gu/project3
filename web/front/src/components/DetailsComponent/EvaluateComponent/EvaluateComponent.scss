@@ -1,0 +1,79 @@
+.evaluate{
+        font-size:30px;
+    .items{
+        color:#fff;
+        height:3.6rem;
+        width:100%;
+        background:#BF1F1F;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-around;
+        p{
+            text-align:center;
+            span{
+                font-size:50px;
+            }
+        }
+        ul{
+            display:flex;
+            justify-content:center;
+            li{
+                background:rgba(255,255,255,0.3);
+                padding:0.066667rem 0.266667rem;
+                margin-left:0.066667rem;
+                border-radius:0.266667rem;
+            }
+        }
+    }
+
+    .quto{
+        ul{
+            display:flex;
+            justify-content:flex-start;
+            border-bottom:0.013333rem solid #ccc;
+            padding:0.266667rem 0;
+            li{
+                margin-left:0.333333rem;
+            }
+        }
+        .user{
+            margin-top:0.533333rem;
+            display:flex;
+            align-items:center;
+            justify-content:space-around;
+            .left{
+                display:flex;
+                align-items:center;
+                .like{
+                    width:1.333333rem;
+                    height:1.333333rem;
+                }  
+            }
+            .star{
+                width:2.666667rem;
+                height:0.666667rem;
+            }
+        }
+        .com{
+            font-size:26px;
+            padding:0.533333rem;
+        }
+        .pic{
+            padding:0 0.4rem;
+            display:flex;
+            flex-wrap:wrap;
+            img{
+                width:2.933333rem;
+                height:2.933333rem;
+                margin:0.066667rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width:992px){
+   .evaluate{ font-size:50px; }
+   .evaluate .items p span{ font-size:80px; }
+   .evaluate .quto .com{ font-size:50px; }
+}
