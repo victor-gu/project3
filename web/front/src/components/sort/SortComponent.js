@@ -7,6 +7,25 @@ export default class SortComponent extends Component{
     baseurl(){
       return './src/components/sort/imgs/'
     }
+    state = {
+        data:[
+            {_id:1,name:'荣耀V10',img:'1.jpg'},
+            {_id:2,name:'荣耀V10',img:'2.jpg'},
+            {_id:3,name:'荣耀V10',img:'3.jpg'},
+            {_id:4,name:'荣耀V10',img:'4.jpg'},
+            {_id:5,name:'荣耀V10',img:'5.jpg'},
+            {_id:6,name:'荣耀V10',img:'6.jpg'},
+            {_id:7,name:'荣耀V10',img:'1.jpg'},
+            {_id:8,name:'荣耀V10',img:'2.jpg'},
+            {_id:9,name:'荣耀V10',img:'3.jpg'},
+            {_id:10,name:'荣耀V10',img:'4.jpg'},
+            {_id:11,name:'荣耀V10',img:'5.jpg'},
+            {_id:12,name:'荣耀V10',img:'6.jpg'},
+            {_id:13,name:'荣耀V10',img:'1.jpg'},
+            {_id:14,name:'荣耀V10',img:'2.jpg'},
+            {_id:15,name:'荣耀V10',img:'3.jpg'},
+        ]
+    }
     tab(e){
       if(e.target.tagName=="LI"){
         for(var i=0;i<e.target.parentNode.children.length;i++){
@@ -64,12 +83,16 @@ export default class SortComponent extends Component{
                           </div>
                           <div className="right-body">
                               <ul>
-                                  <li><img src={this.baseurl()+'1.jpg'}/><span>荣耀V10</span></li>
-                                  <li><img src={this.baseurl()+'2.jpg'}/><span>荣耀V10</span></li>
-                                  <li><img src={this.baseurl()+'3.jpg'}/><span>荣耀V10</span></li>
-                                  <li><img src={this.baseurl()+'4.jpg'}/><span>荣耀V10</span></li>
-                                  <li><img src={this.baseurl()+'5.jpg'}/><span>荣耀V10</span></li>
-                                  <li><img src={this.baseurl()+'6.jpg'}/><span>荣耀V10</span></li>
+                                  {
+                                    this.state.data.map(function(item){
+                                        return (
+                                          <li key={item._id}>
+                                              <img src={'./src/components/sort/imgs/'+item.img}/>
+                                              <span>{item.name}</span>
+                                          </li>
+                                        )
+                                    })
+                                  }
                               </ul>
                           </div>
                       </div>
