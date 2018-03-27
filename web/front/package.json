@@ -17,6 +17,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.25.0",
+    "element-ui": "^2.2.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^3.3.0",
@@ -43,9 +44,11 @@
   "dependencies": {
     "babel": "^6.23.0",
     "bootstrap": "^4.0.0",
-    "element-react": "^1.1.4",
+    "element-react": "^1.4.10",
     "element-theme-default": "^1.4.2",
     "events": "^1.1.1",
-    "flux": "^3.1.2"
+    "flux": "^3.1.2",
+    "i": "^0.3.6",
+    "npm": "^5.8.0"
   }
 }

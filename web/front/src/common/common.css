@@ -27,7 +27,7 @@ body,html{
     padding: 0;
     margin: 0;
     font-family: 'Lucida Sans',sans-serif;
-    font-size: 16px;
+    font-size: 0.213333rem;
 }
 #app{
     width:100%;
@@ -52,12 +52,12 @@ body,html{
     width:100%;
     z-index: 100;
     margin:0 auto;
-    font-size: 16px;
+    font-size: 0.213333rem;
 }
 .home .homeContent{
     flex: 0.99;
     overflow: auto;
-    font-size: 32px;
+    font-size: 0.426667rem;
 }
 .home .homeFooter{
     height:1.32rem;
@@ -82,7 +82,7 @@ body,html{
 
 .iconfont {
   font-family:"iconfont" !important;
-  font-size:16px;
+  font-size:0.213333rem;
   font-style:normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
