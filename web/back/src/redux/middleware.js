@@ -1,5 +1,5 @@
 import http from '../utils/httpclient'
-import * as constants from '../component/datagrid/datagridconstants'
+import * as constants from '../components/datagrid/datagridconstants'
 
 export default function(api){
     return function(dispatch){
@@ -13,8 +13,9 @@ export default function(api){
             }
 
             dispatch({type: constants.Requesting})
-
+           
             http[method](url, data).then((res) => {
+                // console.log(res);
                 let _action = {
                     type: constants.Requested,
                     name,

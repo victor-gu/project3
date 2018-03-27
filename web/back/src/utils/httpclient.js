@@ -1,5 +1,5 @@
 import http from 'superagent'
-const baseUrl = "http://10.3.136.148:8080"
+const baseUrl = "http://10.3.136.210:8080"
 
 export default {
     // socket(_wsurl){
@@ -8,51 +8,36 @@ export default {
     //  return ws;
     // },
     get(_url, _params){
+        // console.log(_params)
         var url = _url && _url.startsWith('http') ? _url : `${baseUrl}/${_url}`;
         return new Promise((resolve, reject) => {
-            axios({
-                url: url,
-                params: _params || {},
-                headers: {Authorization: window.sessionStorage.getItem('dktoken')}
-            }).then(res => {
-                if(!res.data.status && res.data.error == "unauthorized"){
-                    router.push('login');
-                    return false;
+            http
+            .get(url)
+            .query(_params || {})
+            .set('Authorization', window.sessionStorage.getItem('dktoken'))
+            .end((error,res)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(res.body)
                 }
-                resolve(res)
-            }).catch(error => {
-                reject(error)
             })
         })
     },
     post(_url, _params){
         var url = _url && _url.startsWith('http') ? _url : `${baseUrl}/${_url}`;
         return new Promise((resolve, reject) => {
-            axios({
-                url: url,
-                method: 'post',
-                data: _params || {},
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    Authorization: window.sessionStorage.getItem('dktoken')
-                },
-                transformRequest: [function (data) {
-                    let ret = ''
-                    for (let it in data) {
-                      ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
-                    }
-                    return ret
-                  }], 
-            }).then(res => {
-                if(!res.data.status && res.data.error == "unauthorized"){
-                    router.push('login');
-                    console.log(111);
-                    return false;
-                }               
-                resolve(res)
-            }).catch(error => {
-                
-                reject(error)
+            http
+            .post(url)
+            .send(_params || {},)
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+            .set("Authorization", window.sessionStorage.getItem('dktoken'))
+            .end((error,res)=>{
+                if(error){
+                    reject(error)
+                }else{
+                    resolve(res.body)
+                }
             })
         })
     }
