@@ -1,4 +1,4 @@
-.myself{background:#efefef;}
+.myself{background:#efefef;padding-top:1.3rem;}
 
 /*顶部三个小功能区域*/
 #lzf_topthree{
@@ -44,6 +44,7 @@
     position:absolute;
     left:50%;
     top:-12%;
+    z-index:233;
     transform:translate(-50%, -50%);
 }
 

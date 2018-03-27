@@ -1,4 +1,4 @@
-.lzf_topnav{
+/*.lzf_topnav{
     width:100%;
     height:1.6rem;
     padding-left:0.373333rem;
@@ -27,39 +27,35 @@
     font-size:0.6rem;
     color:white;
 }
-
-
-/*上下分别是吸顶前和吸顶后的样式*/
+*/
 
 .lzf_topnavfixed{
+    padding-left:0.31667rem;
     position:fixed;
     left:0;
     top:0;
+    z-index:133;
     width:100%;
     height:1.3rem;
-    line-height:1.3rem;
-    padding-left:0.373333rem;
     background:rgb(191,31,31);
+    color:white;
     display:flex;
-    justify-content:space-between;
     font-size:0.33rem;
-
 }
 .lzf_topnavfixed .left_topnav{
     display:flex;
-    width:50%;
     line-height:1.3rem;
-    color:white;
-    justify-content:space-around;
+    justify-content:flex-start;
 }
+.lzf_topnavfixed .left_topnav p{width:1.733333rem;}
 
-.lzf_topnavfixed .right_topnav{
-    display:flex;
-    padding-left:3.766667rem;
-    width:50%;
-}
+
+
 .lzf_topnavfixed .right_topnav .iconfont{
-    display:inline-block;
+    position:absolute;
+    right:0.293333rem;
+    top:0;
+    line-height:1.3rem;
     font-size:0.6rem;
     color:white;
 }
