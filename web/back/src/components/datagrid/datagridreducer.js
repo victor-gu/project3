@@ -11,9 +11,11 @@ export default function datagrid(state={},action){
 			if(action.name){
 				 _state[action.name] = _state[action.name] || {};
 				 _state[action.name].dataset = action.result;
+				 _state[action.name].count = action.count
 
 			}else{
 				_state.dataset = action.result;
+				_state.count = action.count;
 			}
 			break;
 		case constants.RequestError:

@@ -3,8 +3,16 @@ import {connect} from 'react-redux'
 
 import * as action from './datagridaction'
 import SpinnerComponent from '../../spinner/SpinnerComponent'
+import ModalComponent from '../modal/modalComponent'
+import http from '../../utils/httpclient'
 
 class DatagridComponent extends Component{
+	state = {
+		filler:['name','title','price','Oprice','number','category','hot'],
+		show:false,
+		currentData:[]
+	}
+
 	componentWillMount(){
 		// console.log(this.props)
 		this.props.refresh(this.props.config);
@@ -14,211 +22,63 @@ class DatagridComponent extends Component{
   //       console.log('Component WILL RECEIVE PROPS!', newProps)
   //       this.props.refresh(this.props.config)
   //   }
-
-	getKeys(item){
-		// console.log(item);
-		return item ? Object.keys(item) : [];
-	}
-	render(){
-		// console.log(111)
-		let ds = this.props.dataset;
+  	deCommon(){
+  		let ds = this.props.dataset;
 		let name = this.props.config.name;
 		if(name){
 			ds = ds[name] ? ds[name].dataset : []
 		}else{
 			ds = ds.dataset || [];
 		}
+		return ds;
+  	}
 
-		// let html = (
-		// 	<div>
-		// 		<table className="table table-striped">
-		// 			<thead>
-		// 				<tr>
-		// 					<th>
-		// 						<input type="checkbox"/>
-		// 						<span>全选</span>
-		// 					</th>
-		// 					<th>编号</th>
-		// 					<th>手机号</th>
-		// 					<th>商品信息</th>
-		// 					<th>热卖</th>
-		// 					<th>订单状态</th>
-		// 					<th>操作</th>
-		// 				</tr>
-		// 			</thead>
-		// 			<tbody>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 				<tr>
-		// 					<td>
-		// 						<input type="checkbox" />
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						001
-		// 					</td>
-		// 					<td>
-		// 						<input type="button" value="编辑" className="btn btn-primary"/>
-		// 						<input type="button" value="删除" className="btn btn-danger"/>
-		// 					</td>
-		// 				</tr>
-		// 			</tbody>
-		// 		</table>
-		// 	</div>
-		// )
+	getKeys(item){
+		// console.log(item);
+		return item ? Object.keys(item) : [];
+	}
+	compile(idx){
+		let ds = this.deCommon(this);
+		let type= 'compile';
+		// console.log(ds[idx]);引用
+		// this.setState({
+		// 	show:true,
+		// 	currentData: ds[idx] || ds[0],
+		// 	type:'compile'
+		// },()=>{
+		// 	// console.log(this.state)
+		// })
+		// console.log(this.props.add)
+		// 调用父组件的方法
+		this.props.add(idx,type);
+	}
+	delTr(idx){
+		// console.log('delTr,backDelproduct');
+		let ds = this.deCommon(this);
+		console.log(ds[idx]._id);
+		http.get('backDelproduct',{id: ds[idx]._id}).then((res)=>{
+			console.log(res);
+			if(res.status){
+				alert('删除成功！');
+			}
+		})
+	}
+	fillState(){
+		// 引用父元素方法
+		this.setState({
+			show: false
+		})
+	}
+	render(){
+		// let ds = this.props.dataset;
+		// let name = this.props.config.name;
+		// if(name){
+		// 	ds = ds[name] ? ds[name].dataset : []
+		// }else{
+		// 	ds = ds.dataset || [];
+		// }
+		let ds = this.deCommon(this);
+
 		return (
 			<div>
 				<table className="table table-striped">
@@ -226,9 +86,14 @@ class DatagridComponent extends Component{
 						<tr>
 							{
 								this.getKeys(ds[0]).map((key,idx) =>{
-									return <th key= {Math.random()}>{key}</th>
+									if(this.state.filler.indexOf(key)> -1){
+										// console.log(key);
+										return <th key= {Math.random()}>{key}</th>
+									}
+									
 								})
 							}
+							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -238,9 +103,15 @@ class DatagridComponent extends Component{
 									<tr key={item._id || Math.random()}>
 										{
 											this.getKeys(item).map((key)=>{
-												return <td key={Math.random()}>{item[key]}</td>
+												if(this.state.filler.indexOf(key) >-1){
+													return <td key={Math.random()}>{item[key]}</td>
+												}
 											})
 										}
+										<td>
+											<input type="button" className="btn btn-secondary btn-sm" value="编辑" onClick={this.compile.bind(this,idx)}/>
+											<input type="button" className="btn btn-danger btn-sm" value="删除" onClick={this.delTr.bind(this,idx)}/>
+										</td>
 									</tr>
 								)
 							})
@@ -248,6 +119,7 @@ class DatagridComponent extends Component{
 					</tbody>
 				</table>
 				<SpinnerComponent show={this.props.show}/>
+				
 			</div>
 		)
 	}

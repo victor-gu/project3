@@ -19,7 +19,8 @@ export default function(api){
                 let _action = {
                     type: constants.Requested,
                     name,
-                    result: res.data
+                    result: res.data,
+                    count:res.count
                 }
                 dispatch(_action)
             }).catch((error) => {

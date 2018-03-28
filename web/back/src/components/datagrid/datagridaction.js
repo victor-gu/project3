@@ -1,7 +1,7 @@
 import * as constants from './datagridconstants'
 
 export function refresh(_config){
-	console.log(_config);
+	// console.log(_config);
 	return {
 		types: [constants.Requesting, constants.Requested, constants.RequestError],
         url: _config.url,
