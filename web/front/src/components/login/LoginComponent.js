@@ -6,9 +6,6 @@ export default class SortComponent extends Component{
     tologin(){
         console.log(666)
     }
-    baseurl(){
-      return './src/components/sort/imgs/'
-    }
     render(){
         return (          
                <div id="login">
@@ -38,8 +35,8 @@ export default class SortComponent extends Component{
                             <span>其他登录方式</span>
                         </div>
                         <div className="foot">
-                            <span className="qq"><img src={this.baseurl()+'qq.png'}/></span>
-                            <span className="alipay"><img src={this.baseurl()+"alipay.png"}/></span>
+                            <span className="qq"><img src={'./src/components/sort/imgs/qq.png'}/></span>
+                            <span className="alipay"><img src={'./src/components/sort/imgs/alipay.png'}/></span>
                         </div>
                     </div>
                 </div>
