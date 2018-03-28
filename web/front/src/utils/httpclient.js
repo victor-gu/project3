@@ -1,6 +1,6 @@
 import http from 'superagent'
 
-// const apiBaseUrl = 'http://localhost:88/';
+ const apiBaseUrl = 'http://10.3.136.220:8080/';
 
 function filterUrl(url){
     if(url.startsWith('http')){
