@@ -1,10 +1,16 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router'
 import NavComponent from '../nav/NavComponent'
+import SectionsComponent from './SectionsComponent'
+import LunboComponent from '../home/lunbo/LunboComponent'
+
 
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
+     componentdidMount(){
+        var lunbo_li = this.refs.lunbomama.children('li')
+     }
     render(){
         return (
             <div className="home homepage">
@@ -12,7 +18,7 @@ export default class HomeComponent extends Component{
 
                     <div className="homeHeader_1">
                         <div className="homeInput">
-                            <input type="text" placeholder="HUAWEI nova 2s 荣耀V10"/>
+                            <input type="button" value="HUAWEI nova 2s 荣耀V10"/>
                             <i className="iconfont icon-search"></i>
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
@@ -26,7 +32,7 @@ export default class HomeComponent extends Component{
                 <div className="homeContent wayslContent">
                     
                     <div className="lunbo">
-                        
+                        <LunboComponent config={["../../../src/components/home/img/lunbo1.jpg","../../../src/components/home/img/lunbo2.jpg","../../../src/components/home/img/lunbo3.jpg","../../../src/components/home/img/lunbo4.jpg","../../../src/components/home/img/lunbo5.jpg","../../../src/components/home/img/lunbo6.jpg","../../../src/components/home/img/lunbo7.jpg","../../../src/components/home/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
@@ -60,12 +66,141 @@ export default class HomeComponent extends Component{
                         
                     </section>
                     
+                    <div className="news">
+                        <h5>公告</h5>
+                        <ul>
+                            <li>【318周年庆】AI荣耀 芯生活</li>
+                            <li>【318周年庆】AI荣耀 芯生活</li>
+                            <li>【318周年庆】AI荣耀 芯生活</li>
+                            <li>【318周年庆】AI荣耀 芯生活</li>
+                        </ul>
+                        <Link to="/news"><span>更多<i className="iconfont icon-arrow_right"></i></span></Link>
+                    </div>
+
+                    <div className="Zhuanqu">
+                        <div className="huawei">
+                            <img src="../../../src/components/home/img/20170923212136748.jpg" />
+                        </div>
+                        <div className="rongyao">
+                            <img src="../../../src/components/home/img/20170923212139427 (1).jpg" />
+                        </div>
+                    </div>
+
+                    <div className="wayslJxproduct">
+                        <div>
+                            <p>
+                                <span>超值精选</span>
+                            </p>
+                        </div>
+                        <div className="Jxproduct">
+                            <ul>
+                                <li>
+                                    <p className="imgp">
+                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                    </p>
+                                    
+                                    <h6>荣耀分布式路由</h6>
+                                    <p>限时直降50元</p>
+                                    <p className="money"><span>￥</span><span>849</span></p>
+                                </li>
+                                <li>
+                                    <p className="imgp">
+                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                    </p>
+                                    
+                                    <h6>荣耀分布式路由</h6>
+                                    <p>限时直降50元</p>
+                                    <p className="money"><span>￥</span><span>849</span></p>
+                                </li>
+                                <li>
+                                    <p className="imgp">
+                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                    </p>
+                                    
+                                    <h6>荣耀分布式路由</h6>
+                                    <p>限时直降50元</p>
+                                    <p className="money"><span>￥</span><span>849</span></p>
+                                </li>
+                                <li>
+                                    <p className="imgp">
+                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                    </p>
+                                    
+                                    <h6>荣耀分布式路由</h6>
+                                    <p>限时直降50元</p>
+                                    <p className="money"><span>￥</span><span>849</span></p>
+                                </li><li>
+                                    <p className="imgp">
+                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                    </p>
+                                    
+                                    <h6>荣耀分布式路由</h6>
+                                    <p>限时直降50元</p>
+                                    <p className="money"><span>￥</span><span>849</span></p>
+                                </li>
+
+                            </ul>
+                        </div>
+                        
+                    </div>
+
+                    <div className="wayslPhoneproduct Sections">
+                        <div className="Phone_heard">
+                            <p>
+                                <span>手机</span>
+                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
+                            </p>
+                        </div>
+                        <div className="section">
+                            <SectionsComponent></SectionsComponent>
+                        </div>
+                    </div>
+
+                    <div className="wayslPbproduct Sections">
+                        <div className="Rx_heard">
+                            <p>
+                                <span>精品平板</span>
+                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
+                            </p>
+                        </div>
+                         <div className="section">
+                            
+                        </div>
+                    </div>
+
+                    <div className="wayslCdproduct Sections">
+                        <div className="Cd_heard">
+                            <p>
+                                <span>智能穿戴</span>
+                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
+                            </p>
+                        </div>
+                         <div className="section">
+                            
+                        </div>
+                    </div>
+
+                    <div className="wayslJjproduct Sections">
+                        <div className="Jj_heard">
+                            <p>
+                                <span>智能家居</span>
+                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
+                            </p>
+                        </div>
+                         <div className="section">
+                            
+                        </div>
+                    </div>
+
                     <div className="wayslRxproduct Sections">
                         <div className="Rx_heard">
                             <p>
                                 <span>热销配件</span>
                                 <span>更多<i className="iconfont icon-arrow_right"></i></span>
                             </p>
+                        </div>
+                         <div className="section">
+                            
                         </div>
                     </div>
 
@@ -76,6 +211,9 @@ export default class HomeComponent extends Component{
                                 <span>生态产品</span>
                                 <span>更多<i className="iconfont icon-arrow_right"></i></span>
                             </p>
+                        </div>
+                         <div className="section">
+                            
                         </div>
                     </div>
 

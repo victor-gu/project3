@@ -7,7 +7,7 @@ import CartComponent from '../components/cart/CartComponent'
 import MyselfComponent from '../components/MyselfComponent/MyselfComponent'
 import LoginComponent from '../components/login/LoginComponent'
 import RegComponent from '../components/reg/RegComponent'
-
+import NewComponent from '../components/home/lunbo/LunboComponent'
 
 import DetailsComponent from "../components/DetailsComponent/DetailsComponent";
 import GoodsComponent from "../components/DetailsComponent/GoodsComponent/GoodsComponent";
@@ -24,7 +24,7 @@ export default (
         <Route path="/mine" component={MyselfComponent} />
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
-
+        <Route path="/news" component={NewComponent} />
         <Route path="/details" component={DetailsComponent}>
             <Route path="/goods" component={GoodsComponent}/>
             <Route path="/picture" component={PictureComponent}/>

@@ -1,7 +1,7 @@
     html,body{ height:100%;}
     #sort{display:flex;flex-direction:column;height:100%;}
     #sort .sort-head{height:1.066667rem;background:#fff;display:flex;justify-content: space-between;padding:0.133333rem 0.4rem;border-bottom:0.013333rem solid #ddd;position:relative;box-shadow:0px 0px 0.16rem 0px #ddd;}
-    #sort .sort-head input{width:8.213333rem;height:0.8rem;padding-left:1.066667rem;background-color:#eee;border:0 none;border-radius:0.4rem;font-size:0.4rem;color:#eee;font-weight:bold;}
+    #sort .sort-head input{width:8.213333rem;height:0.8rem;padding-left:1.066667rem;background-color:#eee;border:0 none;border-radius:0.4rem;font-size:0.4rem;color:#333;font-weight:bold;}
     #sort .sort-head .i1{width: 0.8rem;height: 0.8rem;font-size:0.666667rem;}
     #sort .sort-head .i2{position:absolute;left:0.6rem;top:0.173333rem;font-size:0.533333rem;}
     #sort .sort-body{flex:1;display:flex;}
