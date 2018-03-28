@@ -1,5 +1,5 @@
 import http from 'superagent'
-const baseUrl = "http://10.3.136.210:8080"
+const baseUrl = "http://10.3.136.220:8080"
 
 export default {
     // socket(_wsurl){
@@ -16,6 +16,7 @@ export default {
             .query(_params || {})
             .set('Authorization', window.sessionStorage.getItem('dktoken'))
             .end((error,res)=>{
+                // console.log(res.body)
                 if(error){
                     reject(error)
                 }else{

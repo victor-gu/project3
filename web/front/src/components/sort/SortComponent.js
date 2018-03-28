@@ -4,6 +4,7 @@ import '../../common/common.css'
 import './css/SortComponent.css'
 import http from '../../utils/httpclient'
 import SpinnerComponent from '../../spinner/SpinnerComponent'
+import HotComponent from './hotComponent'
 
 export default class SortComponent extends Component{
     componentWillMount(){
@@ -13,27 +14,42 @@ export default class SortComponent extends Component{
         http.get('frontApoproducts',{hot:'hot'}).then((res) => {
                 this.setState({
                   data: res.data,
-                  show:false
+                  show:false,
+                  hot:true,
+                  title:'为您推荐'
               })
         })
     }
-    baseurl(){
-      return './src/components/sort/imgs/'
-    }
     state = {
         data:[],
-        show:false
+        show:false,
+        hot:false,
+        title:''
     }
     li1(e){
-        e.target.className="sorttab"
+        this.refs.hotli.className="sorttab"
+        this.setState({
+            show: true,
+            hot:true,
+            title:'为您推荐'
+        })
+        http.get('frontApoproducts',{hot:'hot'}).then((res) => {
+                this.setState({
+                  data: res.data,
+                  show:false
+              })
+        })
     }
     tab(e){
       if(e.target.tagName=="LI"){
         for(var i=1;i<e.target.parentNode.children.length;i++){
           if(e.target.parentNode.children[i] === e.target){
+              this.refs.hotli.className="";
               e.target.className = 'sorttab';
               this.setState({
-                  show: true
+                  show: true,
+                  hot:false,
+                  title:e.target.innerText
               })
               http.get('frontApoproducts',{category:e.target.innerText}).then((res) => {
                     this.setState({
@@ -59,7 +75,7 @@ export default class SortComponent extends Component{
                   <div className="sort-body">
                       <div className="sort-left">
                           <ul onClick={this.tab.bind(this)}>
-                              <li onClick={this.li1.bind(this)}>为您推荐</li>
+                              <li onClick={this.li1.bind(this)} ref="hotli" className="sorttab">为您推荐</li>
                               <li>华为手机</li>
                               <li>荣耀手机</li>
                               <li>笔记本&平板</li>
@@ -71,25 +87,10 @@ export default class SortComponent extends Component{
                           </ul>
                       </div>
                       <div className="sort-right">
-                          <div className="box-img">
-                              <img src={this.baseurl()+'hot-1.jpg'}/>
-                              <img src={this.baseurl()+'hot-2.jpg'}/>
-                          </div>
-                          <div className="side-bannar">
-                              <div className="right-bannar">
-                                  <ul>
-                                    <li><img src={this.baseurl()+'bannar1.jpg'}/></li>
-                                    <li><img src={this.baseurl()+'bannar2.jpg'}/></li>
-                                    <li><img src={this.baseurl()+'bannar3.jpg'}/></li>
-                                    <li><img src={this.baseurl()+'bannar4.jpg'}/></li>
-                                    <li><img src={this.baseurl()+'bannar5.jpg'}/></li>
-                                  </ul>
-                              </div>
-                          </div>
-                          
+                          <HotComponent hot={this.state.hot}></HotComponent>
                           <div className="right-title">
                               <h4>
-                                  <span>精选商品</span>
+                                  <span>{this.state.title}</span>
                               </h4>
                           </div>
                           <div className="right-body">

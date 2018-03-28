@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
 import '../../common/common.css'
 import './RegComponent.css'
+import http from '../../utils/httpclient'
 
 export default class SortComponent extends Component{
     toreg(){
-
         if(!/^[a-z][a-z0-9\-]{5,19}$/.test(this.refs.user.value)){
                    // * 不能为空，
                    // * 不能使用特殊字符（数字、字母、横杠），
@@ -41,9 +41,26 @@ export default class SortComponent extends Component{
             this.refs.email.value=null;
             this.refs.email.focus();
             return false;
-        }else{
-            alert('登录成功')
-            location.href ='/'
+        }
+        if(!/^[0-9]{1,2}$/.test(this.refs.age.value)){
+            alert('您输入的年龄有误');
+            this.refs.age.value=null;
+            this.refs.age.focus();
+            return false;
+        }
+        if(this.refs.nan.checked==false&&this.refs.nv.checked==false){
+            alert('请选择您的性别');
+            return false;
+        }
+        else{
+            http.get('register',{username:this.refs.user.value,password:this.refs.pass.value}).then((res) => {
+                if(res.status){
+                    alert("恭喜您注册成功");
+                    location.href ='#/login'
+                }else{
+                    console.log(666)
+                }
+            })
         }
         
     }
@@ -73,16 +90,16 @@ export default class SortComponent extends Component{
                         </div>
                         <div>
                             <label htmlFor="email">邮箱 :</label>
-                            <input type="text" id="email" placeholder="请输入正确邮箱地址" ref="email"/>
+                            <input type="text" id="email" placeholder="请输入正确邮箱地址" required ref="email"/>
                         </div>
                         <div id="gender">
                             <label>性别 :</label>
-                            <input type="radio" name="gender" value="男"/>男
-                            <input type="radio" name="gender" value="女"/>女
+                            <input type="radio" name="gender" value="男" ref="nan"/>男
+                            <input type="radio" name="gender" value="女" ref="nv"/>女
                         </div>
                         <div>
                             <label htmlFor="age">年龄 :</label>
-                            <input type="text" id="age" placeholder="请输入您的年龄"/>
+                            <input type="text" id="age" placeholder="请输入您的年龄" required ref="age"/>
                         </div>
                         <div>
                             <label htmlFor="birthday">生日 :</label>
