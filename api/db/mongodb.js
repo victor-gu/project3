@@ -16,7 +16,7 @@ module.exports = {
 
     // 查询
     select:(_collection, _condition) => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve, reject) => {console.log(_condition);
             db.db("project3").collection(_collection).find(_condition).toArray((_error, _data) => {
                 if(_error){
                     reject(_error);

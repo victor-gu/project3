@@ -26,7 +26,11 @@ module.exports = {
         app.get("/register", (req, res) => {
             let username = req.query.username;
             let password = req.query.password;
-            db.mongodb.insert("users", {username, password}).then((result) => {
+            let phone = req.query.phone;
+            let email = req.query.email;
+            let gender = req.query.gender;
+            let age = req.query.age;
+            db.mongodb.insert("users", {username, password, phone, email, gender, age}).then((result) => {
                 res.send({status:true, data:result});
             })
         });
