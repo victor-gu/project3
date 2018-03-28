@@ -5,6 +5,7 @@ import * as action from './datagridaction'
 import SpinnerComponent from '../../spinner/SpinnerComponent'
 import ModalComponent from '../modal/modalComponent'
 import http from '../../utils/httpclient'
+import './datagrid.scss'
 
 class DatagridComponent extends Component{
 	state = {
@@ -88,12 +89,12 @@ class DatagridComponent extends Component{
 								this.getKeys(ds[0]).map((key,idx) =>{
 									if(this.state.filler.indexOf(key)> -1){
 										// console.log(key);
-										return <th key= {Math.random()}>{key}</th>
+										return <th key= {Math.random()}>{this.props.txt[key] || key}</th>
 									}
 									
 								})
 							}
-							<th>操作</th>
+							<th>{this.props.txt.handle}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,9 +109,9 @@ class DatagridComponent extends Component{
 												}
 											})
 										}
-										<td>
-											<input type="button" className="btn btn-secondary btn-sm" value="编辑" onClick={this.compile.bind(this,idx)}/>
-											<input type="button" className="btn btn-danger btn-sm" value="删除" onClick={this.delTr.bind(this,idx)}/>
+										<td className="last-td">
+											<input type="button" className="btn btn-secondary btn-sm" value={this.props.txt.compile} onClick={this.compile.bind(this,idx)}/>
+											<input type="button" className="btn btn-danger btn-sm" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
 										</td>
 									</tr>
 								)
@@ -130,6 +131,7 @@ const mapStateToProps = (state) =>{
 	return {
 		dataset: state.datagrid,
 		show: state.datagrid.show,
+		txt: state.dictionary.txt
 	}
 }
 

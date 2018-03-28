@@ -20,18 +20,21 @@ class ProductComponent extends Component{
 			currentData:[]
 		}
 	}
-	search(){
+	search(n,el){
 		// console.log(this.refs['search-input'].value)
-		this.setState({
-			config: {
-				url: 'backproducts',
-				name: 'product',
-				data: {page:1,limit:6,title:this.refs['search-input'].value}
-			}
-		},()=>{
-			// console.log(this.state.config);
-			this.props.refresh(this.state.config);
-		})
+		if(n==1 || n.keyCode === 13){
+			
+			this.setState({
+				config: {
+					url: 'backproducts',
+					name: 'product',
+					data: {page:1,limit:6,title:this.refs['search-input'].value}
+				}
+			},()=>{
+				// console.log(this.state.config);
+				this.props.refresh(this.state.config);
+			})
+		}
 		
 	}
 	add(idx,types){
@@ -56,11 +59,11 @@ class ProductComponent extends Component{
 			<div>
 				<div className="pro-header">
 					<div className="input-group fl pro-header-l top">
-						<input type="text" placeholder="请输入搜索内容" className="form-control search-input" ref="search-input"/>
-						<button className="btn btn-primary" onClick={this.search.bind(this)}>搜索</button>
+						<input type="text" placeholder={this.props.txt.search} className="form-control search-input" onKeyUp={this.search.bind(this)} ref="search-input"/>
+						<button className="btn btn-primary" onClick={this.search.bind(this,1)}>{this.props.txt.search}</button>
 					</div>
 					<div className="top fr">
-						<button className="btn btn-primary" onClick={this.add.bind(this)}>添加</button>
+						<button className="btn btn-primary" onClick={this.add.bind(this)}>{this.props.txt.add}</button>
 					</div>
 				</div>
 				<DatagridComponent config={this.state.config} ref="datagrid" add={this.add.bind(this)}/>
@@ -76,7 +79,8 @@ class ProductComponent extends Component{
 const mapPro = (state)=>{
 	// console.log(state.datagrid)
 	return {
-		proData: state.datagrid
+		proData: state.datagrid,
+		txt: state.dictionary.txt
 	}
 }
 

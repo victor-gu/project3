@@ -1,7 +1,63 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
+import $ from 'jquery'
+
+import * as action from './headeraction'
 import './header.scss'
 
-export default class HeaderComponent extends Component{
+
+class HeaderComponent extends Component{
+	state = {
+		en: {
+			add: 'Add',
+			product: 'Product',
+			search: 'Search',
+			name: 'Name',
+			title: 'Title',
+			price: 'Price',
+			oprice: 'Oprice',
+			number: 'Number',
+			category: 'Category',
+			hot: 'Hot',
+			handle: 'Handle',
+			compile: 'Compile',
+			del: 'Del',
+			sure: 'Sure',
+			cancel: 'Cancel',
+			student: 'Student',
+			order: 'Order',
+			admin: 'Admin'
+		},
+		cn: {
+			add: '添加',
+			product: '商品管理',
+			search: '搜索',
+			name: '名称',
+			title: '简介',
+			price: '现价',
+			oprice: '原价',
+			number: '库存',
+			category: '类型',
+			hot: '热卖',
+			handle: '操作',
+			compile: '编辑',
+			del: '删除',
+			sure: '确定',
+			cancel: '取消',
+			student: '用户管理',
+			order: '订单管理',
+			admin: '管理员'
+		}
+	}
+	componentWillMount(){
+
+		this.props.getDictionary(this.state.en)
+	}
+	changeTxt(){
+		// console.log($(':selected').val())
+		let val = $(':selected').val();
+		this.props.getDictionary(this.state[val])
+	}
 	render(){
 		return (
 			<div>
@@ -14,7 +70,7 @@ export default class HeaderComponent extends Component{
 							欢迎您：<strong>admin</strong>
 						</div>
 						<div className="lan">
-							<select className="col-sm-4 form-control form-control-sm">
+							<select className="col-sm-4 form-control form-control-sm" onClick={this.changeTxt.bind(this)}>
 								<option value="en">en</option>
 								<option value="cn">cn</option>
 							</select>
@@ -25,3 +81,12 @@ export default class HeaderComponent extends Component{
 		)
 	}
 }
+
+const mapDictionary = (state)=>{
+	// console.log(state);
+	return {
+		txt: state.dictionary.txt
+	}
+} 
+
+export default connect(mapDictionary,action)(HeaderComponent)
