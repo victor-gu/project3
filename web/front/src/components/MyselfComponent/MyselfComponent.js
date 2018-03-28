@@ -24,7 +24,7 @@ export default class MyselfComponent extends Component{
     }
     //http://10.3.136.210:8080/products?page=2&limit=10
     componentDidMount(){
-        http.get('http://10.3.136.210:8080/products',{page:2, limit:5}).then((res)=>{
+        http.get('backProducts',{page:2, limit:5}).then((res)=>{
             // console.log(res);
             console.log(res.data);
             this.setState({
