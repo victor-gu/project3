@@ -59,22 +59,35 @@
 }
 
 
-.homepage .homeContent .lunbo{
+.homepage .homeContent .lunbo,.el-carousel{
     height:5.333333rem;
     width:100%;
 }
 
-.homepage .homeContent .lunbo img{
-    height:5.333333rem;
+.homepage .homeContent .lunbo img,.el-carousel,.el-carousel__container{
+    height:5.32rem;
     width:100%;
+
 }
 
-.homepage .homeContent .lunbo img{
-    height:5.333333rem;
-    width:100%;
+.homepage .homeContent .lunbo .el-icon-arrow-right{
+    height:0.8rem;
+    width:0.8rem;
 }
-
-
+.el-carousel__indicators{
+    width:5.333333rem;
+    height:0.6rem;
+}
+.el-carousel__indicators li button{
+    height:0.03rem;
+    width:0.666667rem;
+}
+.el-carousel__arrow {
+    height:1.0rem;
+    width:1.0rem;
+    font-size: 0.733333rem;
+    top:44%;
+}
 
 .homepage .homeContent .contenBanner {
     background-color: white;

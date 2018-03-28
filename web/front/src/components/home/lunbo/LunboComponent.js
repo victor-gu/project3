@@ -1,37 +1,30 @@
 import React from 'react'
+import ReactDOM from "react-dom"
+import { Carousel } from 'element-react';
+
+
 export default class LunboComponent extends React.Component{
+    componentDidMount(){
+        console.log(this)
+    }
     render() {
-  return (
-    <div className="demo-1 small">
-      <div className="block">
-        <span className="demonstration">默认 Hover 指示器触发</span>
-        <Carousel height="150px">
-          {
-            [1,2,3,4].map((item, index) => {
-              return (
-                <Carousel.Item key={index}>
-                  <h3>{item}</h3>
-                </Carousel.Item>
-              )
-            })
-          }
-        </Carousel>
-      </div>
-      <div className="block">
-        <span className="demonstration">Click 指示器触发</span>
-        <Carousel trigger="click" height="150px">
-          {
-            [1,2,3,4].map((item, index) => {
-              return (
-                <Carousel.Item key={index}>
-                  <h3>{item}</h3>
-                </Carousel.Item>
-              )
-            })
-          }
-        </Carousel>
-      </div>
-    </div>
+
+    return (
+        <div className="demo-1 small">
+          <div className="block">
+            <Carousel trigger="click" height="5.333333rem" arrow="always">
+              {
+                this.props.config.map((item, index) => {
+                  return (
+                    <Carousel.Item key={index}>
+                        <img src={item}/>
+                    </Carousel.Item>
+                  )
+                })
+              }
+            </Carousel>
+          </div>
+        </div>
   )
 }
 }

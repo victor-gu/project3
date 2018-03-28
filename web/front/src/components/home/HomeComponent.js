@@ -2,10 +2,15 @@ import React,{Component} from 'react'
 import {Link} from 'react-router'
 import NavComponent from '../nav/NavComponent'
 import SectionsComponent from './SectionsComponent'
+import LunboComponent from '../home/lunbo/LunboComponent'
+
 
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
+     componentdidMount(){
+        var lunbo_li = this.refs.lunbomama.children('li')
+     }
     render(){
         return (
             <div className="home homepage">
@@ -27,11 +32,7 @@ export default class HomeComponent extends Component{
                 <div className="homeContent wayslContent">
                     
                     <div className="lunbo">
-                        <ul>
-                            <li>
-                                <img src="../../../src/components/home/img/lunbo8.jpg" alt=""/>
-                            </li>
-                        </ul>
+                        <LunboComponent config={["../../../src/components/home/img/lunbo1.jpg","../../../src/components/home/img/lunbo2.jpg","../../../src/components/home/img/lunbo3.jpg","../../../src/components/home/img/lunbo4.jpg","../../../src/components/home/img/lunbo5.jpg","../../../src/components/home/img/lunbo6.jpg","../../../src/components/home/img/lunbo7.jpg","../../../src/components/home/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
