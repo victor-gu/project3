@@ -1,0 +1,113 @@
+.lzf_search_wholebody{
+    background:#efefef;
+    width:100%;
+    height:100%;
+}
+
+
+.lzf_search_box{
+    background:white;
+    width:100%;height:1.333333rem;
+    border-bottom:0.046667rem solid #ccc;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.lzf_search_box .lzf_left{
+    margin-left:0.44rem;
+    font-size:0.5555rem;
+    font-weight:bold;
+}
+
+
+.lzf_search_box .inputvalbox{
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    margin-left:0.3333rem;
+    width:7.4rem;
+    height:0.746667rem;
+    border-radius:0.666667rem;
+    background:#EAEAEA;
+}
+.lzf_search_box .inputvalbox .lzf_big{
+    font-size:0.43333rem;
+    font-weight:bold;
+}
+
+.lzf_search_box .inputvalbox input{
+    width:5.98rem;
+    height:0.7466rem;
+    font-size:0.3555rem;
+    line-height:0.7466rem;
+    background: #EAEAEA;
+}
+
+.lzf_search_click{
+    width:1.333333rem;
+    height:1.333333rem;
+    font-size:0.43rem;
+    text-align:center;
+    line-height:1.333333rem;
+    font-weight:bold;
+}
+
+
+
+
+.hotsearchbox{
+    padding-left:0.706667rem;
+    padding-right:0.233333rem;
+    width:100%;
+    background:white;
+}
+.hotsearchbox h3{
+    width:100%;
+    height:1.066667rem;
+    line-height:1.066667rem;
+    font-size:0.37333rem;
+    font-weight:bold;
+}
+
+.hotsearchbox ul{ 
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+}
+
+.hotsearchbox ul li{
+    text-align:center;
+    font-size:0.266667rem;
+    height:0.693333rem;
+    line-height:0.693333rem;
+    margin-right:0.293333rem;
+    margin-bottom:0.293333rem;
+    background:#EAEAEA;
+    border-radius:0.12rem;
+}
+.hotsearchbox ul li span{
+    margin-left:0.33rem;
+    margin-right:0.33rem;
+}
+
+
+
+
+.inputeventdata{
+    width:100%;
+    background:white;
+}
+.inputeventdata ul{
+    /*float:left;*/
+    display:flex;
+    flex-direction:column;
+}
+.inputeventdata ul li{
+    width:100%;
+    border-bottom:0.026667rem solid #ccc;
+    font-size:0.306667rem;
+    height:0.89rem;
+    line-height:0.89rem;
+    padding-left:0.586667rem;
+    /*text-align:center;*/
+}

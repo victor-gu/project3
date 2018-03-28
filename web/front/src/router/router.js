@@ -8,6 +8,7 @@ import MyselfComponent from '../components/MyselfComponent/MyselfComponent'
 import LoginComponent from '../components/login/LoginComponent'
 import RegComponent from '../components/reg/RegComponent'
 
+import SearchComponentlzf from '../components/SearchComponent/SearchComponent.js'
 
 
 export default (
@@ -18,6 +19,7 @@ export default (
         <Route path="/mine" component={MyselfComponent} />
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
+        <Route path="/search" component={SearchComponentlzf}/>
     </Route>
   
 )

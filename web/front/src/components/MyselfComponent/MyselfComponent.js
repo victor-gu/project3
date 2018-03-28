@@ -1,7 +1,5 @@
 import React,{Component} from 'react' 
 
-
-
 import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
@@ -24,17 +22,14 @@ export default class MyselfComponent extends Component{
     }
     //http://10.3.136.210:8080/products?page=2&limit=10
     componentDidMount(){
-        http.get('http://10.3.136.210:8080/products',{page:2, limit:5}).then((res)=>{
-            // console.log(res);
+        http.get('backproducts',{page:2, limit:3}).then((res)=>{
             console.log(res.data);
             this.setState({
                 dataset: res.data
             })
         })
-        // console.log(dataset);
     }
     render(){
-        // console.log(dataset);
         return (
             <div className="home">             
                <div className="homeHeader"></div>
