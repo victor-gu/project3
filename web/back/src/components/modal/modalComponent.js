@@ -46,7 +46,7 @@ class ModalComponent extends Component{
 
 	}
 	render(){
-		// console.log(this.props.config);
+		// console.log(this.props.txt);
 		let currentData = this.props.config.currentData;
 		let content = null;
 		// if(this.props.config.type == 'compile'){
@@ -54,7 +54,7 @@ class ModalComponent extends Component{
 				if(this.props.config.filler.indexOf(key) > -1){
 					return (
 						<div className="ipt" key={Math.random()}>
-							<label htmlFor={key}>{key}:</label>
+							<label htmlFor={this.props.txt[key] || key}>{this.props.txt[key] || key}:</label>
 							<input type="text" placeholder={currentData[key]} className="showPar"/>
 						</div>
 					)
@@ -71,8 +71,8 @@ class ModalComponent extends Component{
 						<h2>ModalComponent</h2>
 						{content}
 						<p className="showBox_b">
-							<input type="button" className="btn btn-success" value="确定" onClick={this.updproduct.bind(this)}/>
-							<input type="button" className="btn btn-danger" value="取消" onClick={this.shutdown.bind(this)} />
+							<input type="button" className="btn btn-success" value={this.props.txt.sure} onClick={this.updproduct.bind(this)}/>
+							<input type="button" className="btn btn-danger" value={this.props.txt.cancel} onClick={this.shutdown.bind(this)} />
 						</p>
 						<span className="cancel" onClick={this.shutdown.bind(this)}>&times;</span>
 					</div>
@@ -89,7 +89,8 @@ class ModalComponent extends Component{
 const mapModal = (state)=>{
 	return {
 		dataset: state.datagrid,
-		show:state.datagrid.show
+		show:state.datagrid.show,
+		txt: state.dictionary.txt
 	}
 }
 
