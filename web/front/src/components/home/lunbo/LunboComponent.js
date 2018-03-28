@@ -5,7 +5,7 @@ import { Carousel } from 'element-react';
 
 export default class LunboComponent extends React.Component{
     componentDidMount(){
-        console.log(this)
+        
     }
     render() {
 

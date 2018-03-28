@@ -11,12 +11,10 @@
     left: 0;
     width:100%;
     z-index: 100;
-    /*margin:0 auto;*/
     font-size: 0.426667rem;
     display:flex;
     justify-content: space-around;
     line-height: 1.066667rem;
-    /*background-color: white;*/
     padding-left: 0.333333rem;
     padding-right: 0.266667rem;
 }
@@ -126,6 +124,29 @@
     flex:0.8;
 }
 
+.homepage .homeContent .tetui ul{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    height:6.9rem;
+    background-color: white;
+}
+.homepage .homeContent .tetui ul li{
+    height:6.8rem;
+    width:4.933333rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.homepage .homeContent .tetui ul li img{
+    height:3.33433rem;
+    width:4.933333rem;
+}
+.homepage .homeContent .tetui ul li .tetui_1>img{
+    height:6.8rem;
+    width:4.933333rem;
+}
 
 .homepage .homeContent .news{
     height:1.066667rem;
@@ -151,7 +172,6 @@
 .homepage .homeContent .news span i{
     font-size: 0.426667rem;
 }
-
 
 
 .homepage .homeContent .Zhuanqu{
@@ -223,13 +243,19 @@
 .Jxproduct>ul>li>p ,h6{
     height:0.533333rem;
     margin-top:0.066667rem;
-
-   
 }
-.homepage .wayslJxproduct>div>p>span{
-    
+.name_h6{
+     width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap; 
 }
-
+.Jxp{
+    width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap; 
+}
 /******************************content_sections***********************************/
 .homepage .Sections{
     /*height:15.466667rem;*/
@@ -238,8 +264,7 @@
     margin-top:0.12rem;
 }
 
-
-.homepage .Sections>div>p{
+.homepage .Sections .sections_header{
     height:0.986667rem;
     width:100%;
     display:flex;
@@ -247,14 +272,14 @@
     padding:0 0.4rem;
     line-height:0.986667rem;
 }
-.homepage .Sections>div>p>span{
+.homepage .Sections .sections_header span{
     display:block;
     flex:1;
 }
-.homepage .Sections>div>p>span:last-child{
+.homepage .Sections .sections_header span:last-child{
     text-align: right;
 }
-.homepage .Sections>div>p>span>i{
+.homepage .Sections .sections_header span i{
     font-size: 0.32rem;
 }
 .homepage .Sections .section{
@@ -265,19 +290,21 @@
     justify-content: space-between;
 }
 .homepage .Sections .section .section_son ul{
-   display:flex;
-   justify-content:space-between;
-   height:4.88rem;
-   width:100%;
-   font-size: 0.4rem;
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    font-size: 0.4rem;
+    flex-wrap: wrap;
 
 }
 .homepage .Sections .section .section_son ul li{
-   flex:1;
-   text-align: center;
-   margin-bottom: 0.133333rem;
+    flex:1;
+    text-align: center;
+    margin-bottom: 0.133333rem;
+    min-width: 5.0rem;
+    height:4.88rem;
 }
-.homepage .Sections .section .section_son ul li:first-child{
+.homepage .Sections .section .section_son ul li:nth(2n+1){
     margin-right: 0.133333rem;
 }
 

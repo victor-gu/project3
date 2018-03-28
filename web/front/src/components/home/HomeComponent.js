@@ -3,19 +3,32 @@ import {Link} from 'react-router'
 import NavComponent from '../nav/NavComponent'
 import SectionsComponent from './SectionsComponent'
 import LunboComponent from '../home/lunbo/LunboComponent'
-
+import JxComponent from '../home/jingxuan/JxComponent'
+import TetuiComponent from '../home/tetui/TetuiComponent'
+import http from '../../utils/httpclient'
+import SpinnerComponent from '../../spinner/SpinnerComponent'
 
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
-     componentdidMount(){
-        var lunbo_li = this.refs.lunbomama.children('li')
-     }
+    state = {
+        wayslData:[],
+        spinnerShow:false,
+    }
+    componentWillMount(){
+        this.setState({spinnerShow:true})
+        http.get('frontApoproducts',{}).then((res)=>{
+            this.setState({
+                wayslData: res.data,
+                spinnerShow:false, 
+            })
+        })
+    }
     render(){
         return (
             <div className="home homepage">
+                <SpinnerComponent spinnerShow={this.state.spinnerShow}/>
                 <div className="homeHeader">
-
                     <div className="homeHeader_1">
                         <div className="homeInput">
                             <input type="button" value="HUAWEI nova 2s 荣耀V10"/>
@@ -23,22 +36,17 @@ export default class HomeComponent extends Component{
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
                         <span>登录</span>
-
                     </div>
-
                 </div>
 
-    
                 <div className="homeContent wayslContent">
-                    
                     <div className="lunbo">
-                        <LunboComponent config={["../../../src/components/home/img/lunbo1.jpg","../../../src/components/home/img/lunbo2.jpg","../../../src/components/home/img/lunbo3.jpg","../../../src/components/home/img/lunbo4.jpg","../../../src/components/home/img/lunbo5.jpg","../../../src/components/home/img/lunbo6.jpg","../../../src/components/home/img/lunbo7.jpg","../../../src/components/home/img/lunbo8.jpg"]}></LunboComponent>
+                        <LunboComponent config={["src/components/home/img/lunbo1.jpg","src/components/home/img/lunbo2.jpg","src/components/home/img/lunbo3.jpg","src/components/home/img/lunbo4.jpg","src/components/home/img/lunbo5.jpg","src/components/home/img/lunbo6.jpg","src/components/home/img/lunbo7.jpg","src/components/home/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
                         <ul>
                             <li>
-
                                 <div><img src="../../../src/components/home/img/nav1.jpg" /></div>
                                 <span>优选配件</span>
                             </li>
@@ -62,9 +70,9 @@ export default class HomeComponent extends Component{
                         </ul>
                     </div>
                     
-                    <section className="conentList_1">
-                        
-                    </section>
+                    <div className="tetui">
+                        <TetuiComponent></TetuiComponent>
+                    </div>
                     
                     <div className="news">
                         <h5>公告</h5>
@@ -74,7 +82,7 @@ export default class HomeComponent extends Component{
                             <li>【318周年庆】AI荣耀 芯生活</li>
                             <li>【318周年庆】AI荣耀 芯生活</li>
                         </ul>
-                        <Link to="/news"><span>更多<i className="iconfont icon-arrow_right"></i></span></Link>
+                       <span>更多<i className="iconfont icon-arrow_right"></i></span>
                     </div>
 
                     <div className="Zhuanqu">
@@ -92,68 +100,11 @@ export default class HomeComponent extends Component{
                                 <span>超值精选</span>
                             </p>
                         </div>
-                        <div className="Jxproduct">
-                            <ul>
-                                <li>
-                                    <p className="imgp">
-                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
-                                    </p>
-                                    
-                                    <h6>荣耀分布式路由</h6>
-                                    <p>限时直降50元</p>
-                                    <p className="money"><span>￥</span><span>849</span></p>
-                                </li>
-                                <li>
-                                    <p className="imgp">
-                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
-                                    </p>
-                                    
-                                    <h6>荣耀分布式路由</h6>
-                                    <p>限时直降50元</p>
-                                    <p className="money"><span>￥</span><span>849</span></p>
-                                </li>
-                                <li>
-                                    <p className="imgp">
-                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
-                                    </p>
-                                    
-                                    <h6>荣耀分布式路由</h6>
-                                    <p>限时直降50元</p>
-                                    <p className="money"><span>￥</span><span>849</span></p>
-                                </li>
-                                <li>
-                                    <p className="imgp">
-                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
-                                    </p>
-                                    
-                                    <h6>荣耀分布式路由</h6>
-                                    <p>限时直降50元</p>
-                                    <p className="money"><span>￥</span><span>849</span></p>
-                                </li><li>
-                                    <p className="imgp">
-                                        <img src="../../../src/components/home/img/1507711722757.jpg" />
-                                    </p>
-                                    
-                                    <h6>荣耀分布式路由</h6>
-                                    <p>限时直降50元</p>
-                                    <p className="money"><span>￥</span><span>849</span></p>
-                                </li>
-
-                            </ul>
-                        </div>
-                        
+                       <JxComponent jingxuan={this.state.wayslData}></JxComponent>
                     </div>
 
                     <div className="wayslPhoneproduct Sections">
-                        <div className="Phone_heard">
-                            <p>
-                                <span>手机</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                        <div className="section">
-                            <SectionsComponent></SectionsComponent>
-                        </div>
+                        <SectionsComponent allproduct = {[this.state.wayslData,"华为手机"]}></SectionsComponent>
                     </div>
 
                     <div className="wayslPbproduct Sections">
@@ -240,8 +191,6 @@ export default class HomeComponent extends Component{
                             </ul>
                         </div>
                         
-
-
                         <div className="content_buttom_3">      
                             <ul>
                                 <li>隐私政策</li>

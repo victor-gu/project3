@@ -1,6 +1,8 @@
 import request from "superagent"
 
 let baseUrl = "http://10.3.136.220:8080/";
+let baseImg = "./src/static/img/";
+
 
 function filterUrl(url){
     return url.startsWith('http') ? url : baseUrl+url;
