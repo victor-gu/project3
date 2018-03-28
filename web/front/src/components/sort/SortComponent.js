@@ -2,35 +2,45 @@ import React,{Component} from 'react'
 import NavComponent from '../nav/NavComponent'
 import '../../common/common.css'
 import './css/SortComponent.css'
+import http from '../../utils/httpclient'
+import SpinnerComponent from '../../spinner/SpinnerComponent'
 
 export default class SortComponent extends Component{
+    componentWillMount(){
+        this.setState({
+            show: true
+        })
+        http.get('frontApoproducts',{hot:'hot'}).then((res) => {
+                this.setState({
+                  data: res.data,
+                  show:false
+              })
+        })
+    }
     baseurl(){
       return './src/components/sort/imgs/'
     }
     state = {
-        data:[
-            {_id:1,name:'荣耀V10',img:'1.jpg'},
-            {_id:2,name:'荣耀V10',img:'2.jpg'},
-            {_id:3,name:'荣耀V10',img:'3.jpg'},
-            {_id:4,name:'荣耀V10',img:'4.jpg'},
-            {_id:5,name:'荣耀V10',img:'5.jpg'},
-            {_id:6,name:'荣耀V10',img:'6.jpg'},
-            {_id:7,name:'荣耀V10',img:'1.jpg'},
-            {_id:8,name:'荣耀V10',img:'2.jpg'},
-            {_id:9,name:'荣耀V10',img:'3.jpg'},
-            {_id:10,name:'荣耀V10',img:'4.jpg'},
-            {_id:11,name:'荣耀V10',img:'5.jpg'},
-            {_id:12,name:'荣耀V10',img:'6.jpg'},
-            {_id:13,name:'荣耀V10',img:'1.jpg'},
-            {_id:14,name:'荣耀V10',img:'2.jpg'},
-            {_id:15,name:'荣耀V10',img:'3.jpg'},
-        ]
+        data:[],
+        show:false
+    }
+    li1(e){
+        e.target.className="sorttab"
     }
     tab(e){
       if(e.target.tagName=="LI"){
-        for(var i=0;i<e.target.parentNode.children.length;i++){
+        for(var i=1;i<e.target.parentNode.children.length;i++){
           if(e.target.parentNode.children[i] === e.target){
               e.target.className = 'sorttab';
+              this.setState({
+                  show: true
+              })
+              http.get('frontApoproducts',{category:e.target.innerText}).then((res) => {
+                    this.setState({
+                      data: res.data,
+                      show:false
+                  })
+              })
             }else{
               e.target.parentNode.children[i].className = '';
             }
@@ -40,6 +50,7 @@ export default class SortComponent extends Component{
     render(){
         return (
             <div id="sort">
+                  <SpinnerComponent show={this.state.show}/>
                   <div className="sort-head">
                       <input type="text" placeholder="HUAWEI nova 2s 荣耀V10 "/>
                       <i className="icon-qunfengxiaoxitishilingdang iconfont i1"></i>
@@ -47,11 +58,11 @@ export default class SortComponent extends Component{
                   </div>
                   <div className="sort-body">
                       <div className="sort-left">
-                          <ul onClick={this.tab}>
-                              <li>为您推荐</li>
+                          <ul onClick={this.tab.bind(this)}>
+                              <li onClick={this.li1.bind(this)}>为您推荐</li>
                               <li>华为手机</li>
                               <li>荣耀手机</li>
-                              <li>笔记本平板</li>
+                              <li>笔记本&平板</li>
                               <li>智能穿戴</li>
                               <li>智能家居</li>
                               <li>专属配件</li>
@@ -78,7 +89,7 @@ export default class SortComponent extends Component{
                           
                           <div className="right-title">
                               <h4>
-                                  <span>精选手机</span>
+                                  <span>精选商品</span>
                               </h4>
                           </div>
                           <div className="right-body">

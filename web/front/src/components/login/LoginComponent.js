@@ -3,6 +3,9 @@ import '../../common/common.css'
 import './LoginComponent.css'
 
 export default class SortComponent extends Component{
+    tologin(){
+        console.log(666)
+    }
     baseurl(){
       return './src/components/sort/imgs/'
     }
@@ -15,13 +18,13 @@ export default class SortComponent extends Component{
                     </div>
                     <div className="login-body">
                         <div>
-                            <input type="text" placeholder="手机号/邮箱地址"/>
+                            <input type="text" placeholder="用户名"/>
                         </div>
                         <div>
                             <input type="password" placeholder="密码"/>
                         </div>
                         <div>
-                            <input type="button" value="登录" className="btn"/>
+                            <input type="button" value="登录" className="btn" onClick={this.tologin.bind(this)}/>
                         </div>
                         <div>
                             <input type="checkbox" className="rem"/><span>记住密码</span>
