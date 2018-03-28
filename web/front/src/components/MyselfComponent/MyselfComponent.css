@@ -145,7 +145,7 @@
 
 
 /*我的消息板块*/
-#lzf_mesbox{width:100%;height:11.466667rem;background:white;}
+#lzf_mesbox{width:100%;min-height:2.3rem;background:white;}
 #lzf_mesbox h3{
     font-size:0.38rem;
     height:1.013333rem;
@@ -192,7 +192,11 @@
     padding-left:0.306667rem;
 }
 #lzf_mesbox ul li .prolist .msglist .proname{
-    font-size:0.36rem;
+    font-size:0.38rem;
+    width:6.506667rem;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
     color:rgb(202,20,29);
 }
 

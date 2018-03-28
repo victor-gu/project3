@@ -35,5 +35,10 @@
     display:block;
     flex:0.8;
     color:#333;
-    font-size: 0.266667rem;
+    font-size: 30px;
+}
+
+@media screen and (min-width:992px){
+    .nav>ul>li>a>i{ font-size:90px; }
+    .nav>ul>li>a>span{ font-size:60px;}
 }
