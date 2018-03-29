@@ -7,6 +7,7 @@ import LoginComponent from '../components/login/loginComponent'
 import StudentComponent from '../components/student/studentComponent'
 import AdminsComponent from '../components/admins/adminsComponent'
 import OrderComponent from '../components/order/orderComponent'
+import CarComponent from '../components/car/carComponent'
 
 export default (
 	<Route>
@@ -15,6 +16,8 @@ export default (
 			<Route path="/student" component = {StudentComponent}/>
 			<Route path="/admin" component = {AdminsComponent}/>
 			<Route path="/order" component = {OrderComponent}/>
+			<Route path="/car" component = {CarComponent}/>
+
 		</Route>
 		<Route path="/login" component={LoginComponent}/>
 	</Route>
