@@ -7,10 +7,6 @@ import '../iconfont/lzffont/iconfont.css'
 import './lzfheader.css'
 
 export default class MyselfComponent extends React.Component{
-    // componentWillMount(){
-    //     let username = sessionStorage.getItem("username");
-    //     console.log(username);
-    // }
     render(){
         let logincontent;
         let username = sessionStorage.getItem("username");
@@ -18,27 +14,23 @@ export default class MyselfComponent extends React.Component{
         let beforehtml = (
             <div className="left_topnav">
                 <Link to ="login"><p className="lzf_loginbtn">
-                    登录 / 注册 
+                    登录 / 注册   登录更多优惠
                     </p></Link>
-                <h5 className="lzf_profit">登录更多优惠
-                </h5>
             </div>
         )
 
         let afterhtml = (
             <div className="left_topnav">
                 <p className="lzf_loginbtn">
-                    {username}
+                    欢迎您，亲爱的{username}
                 </p>
             </div>
         )
-        if(username){
-            logincontent = afterhtml
-        }else{
-            logincontent = beforehtml
-        }
+
+        logincontent = username ? afterhtml : beforehtml;
 
         return(
+            
             <div className = "lzf_topnavfixed" ref="lzf_header">
 
                 <div>
