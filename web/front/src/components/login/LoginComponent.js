@@ -2,20 +2,26 @@ import React,{Component} from 'react'
 import '../../common/common.css'
 import './LoginComponent.css'
 import http from '../../utils/httpclient'
+import {Link} from 'react-router'
 
 export default class SortComponent extends Component{
     tologin(){
         http.get('login',{username:this.refs.name.value,password:this.refs.pass.value}).then((res) => {
                 if(res.status){
+                    window.sessionStorage.setItem('username',this.refs.name.value)
                     location.href ='/'
                 }else{
-                    alert("用户名或密码有误")
+                    alert("用户名或密码有误");
+                    this.refs.name.value=null;
+                    this.refs.name.focus();
+                    this.refs.pass.value=null;
                 }
             })
     }
     render(){
         return (          
                <div id="login">
+               <Link to="/"><i className="tomain">返回主页</i></Link>
                     <div className="login-head">
                         <h1>华为帐号-登录</h1>
                         <p>华为帐号适用于访问所有华为服务。您可登录该帐号，访问云服务、华为商城、华为/荣耀官网、花粉俱乐部及更多服务。</p>
@@ -34,7 +40,7 @@ export default class SortComponent extends Component{
                             <input type="checkbox" className="rem"/><span>记住密码</span>
                         </div>
                         <div className="goto">
-                            <a href="#" className="a-reg">注册帐号</a><a href="#">忘记密码?</a>
+                            <a href="#/reg" className="a-reg">注册帐号</a><a href="#">忘记密码?</a>
                         </div>
                     </div>
                     <div className="login-foot">
