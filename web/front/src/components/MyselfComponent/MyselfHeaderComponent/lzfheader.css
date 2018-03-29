@@ -47,7 +47,13 @@
     line-height:1.3rem;
     justify-content:flex-start;
 }
-.lzf_topnavfixed .left_topnav p{width:1.733333rem;color:white;}
+.lzf_topnavfixed .left_topnav .lzf_loginbtn{
+    width:3.96rem;
+    color:white;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
 
 
 
