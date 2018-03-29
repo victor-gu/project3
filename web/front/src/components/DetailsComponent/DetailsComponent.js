@@ -5,14 +5,26 @@ import "./DetailsComponent.scss";
 
 export default class DetailsComponent extends React.Component{
     componentWillMount(){
-        console.log(this);
         this.props.router.push({pathname:'goods'})
     }
+
+    back(){
+        history.back();
+    }
+
+    shou(){
+        this.props.router.push({pathname:"/"});
+    }
+    cart(){
+        this.props.router.push({pathname:"/cart"});
+    }
+
+    
     render(){
         return (
             <div className="details">
                 <ul className="top">
-                    <li><i className="iconfont icon-fanhui"></i></li>
+                    <li><i className="iconfont icon-fanhui" onClick={this.back}></i></li>
                     <li><Link to="goods">商品</Link></li>
                     <li><Link to="picture">详情</Link></li>
                     <li><Link to="params">参数</Link></li>
@@ -25,11 +37,11 @@ export default class DetailsComponent extends React.Component{
                 </div>
 
                 <div className="bottom">
-                    <p className="one">
+                    <p className="one" onClick={this.shou.bind(this)}>
                         <i className="iconfont icon-shouye"></i>
                         首页
                     </p>
-                    <p className="one">
+                    <p className="one" onClick={this.cart.bind(this)}>
                         <i className="iconfont icon-gouwuche"></i>
                         购物车
                     </p>

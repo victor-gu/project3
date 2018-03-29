@@ -5,7 +5,34 @@ import '../../common/common.css'
 import "./CartComponent.scss";
 
 export default class CartComponent extends Component{
+
+    componentDidMount(){
+        var all = document.querySelector(".all");
+        var hobby = document.querySelectorAll("ul li .left input")
+        all.onclick = function(){
+            for(var i=0;i<hobby.length;i++){
+                hobby[i].checked = all.checked;
+            }
+        }
+        for(var i=0;i<hobby.length;i++){
+            hobby[i].onclick = function(){
+                all.checked = isCheckAll();
+            }
+        }
+        function isCheckAll(){
+            var res = true;
+            for(var i=0;i<hobby.length;i++){
+                if(!hobby[i].checked){
+                    res = false;
+                    break;
+                }
+            }
+            return res;
+        }
+    }
+
     render(){
+        
         return (
           <div  className="home">
             <div className="homeHeader"></div>
@@ -19,7 +46,7 @@ export default class CartComponent extends Component{
                     </p>
                 </div>
 
-                <ul className="list">
+                <ul className="list" ref="chex">
                     <li>
                         <div className="left">
                             <input className="int" type="checkbox" />
@@ -136,7 +163,7 @@ export default class CartComponent extends Component{
 
                 <div className="total">
                     <p className="total1">
-                        <input type="checkbox"/>
+                        <input type="checkbox" className="all"/>
                         <span>全选</span>
                     </p>
                     <div className="right">
