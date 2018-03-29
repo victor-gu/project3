@@ -7,10 +7,10 @@ import {Link} from 'react-router'
 export default class SortComponent extends Component{
     tologin(){
         http.get('login',{username:this.refs.name.value,password:this.refs.pass.value}).then((res) => {
-            console.log(res)
                 if(res.status){
                     window.sessionStorage.setItem('xxtoken',res.data)
                     window.sessionStorage.setItem('userid',res.data1[0]._id)
+                    window.sessionStorage.setItem('username',this.refs.name.value)
                     //location.href ='/'
                 }else{
                     alert("用户名或密码有误");
