@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class Section3Component extends React.Component{
     render(){
-    var c=8;
+    var c=4;
     return (
         <div>
             <div className="sections_top">

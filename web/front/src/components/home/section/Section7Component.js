@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default class Section6Component extends React.Component{
+export default class Section7Component extends React.Component{
     render(){
     var e=8;
     return (
         <div>
             <div className="sections_top">
                 <p className="sections_header">
-                    <span>{this.props.Section6[1]}</span>
+                    <span>{this.props.Section7[1]}</span>
                     <span>更多<i className ="iconfont icon-arrow_right"></i></span>
                 </p>
             </div>
@@ -15,9 +15,9 @@ export default class Section6Component extends React.Component{
                 <div className="section_son">
                     <ul>
                         {
-                            this.props.Section6[0].map((item6)=>{
+                            this.props.Section7[0].map((item6)=>{
                                 
-                                if(item6.category == this.props.Section6[1]){
+                                if(item6.category == this.props.Section7[1]){
                                     e--;
                                     if(e>=0){        
 
