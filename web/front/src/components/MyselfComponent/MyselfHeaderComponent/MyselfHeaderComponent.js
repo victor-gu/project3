@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {Link,hashHistory,browserHistory} from 'react-router'
 // import cs from 'classnames';
 
 import '../iconfont/lzffont/iconfont.css'
@@ -12,9 +13,9 @@ export default class MyselfComponent extends React.Component{
             <div className = "lzf_topnavfixed" ref="lzf_header">
 
                 <div className="left_topnav">
-                    <p className="lzf_loginbtn">
+                    <Link to ="login"><p className="lzf_loginbtn">
                         登录 / 注册 
-                    </p>
+                        </p></Link>
                     <h5 className="lzf_profit">登录更多优惠
                     </h5>
                 </div>
