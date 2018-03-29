@@ -1,0 +1,55 @@
+.lzf_confirm_all{
+    min-height:2.666667rem;
+    width:100%;
+    background:#ccc;
+}
+.lzf_confirm_header{
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    height:1.333333rem;
+    background: white;
+    font-size:0.45rem;
+    line-height:1.333333rem;
+    text-align:center;
+}
+.lzf_confirm_header .lzf_confirm_left{
+    margin-left:0.4rem;
+    font-size:0.56rem;
+}
+.lzf_confirm_header h3{
+    margin-left:0.293333rem;
+}
+
+/*--------------------------------*/
+
+.lzf_address img{
+    width:100%;
+    height:2.133333rem;
+}
+.lzf_fapiao{
+    display:flex;
+    justify-content:space-between;
+    padding-left:0.373333rem;
+    padding-right:0.373333rem;
+    height:1.066667rem;
+    line-height:1.066667rem;
+    text-align:center;
+    font-size:0.373333rem;
+    background:white;
+}
+.lzf_fapiao h4{
+    display:flex;
+}
+.lzf_fapiao h4 i{
+    font-size:0.37555555rem;
+}
+
+.lzf_transport{
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    height:0.933333rem;
+    background:white;
+}
+

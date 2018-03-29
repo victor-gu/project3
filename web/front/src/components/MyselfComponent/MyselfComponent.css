@@ -256,17 +256,7 @@
 #aboutus ul li i{
     font-size:1.1rem;
 }
-/*修复底部三个字体图标中第二个图标的样式怪异问题*/
-#aboutus ul li:nth-child(2){
-    padding-top:0;
-}
-#aboutus ul li:nth-child(2) i{
-    font-size:1.133333rem;
-    font-weight:bold;
-}
-#aboutus ul li:nth-child(2) span{
-    margin-top:0.16333rem;
-}
+
 /*页面最底部的官网认证信息*/
 #aboutus .lzf_license{
     margin-top:0.19rem;

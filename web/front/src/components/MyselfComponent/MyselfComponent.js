@@ -1,6 +1,6 @@
 import React,{Component} from 'react' 
 import {Link,hashHistory,browserHistory} from 'react-router'
-import '../../common/common.css'
+// import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
 import '../MyselfComponent/iconfont/lzffont/iconfont.css'
@@ -235,7 +235,7 @@ export default class MyselfComponent extends Component{
                                          <span>客户端</span>
                                      </li>
                                      <li>
-                                         <i className="iconfont">&#xe61e;</i>
+                                         <i className="iconfont ">&#xe644;</i>
                                          <span>触屏版</span>
                                      </li>
                                      <li>
