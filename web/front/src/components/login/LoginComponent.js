@@ -11,7 +11,7 @@ export default class SortComponent extends Component{
                     window.sessionStorage.setItem('xxtoken',res.data)
                     window.sessionStorage.setItem('userid',res.data1[0]._id)
                     window.sessionStorage.setItem('username',this.refs.name.value)
-                    //location.href ='/'
+                    location.href ='/'
                 }else{
                     alert("用户名或密码有误");
                     this.refs.name.value=null;
