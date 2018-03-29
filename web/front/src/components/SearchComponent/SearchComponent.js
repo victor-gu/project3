@@ -25,7 +25,7 @@ export default class SearchComponet extends Component{
         }, ()=>{
             this.state.proParams = this.state.proParams
             if(this.state.proParams !== ''){
-                http.get('backproducts', {title: this.state.proParams}).then((res)=>{
+                http.get('frontProducts', {title: this.state.proParams}).then((res)=>{
                     // console.log(res);
                     this.setState({
                         inputeventdata: res.data,
@@ -69,7 +69,7 @@ export default class SearchComponet extends Component{
     realsearch(){
         var currentkeyword = this.refs.productsTitle.value;     
         if(this.state.proParams !== ''){
-            http.get('backproducts', {title: currentkeyword}).then((res)=>{
+            http.get('frontProducts', {title: currentkeyword}).then((res)=>{
                 // console.log(res);
                 this.setState({
                     ajaxdataset : res.data,

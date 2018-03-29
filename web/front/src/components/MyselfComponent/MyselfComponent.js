@@ -21,20 +21,19 @@ export default class MyselfComponent extends Component{
         }
     }
     
-    componentDidMount(){     
+    componentWillMount(){     
         let randomid = Math.ceil(Math.random()*10);
-        // console.log(randomid);
-        http.get('backproducts',{page:randomid, limit:3}).then((res)=>{
-            // console.log(res.data);
+        
+        http.get('frontProducts',{page:randomid, limit:3}).then((res)=>{
+            console.log(res);
             this.setState({
-                dataset: res.data
+                dataset: res.data || []
             })
         })
     }
 
     //点击跳转传递商品id参数到详情页/goods
     gotodet(id){
-        // console.log(id);
         var path = '/goods/' + id; 
         hashHistory.push(path);
         window.sessionStorage.setItem("goodsid", id);

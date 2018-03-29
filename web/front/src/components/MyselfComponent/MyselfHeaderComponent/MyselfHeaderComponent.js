@@ -7,7 +7,10 @@ import '../iconfont/lzffont/iconfont.css'
 import './lzfheader.css'
 
 export default class MyselfComponent extends React.Component{
-
+    componentWillMount(){
+        let userid = sessionStorage.getItem("userid");
+        console.log(userid);
+    }
     render(){
         return(
             <div className = "lzf_topnavfixed" ref="lzf_header">
