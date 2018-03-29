@@ -28,24 +28,33 @@ export default class CartComponent extends Component{
         var all = document.querySelector(".all");
         var hobby = document.querySelectorAll(".list li .left input");
         var totalPrice = document.querySelector(".totalPrice");
-        console.log(totalPrice);
+
+        console.log(hobby);
         all.onclick = function(){
             for(var i=0;i<hobby.length;i++){
                 hobby[i].checked = all.checked;
-                if(all.checked){
-                    var price = hobby[i].parentElement.parentElement.children[1].children[1].children[0].children[0].innerText*1;
-                    var num = hobby[i].parentElement.parentElement.children[1].children[1].children[1].children[0].innerText*1;
-                    totalPrice.innerText = price * num;
-                }else{
-                    totalPrice.innerText = 0;
-                }
+                count()
             }
         }
         for(var i=0;i<hobby.length;i++){
             hobby[i].onclick = function(){
                 all.checked = isCheckAll();
+                count()
             }
         }
+
+        function count(){
+            var total = 0;
+            for(var i=0; i<hobby.length; i++){
+                var price = hobby[i].parentElement.parentElement.children[1].children[1].children[0].children[0].innerText*1;
+                var num = hobby[i].parentElement.parentElement.children[1].children[1].children[1].children[0].innerText*1;
+                if(hobby[i].checked){
+                    total += price * num;
+                    totalPrice.innerText = total;
+                }
+            }
+        }
+        
         function isCheckAll(){
             var res = true;
             for(var i=0;i<hobby.length;i++){

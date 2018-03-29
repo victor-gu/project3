@@ -194,7 +194,7 @@ class PageComponent extends Component{
 			</div>
 		)
 
-		return pages > 5 ? page1 : page2;
+		return pages > 6 ? page1 : page2;
 	}
 }
 

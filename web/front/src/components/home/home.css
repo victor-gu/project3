@@ -64,6 +64,9 @@
     height:5.333333rem;
     width:100%;
 }
+.block{
+    z-index: -1000;
+}
 
 .homepage .homeContent .lunbo img,.el-carousel,.el-carousel__container{
     height:5.32rem;
@@ -108,6 +111,10 @@
     align-items:center;
 }
 .homepage .homeContent .contenBanner ul li{
+    width: 1.866667rem;
+    height:1.833333rem;
+}
+.homepage .homeContent .contenBanner ul li a{
     width: 1.866667rem;
     height:1.833333rem;
     display:flex;

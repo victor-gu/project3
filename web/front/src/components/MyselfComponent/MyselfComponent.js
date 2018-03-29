@@ -21,24 +21,29 @@ export default class MyselfComponent extends Component{
         }
     }
     
-    componentDidMount(){
-        http.get('backproducts',{page:2, limit:3}).then((res)=>{
-            console.log(res.data);
+    componentDidMount(){     
+        let randomid = Math.ceil(Math.random()*10);
+        // console.log(randomid);
+        http.get('backproducts',{page:randomid, limit:3}).then((res)=>{
+            // console.log(res.data);
             this.setState({
                 dataset: res.data
             })
         })
     }
 
-    //点击跳转传递商品id参数到详情页goods
+    //点击跳转传递商品id参数到详情页/goods
     gotodet(id){
-        console.log(id);
+        // console.log(id);
         var path = '/goods/' + id; 
         hashHistory.push(path);
+        window.sessionStorage.setItem("goodsid", id);
     }
+
 
     render(){
         let baseurl = 'src/static/img/'
+        let currenttime = new Date().toLocaleTimeString();
         return (
             <div className="home">             
                <div className="homeHeader"></div>
@@ -188,7 +193,7 @@ export default class MyselfComponent extends Component{
                                  <h3>我的消息</h3>
                                  <ul>
                                     {this.state.dataset.map(item =>
-                                       <li key={item._id} onClick={this.gotodet.bind(this, item._id)}><div className="title"><span>为您推荐</span><span className="time">今天12:00</span></div><div className="prolist"><img src={baseurl + item.img}/><div className="msglist"><span className="proname">{item.title}</span><span>￥{item.price}</span></div></div></li>
+                                       <li key={item._id} onClick={this.gotodet.bind(this, item._id)}><div className="title"><span>为您推荐</span><span className="time">{currenttime}</span></div><div className="prolist"><img src={baseurl + item.img}/><div className="msglist"><span className="proname">{item.title}</span><span>￥{item.price}</span></div></div></li>
                                     )}
                                  </ul>
                              </div>

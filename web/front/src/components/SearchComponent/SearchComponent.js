@@ -165,7 +165,7 @@ export default class SearchComponet extends Component{
             <div className="lzf_search_wholebody" >
 
                 <div className="lzf_search_box">
-                    <Link to = "mine"><i className="iconfont lzf_left">&#xe602;</i></Link>
+                    <Link to = "/"><i className="iconfont lzf_left">&#xe602;</i></Link>
                     <div className="inputvalbox">
                         <i className="iconfont lzf_big">&#xe60b;</i>
                         <input type="text" onChange={this.getval.bind(this)} ref="productsTitle"/>
