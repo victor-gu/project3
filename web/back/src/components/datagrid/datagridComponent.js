@@ -28,6 +28,11 @@ class DatagridComponent extends Component{
   //       this.props.refresh(this.props.config)
   //   }
   	componentDidUpdate(){
+
+  		if(this.props.error){
+  			// console.log(this.props.error)
+			return this.props.router.push('/login')
+		}
   		if(this.props.config.name == 'student' || this.props.config.name == 'admins'){
 			// console.log($('.delBtn'));
 			for(let i=0;i<$('.delBtn').length;i++){
@@ -54,7 +59,7 @@ class DatagridComponent extends Component{
 		return item ? Object.keys(item) : [];
 	}
 	compile(idx){
-		let ds = this.deCommon(this);
+		// let ds = this.deCommon(this);
 		let type= 'compile';
 		// console.log(ds[idx]);引用
 		// this.setState({
@@ -152,7 +157,8 @@ const mapStateToProps = (state) =>{
 	return {
 		dataset: state.datagrid,
 		show: state.datagrid.show,
-		txt: state.dictionary.txt
+		txt: state.dictionary.txt,
+		error:state.datagrid.error
 	}
 }
 

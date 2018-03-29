@@ -14,7 +14,7 @@ export default {
             http
             .get(url)
             .query(_params || {})
-            .set('Authorization', window.sessionStorage.getItem('dktoken'))
+            .set('Authorization', window.sessionStorage.getItem('lxtoken'))
             .end((error,res)=>{
                 // console.log(res.body)
                 if(error){
@@ -32,7 +32,7 @@ export default {
             .post(url)
             .send(_params || {},)
             .set('Content-Type', 'application/x-www-form-urlencoded')
-            .set("Authorization", window.sessionStorage.getItem('dktoken'))
+            .set("Authorization", window.sessionStorage.getItem('lxtoken'))
             .end((error,res)=>{
                 if(error){
                     reject(error)

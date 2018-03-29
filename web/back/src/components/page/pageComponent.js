@@ -9,9 +9,13 @@ import * as action from '../datagrid/datagridaction'
 
 class PageComponent extends Component{
 	state = {
-		num:3
+		num:3,
+
 	}
-	componentDidMount(){
+	componentWillMount(){
+		this.setState({
+			page: this.props.config.data.page - 1
+		})
 		//这个钩子函数只执行一次
 		// console.log('componentDidMount');
 		// $('.p1').hide();
@@ -26,7 +30,7 @@ class PageComponent extends Component{
 	}
 	componentDidUpdate(prevPros,prevState){
 		// console.log(prevState,'11',this.state.num);
-		let ds = this.defaultPage(this);
+		let ds = this.defaultInit(this,1);
 		$('.mid').addClass('active').siblings().removeClass('active')
 		if((prevState.idx || prevState.num) <= 3){
 			$('.p1').hide();
@@ -53,13 +57,15 @@ class PageComponent extends Component{
 					break;
 			}
 		}
+		
 		// 第一页高亮
-		if(!prevState.page && $('.search-input').val()){
-			// console.log($('.search-input').val());
+		if(prevState.page==0 && $('.search-input').val()){
+			// console.log('gaoliang');
 			$($('.page-li')[0]).addClass('active');
 			
 		}
-		if(prevState.page){
+		if(prevState.page>0){
+			// $($('.page-li')[0]).addClass('active');
 			$($('.page-li')[prevState.page - 1]).addClass('active').siblings().removeClass('active');
 		}
 		
@@ -121,15 +127,19 @@ class PageComponent extends Component{
 			// console.log(this.state);
 		})
 	}
-	defaultPage(){
+	defaultInit(el,kt){
 		let ds = this.props.pageMent;
+		let dp = null;
 		let name = this.props.config.name;
 		if(name){
 			ds = ds[name] ? ds[name].count : 0
+			dp = ds[name] ? ds[name].pageDefault :0
 		}else{
 			ds = ds.count || 0;
+			dp = ds.defaultPage || 0;
 		}
-		return ds;
+		// console.log(kt) 
+		return kt ? ds : dp;
 	}
 
 	render(){
@@ -157,7 +167,7 @@ class PageComponent extends Component{
 		// }else{
 		// 	ds = ds.count || 0;
 		// }
-		let ds = this.defaultPage(this);
+		let ds = this.defaultInit(this,1);
 		let pages = Math.ceil(ds/this.props.config.data.limit)
 		// console.log(pages);
 		let pageArr = [];
@@ -201,7 +211,7 @@ class PageComponent extends Component{
 const mapPageState = (state)=>{
 	// console.log(state)
 	return {
-		pageMent:state.datagrid
+		pageMent:state.datagrid,
 	}
 }
 
