@@ -1,9 +1,23 @@
 import React from 'react'
 import {Link} from 'react-router'
+import http from '../../../utils/httpclient'
+
 import './PhoneMore.css'
 
 export default class PhoneMoreComponent extends React.Component{
+    componentWillMount(){
+        http.get('frontApoproducts',{category:'华为手机'}).then((res)=>{
+            this.setState({
+                moredata:res.data,
+            }) 
+        })
+        console.log(this)
+    }
+    state={
+        moredata:[]
+    }
     render(){
+        console.log(this.state.moredata)
         return(
             <div className="phoneMore">
                 

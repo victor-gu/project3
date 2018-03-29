@@ -10,7 +10,6 @@ import Section5Component from './section/Section5Component'
 import Section6Component from './section/Section6Component'
 import Section7Component from './section/Section7Component'
 
-
 import LunboComponent from '../home/lunbo/LunboComponent'
 import JxComponent from '../home/jingxuan/JxComponent'
 import TetuiComponent from '../home/tetui/TetuiComponent'
@@ -22,11 +21,13 @@ import './home.css'
 export default class HomeComponent extends Component{
     
     componentDidMount(){ 
-         
+        clearInterval(this.timer)
     }
     
     
     componentWillMount(){
+        var username = window.sessionStorage.getItem('username');
+        console.log(username)
         this.setState({spinnerShow:true})
         http.get('frontApoproducts',{}).then((res)=>{
             this.setState({
@@ -37,13 +38,12 @@ export default class HomeComponent extends Component{
     }
     state = {
         wayslData:[],
+        moredata:[],
         spinnerShow:true,
     }
 
     zhuangtai(){
-
-        var username = window.sessionStorage.getItem('username');
-
+         var username = window.sessionStorage.getItem('username');
     }
     
     render(){
