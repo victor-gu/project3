@@ -2,10 +2,14 @@ import React from 'react'
 import {Link,hashHistory} from 'react-router'
 export default class Section2Component extends React.Component{
       //组件通信-----传递产品id到商品详情页
-    gotodet(id){
-        // console.log(id);
-        var path = '/goods/' + id; 
-        hashHistory.push(path);
+    // gotodet(id){
+    //     // console.log(id);
+    //     var path = '/goods/' + id; 
+    //     hashHistory.push(path);
+    //     window.sessionStorage.setItem("goodsid", id);
+    // }
+     gotodet(id){
+        location.href="#/goods"
         window.sessionStorage.setItem("goodsid", id);
     }
     render(){
@@ -31,7 +35,7 @@ export default class Section2Component extends React.Component{
                                 if(b>=0){
                                         return(
                                             <li key={item._id} onClick={this.gotodet.bind(this,item._id)}>
-                                                <img src="../../../../src/components/home/img/1521290855364.jpg" />
+                                                <img src={"./src/static/img/"+item.img}/>
                                                 <h6>{item.name}</h6>
                                                 <p>{item.title}</p>
                                                 <p className="money"><span>￥</span><span>{item.price}</span></p>
