@@ -4,7 +4,7 @@ import {Link} from "react-router";
 import "./DetailsComponent.scss";
 
 export default class DetailsComponent extends React.Component{
-    componentWillMount(){
+   componentWillMount(){
         console.log(this);
         this.props.router.push({pathname:'goods'})
     }

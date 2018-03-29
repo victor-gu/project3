@@ -1,7 +1,5 @@
 import React,{Component} from 'react' 
-
-
-
+import {Link,hashHistory,browserHistory} from 'react-router'
 import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
@@ -22,19 +20,25 @@ export default class MyselfComponent extends Component{
             dataset: []
         }
     }
-    //http://10.3.136.210:8080/products?page=2&limit=10
+    
     componentDidMount(){
-        http.get('backProducts',{page:2, limit:5}).then((res)=>{
-            // console.log(res);
+        http.get('backproducts',{page:2, limit:3}).then((res)=>{
             console.log(res.data);
             this.setState({
                 dataset: res.data
             })
         })
-        // console.log(dataset);
     }
+
+    //点击跳转传递商品id参数到详情页goods
+    gotodet(id){
+        console.log(id);
+        var path = '/goods/' + id; 
+        hashHistory.push(path);
+    }
+
     render(){
-        // console.log(dataset);
+        let baseurl = 'src/static/img/'
         return (
             <div className="home">             
                <div className="homeHeader"></div>
@@ -120,8 +124,10 @@ export default class MyselfComponent extends Component{
                                          <span>收货地址</span>
                                      </li>
                                      <li>
-                                         <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_m_easyBuy.png"/>
-                                         <span>优享购</span>
+                                         <Link to = "search">
+                                             <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_m_easyBuy.png"/>
+                                             <span>优享购</span>
+                                         </Link>
                                      </li>
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_m_optimal.png"/>
@@ -176,43 +182,27 @@ export default class MyselfComponent extends Component{
                                  </ul>
                              </div>
 
+                            
+    
                              <div id="lzf_mesbox">
                                  <h3>我的消息</h3>
                                  <ul>
                                     {this.state.dataset.map(item =>
-                                        // {
-                                        //     this.state.dataset.map(item => {
-                                        //     <li key={item._id}>
-                                        //         <div className="title">
-                                        //             <span>为您推荐</span>
-                                        //             <span className="time">今天12:00</span>
-                                        //         </div>
-
-                                        //         <div className="prolist">
-                                        //             <img src="https://res.vmallres.com/pimages//recommendmsg/2017122911347005.png"/>
-                                        //             <div className="msglist">
-                                        //                 <span className="proname">{item.title}</span>
-                                        //                 <span>每周一二三开枪</span>
-                                        //             </div>                               
-                                        //         </div>
-                                        //     </li>
-                                        //     )
-                                        // }
-                                       <li key={item._id}><div className="title"><span>为您推荐</span><span className="time">今天12:00</span></div><div className="prolist"><img src="./src/img/1.jpg"/><div className="msglist"><span className="proname">{item.title}</span><span>￥{item.price}</span></div></div></li>
+                                       <li key={item._id} onClick={this.gotodet.bind(this, item._id)}><div className="title"><span>为您推荐</span><span className="time">今天12:00</span></div><div className="prolist"><img src={baseurl + item.img}/><div className="msglist"><span className="proname">{item.title}</span><span>￥{item.price}</span></div></div></li>
                                     )}
                                  </ul>
                              </div>
 
                              <div id="loginnotice">
                                  <span>登录即可查看全部动态消息</span>
-                                 <span className="loginlink">现在登录</span>
+                                 <Link to ="login"><span className="loginlink">现在登录</span></Link>
                              </div>
 
                              <div id="aboutus" className="lzf_liststyle0">
                                  <div className="lzf_login1">
                                      <p>
-                                         <span>登录</span>
-                                         <span>反馈</span>
+                                        <Link to ="login"><span>登录</span></Link>
+                                        <span>反馈</span>
                                      </p>
                                  </div>
                                  <ul>
