@@ -1,13 +1,17 @@
 import React,{Component} from 'react' 
 import '../../common/common.css'
 import './LoginComponent.css'
+import http from '../../utils/httpclient'
 
 export default class SortComponent extends Component{
     tologin(){
-        console.log(666)
-    }
-    baseurl(){
-      return './src/components/sort/imgs/'
+        http.get('login',{username:this.refs.name.value,password:this.refs.pass.value}).then((res) => {
+                if(res.status){
+                    location.href ='/'
+                }else{
+                    alert("用户名或密码有误")
+                }
+            })
     }
     render(){
         return (          
@@ -18,10 +22,10 @@ export default class SortComponent extends Component{
                     </div>
                     <div className="login-body">
                         <div>
-                            <input type="text" placeholder="用户名"/>
+                            <input type="text" placeholder="用户名" ref="name"/>
                         </div>
                         <div>
-                            <input type="password" placeholder="密码"/>
+                            <input type="password" placeholder="密码" ref="pass"/>
                         </div>
                         <div>
                             <input type="button" value="登录" className="btn" onClick={this.tologin.bind(this)}/>
@@ -38,8 +42,8 @@ export default class SortComponent extends Component{
                             <span>其他登录方式</span>
                         </div>
                         <div className="foot">
-                            <span className="qq"><img src={this.baseurl()+'qq.png'}/></span>
-                            <span className="alipay"><img src={this.baseurl()+"alipay.png"}/></span>
+                            <span className="qq"><img src={'./src/components/sort/imgs/qq.png'}/></span>
+                            <span className="alipay"><img src={'./src/components/sort/imgs/alipay.png'}/></span>
                         </div>
                     </div>
                 </div>

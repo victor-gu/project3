@@ -25,7 +25,7 @@ export default class SearchComponet extends Component{
         }, ()=>{
             this.state.proParams = this.state.proParams
             if(this.state.proParams !== ''){
-                http.post('http://localhost:8080/projectfuzzy', {name: this.state.proParams}).then((res)=>{
+                http.get('backproducts', {title: this.state.proParams}).then((res)=>{
                     // console.log(res);
                     this.setState({
                         inputeventdata: res.data,
@@ -69,7 +69,7 @@ export default class SearchComponet extends Component{
         var currentkeyword = this.refs.productsTitle.value;
        
         if(this.state.proParams !== ''){
-            http.post('http://localhost:8080/projectfuzzy', {name: currentkeyword}).then((res)=>{
+            http.get('backproducts', {title: currentkeyword}).then((res)=>{
                 // console.log(res);
                 this.setState({
                     ajaxdataset : res.data,

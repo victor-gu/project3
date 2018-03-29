@@ -8,7 +8,11 @@ import MyselfComponent from '../components/MyselfComponent/MyselfComponent'
 import LoginComponent from '../components/login/LoginComponent'
 import RegComponent from '../components/reg/RegComponent'
 
+
 import SearchComponentlzf from '../components/SearchComponent/SearchComponent.js'
+
+import NewComponent from '../components/home/lunbo/LunboComponent'
+
 
 import DetailsComponent from "../components/DetailsComponent/DetailsComponent";
 import GoodsComponent from "../components/DetailsComponent/GoodsComponent/GoodsComponent";
@@ -26,7 +30,11 @@ export default (
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
 
+
         <Route path="/search" component={SearchComponentlzf}/>
+
+
+        <Route path="/news" component={NewComponent} />
 
         <Route path="/details" component={DetailsComponent}>
             <Route path="/goods(/:goodsid)" component={GoodsComponent}/>

@@ -1,20 +1,22 @@
-
+/******************************header***********************************/
+.hompage{
+    width:100%;
+    overflow:hidden;
+}
 .homepage .homeHeader .homeHeader_1{
-    /*background-color: white;*/
     height:1.066667rem;
     width:100%;
-    /*background-color: yellow;*/
     position: fixed;
     top: 0;
     left: 0;
     width:100%;
     z-index: 100;
-    margin:0 auto;
-    font-size: 32px;
+    font-size: 0.426667rem;
     display:flex;
     justify-content: space-around;
     line-height: 1.066667rem;
-    border-bottom: 0.013333rem solid;
+    padding-left: 0.333333rem;
+    padding-right: 0.266667rem;
 }
 .homepage .homeHeader .homeHeader_1 .homeInput{
     height:0.8rem;
@@ -25,16 +27,16 @@
 }
 .homepage .homeHeader .homeHeader_1 .homeInput input{
     height:0.8rem;
-    width:6.133333rem;
+    width:7.133333rem;
     border-radius:0.4rem 0.4rem ;
     border:0;
-    padding: 0 0 0 0.933333rem;
-    font-size: 36px;
-    color:black;
-    background-color: lightgray;
+    /*padding: 0 0 0 0.933333rem;*/
+    font-size: 0.40rem;
+    color:#A3A3A3;
+    background-color: #EDEDED;
 } 
 .homepage .homeHeader .homeHeader_1 .homeInput i{
-    font-size: 50px;
+    font-size: 0.533333rem;
     position:absolute;
     top: 67%;
     left:0.266667rem;
@@ -42,24 +44,55 @@
     color:gray;
 }
 .homepage .homeHeader .homeHeader_1>i{
-    font-size: 48px;
+    font-size: 0.64rem;
 }
 
 
+/******************************content***********************************/
 
 .wayslContent{
-    background-color:#ccc;
+    width:100%;
+    background-color:#EDEDED;
+    overflow:hidden;
 }
-.homepage .homeContent .lunbo{
+
+
+.homepage .homeContent .lunbo,.el-carousel{
     height:5.333333rem;
     width:100%;
-    border-bottom: 0.013333rem solid;
 }
+
+.homepage .homeContent .lunbo img,.el-carousel,.el-carousel__container{
+    height:5.32rem;
+    width:100%;
+
+}
+
+.homepage .homeContent .lunbo .el-icon-arrow-right{
+    height:0.8rem;
+    width:0.8rem;
+}
+.el-carousel__indicators{
+    width:5.333333rem;
+    height:0.6rem;
+}
+.el-carousel__indicators li button{
+    height:0.03rem;
+    width:0.666667rem;
+}
+.el-carousel__arrow {
+    height:1.0rem;
+    width:1.0rem;
+    font-size: 0.733333rem;
+    top:44%;
+}
+
 .homepage .homeContent .contenBanner {
     background-color: white;
     height:2.133333rem;
     width:100%;
-    border-bottom: 0.013333rem solid ;
+    display:flex;
+    justify-content: center;
 }
 .homepage .homeContent .contenBanner ul{
     height:2.133333rem;
@@ -69,50 +102,240 @@
     align-items:center;
 }
 .homepage .homeContent .contenBanner ul li{
-    width: 1.333333rem;
-    height:1.333333rem;
+    width: 1.866667rem;
+    height:1.833333rem;
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-
+    justify-content: center;
 }
 .homepage .homeContent .contenBanner ul li div{
    flex:1;
    width:100%;
+   display:flex;
+   justify-content: center;
 }
 .homepage .homeContent .contenBanner ul li div img{
     height:0.9rem;
     width:0.9rem;
-    margin-left: 0.266667rem;
 }
 .homepage .homeContent .contenBanner ul li span{
-    font-size: 24px;
-    flex:1;
+    text-align: center;
+    font-size: 0.32rem;
+    flex:0.8;
+}
+
+.homepage .homeContent .tetui ul{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+    height:6.9rem;
+    background-color: white;
+}
+.homepage .homeContent .tetui ul li{
+    height:6.8rem;
+    width:4.933333rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.homepage .homeContent .tetui ul li img{
+    height:3.33433rem;
+    width:4.933333rem;
+}
+.homepage .homeContent .tetui ul li .tetui_1>img{
+    height:6.8rem;
+    width:4.933333rem;
+}
+
+.homepage .homeContent .news{
+    height:1.066667rem;
+    width:100%;
+    padding:0 0.4rem;
+    margin-top: 0.12rem;
+    background-color: white;
+    display:flex;
+    line-height: 1.066667rem;
+    justify-content: space-between;
+}
+.homepage .homeContent .news h5{
+    color: red;
+}
+.homepage .homeContent .news ul{
+    overflow:hidden;
+    font-size: 0.32rem;
+    width:6.266667rem;
+}
+.homepage .homeContent .news span{
+    font-size: 0.426667rem;
+}
+.homepage .homeContent .news span i{
+    font-size: 0.426667rem;
 }
 
 
+.homepage .homeContent .Zhuanqu{
+    margin-top: 0.12rem;
+    height:1.386667rem;
+    width:4.933333rem;
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+}
+.homepage .Zhuanqu img{
+    height:1.386667rem;
+    width:4.933333rem;
+}
 
+.homepage .wayslJxproduct{
+    background-color: white;
+    padding-bottom: 0.4rem;
+}
+.homepage .wayslJxproduct{
+    margin-top: 0.12rem;
+}
+.homepage .wayslJxproduct>div>p{
+    height:0.986667rem;
+    width:100%;
+    line-height: 0.986667rem;
+    padding-left: 0.4rem;
+}
+.Jxproduct{
+    position:relative;
+    height:4.033333rem;
+    overflow: hidden;
+    width:100%;
+}
+.Jxproduct ul{
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    font-size: 0.333333rem;
+    border-top:0.013333rem solid #ccc;
+    border-bottom: 0.013333rem solid #ccc;
+    justify-content: center;
+    overflow:auto;
+    display: -webkit-box;
+}
 
-
-
+.Jxproduct ul li{
+    height:4.453333rem;
+    min-width:3.586667rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-right: 0.013333rem solid #ccc;
+    border-left: 0.013333rem solid #ccc;
+    padding:0.266667rem 0.213333rem;
+}
+.Jxproduct ul li .imgp{
+    height:2.133333rem;
+    width:2.133333rem;
+    margin:0 auto;
+}
+.Jxproduct ul li .imgp img{
+    width:100%;
+    height:100%;
+}
+.Jxproduct>ul>li>p ,h6{
+    height:0.533333rem;
+    margin-top:0.066667rem;
+}
+.name_h6{
+     width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap; 
+}
+.Jxp{
+    width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap; 
+}
+/******************************content_sections***********************************/
 .homepage .Sections{
-    height:15.466667rem;
+    /*height:15.466667rem;*/
     width:100%;
     background-color: white;
-    border-top: solid 0.013333rem;
+    margin-top:0.12rem;
+}
+
+.homepage .Sections .sections_header{
+    height:0.986667rem;
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    padding:0 0.4rem;
+    line-height:0.986667rem;
+}
+.homepage .Sections .sections_header span{
+    display:block;
+    flex:1;
+}
+.homepage .Sections .sections_header span:last-child{
+    text-align: right;
+}
+.homepage .Sections .sections_header span i{
+    font-size: 0.32rem;
+}
+.homepage .Sections .section{
+    /*height:15.893333rem;*/
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.homepage .Sections .section .section_son ul{
+    display:flex;
+    justify-content:space-between;
+    width:100%;
+    font-size: 0.4rem;
+    flex-wrap: wrap;
+
+}
+.homepage .Sections .section .section_son ul li{
+    flex:1;
+    text-align: center;
+    margin-bottom: 0.133333rem;
+    min-width: 5.0rem;
+    height:4.88rem;
+}
+.homepage .Sections .section .section_son ul li:nth(2n+1){
+    margin-right: 0.133333rem;
+}
+
+.homepage .Sections .section .section_son ul li img{
+   width:100%;
+   height:3.066667rem;
+}
+.homepage .Sections .section .section_son ul li h6{
+   
+}
+.homepage .Sections .section .section_son ul li p{
+   color:lightgray;
+}
+.homepage .Sections .section .section_son ul li p span ,.money{
+   color:red;
 }
 
 
 
 
+
+
+
+/******************************bottom***********************************/
 
 .wayslContent_buttom{
     height:5.333333rem;
     width:100%;
     border-bottom: 0.013333rem solid #ccc;
     padding:0 0.613333rem 0 0.613333rem;
-    font-size: 24px;
+    font-size: 0.32rem;
     display:flex;
     justify-content: space-between;
     flex-direction: column;
@@ -171,7 +394,7 @@
 .wayslContent_buttom .content_buttom_3{
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: 20px;
+    font-size: 0.266667rem;
     height:1.6rem;
 } 
 .wayslContent_buttom .content_buttom_3 ul{
