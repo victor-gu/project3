@@ -21,12 +21,19 @@ class HeaderComponent extends Component{
 			hot: 'Hot',
 			handle: 'Handle',
 			compile: 'Compile',
-			del: 'Del',
+			del: 'Delete',
 			sure: 'Sure',
 			cancel: 'Cancel',
 			student: 'Student',
 			order: 'Order',
-			admin: 'Admin'
+			admin: 'Admin',
+			username: 'Username',
+			password: 'Password',
+			phone: 'Phone',
+			email: 'Email',
+			gender: 'Gender',
+			age: 'Age',
+
 		},
 		cn: {
 			add: '添加',
@@ -46,7 +53,13 @@ class HeaderComponent extends Component{
 			cancel: '取消',
 			student: '用户管理',
 			order: '订单管理',
-			admin: '管理员'
+			admin: '管理员',
+			username: '用户名',
+			password: '密码',
+			phone: '电话',
+			email: '邮件',
+			gender: '性别',
+			age: '年龄',
 		}
 	}
 	componentWillMount(){

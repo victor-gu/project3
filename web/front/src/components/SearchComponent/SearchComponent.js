@@ -11,14 +11,14 @@ export default class SearchComponet extends Component{
     state = {
         proParams: '',
             
-        HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X'],
+        HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X'],
 
         inputeventdata : [], 
 
         ajaxdataset : []
     }
 
-    // 模糊搜索获取信息功能
+    // 模糊搜索获取信息功能---边输入边获取数据
     getval(){
         this.setState({
             proParams: this.refs.productsTitle.value
@@ -35,7 +35,7 @@ export default class SearchComponet extends Component{
             }else{
                 this.setState({
                     inputeventdata : [],
-                    HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
+                    HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
                 })
             }
         })
@@ -47,6 +47,7 @@ export default class SearchComponet extends Component{
             proParams: event.target.innerText
         }, ()=>{
             this.refs.productsTitle.value = this.state.proParams
+            this.realsearch();
         })
     }
 
@@ -59,15 +60,14 @@ export default class SearchComponet extends Component{
             this.setState({
                 ajaxdataset : [],
                 inputeventdata:[],
-                HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
+                HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
             })
         })
     }
 
     //fuzzy搜索
     realsearch(){
-        var currentkeyword = this.refs.productsTitle.value;
-       
+        var currentkeyword = this.refs.productsTitle.value;     
         if(this.state.proParams !== ''){
             http.get('backproducts', {title: currentkeyword}).then((res)=>{
                 // console.log(res);
@@ -77,13 +77,15 @@ export default class SearchComponet extends Component{
                     HotDataset : []
                 })
             })
-        }    
+        } 
     }
 
+    //组件通信-----传递产品id到商品详情页
     gotodet(id){
         // console.log(id);
         var path = '/goods/' + id; 
         hashHistory.push(path);
+        window.sessionStorage.setItem("goodsid", id);
     }
 
 
@@ -147,7 +149,7 @@ export default class SearchComponet extends Component{
         let searchnull = (
             <ul>
                 {
-                    <li className="noneproducts">{"对不起查找不到相关产品"}</li>
+                    <li className="noneproducts">{"对不起，查找不到相关产品"}</li>
                 }
             </ul>
         )
@@ -166,7 +168,7 @@ export default class SearchComponet extends Component{
                     <Link to = "/"><i className="iconfont lzf_left">&#xe602;</i></Link>
                     <div className="inputvalbox">
                         <i className="iconfont lzf_big">&#xe60b;</i>
-                        <input placeholder = "HUAWEI nova 2s 荣耀V10" type="text" onChange={this.getval.bind(this)} ref="productsTitle"/>
+                        <input type="text" onChange={this.getval.bind(this)} ref="productsTitle"/>
                         <i className = "clearitem" onClick={this.clearsuggest.bind(this)}>x</i>
                     </div>
                     <div className="lzf_search_click" onClick={this.realsearch.bind(this)}>搜索</div>

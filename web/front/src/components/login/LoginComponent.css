@@ -8,7 +8,7 @@
         #login .login-body .rem{width:0.4rem;height:0.4rem;margin:0px;float:left;background:#fff;margin:0 0.266667rem;}
         #login .login-body .goto a{color:#2F98EA;line-height:1.333333rem;}
         #login .login-body .goto{height:1.333333rem;text-align:center;}
-        #login .login-body .goto .a-reg{margin-right:1.013333rem;}
+        #login .login-body .goto .a-reg{padding-right:1.013333rem;}
         #login .login-foot .other{height:0.013333rem;background: -webkit-linear-gradient(left,#fcfcfc,#cdcccc,#cdcccc,#fcfcfc);text-align:center;position:relative;}
         #login .login-foot .other span{position:absolute;left:3.013333rem;top:-0.186667rem;background:#fff;padding:0 0.533333rem;}
         #login .login-foot .foot{overflow:hidden;margin-top:0.666667rem;}
@@ -16,3 +16,4 @@
         #login .login-foot .foot img{width:1.066667rem;height:1.066667rem;}
         #login .login-foot .foot .qq{margin-left:3.653333rem;}
         #login .login-foot .foot .alipay{margin-left:0.533333rem;}
+        .tomain{margin-left:0.266667rem;text-decoration:underline;margin-top:0.266667rem;}
