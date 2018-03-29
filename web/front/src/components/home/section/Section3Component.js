@@ -24,7 +24,7 @@ export default class Section3Component extends React.Component{
                                 if(c>=0){
                                         return(
                                             <li key={item._id}>
-                                                <img src="../../../src/components/home/img/1507711722757.jpg" />
+                                                <img src="../../../src/components/home/img/1514167337999.jpg" />
                                                 <h6>{item.name}</h6>
                                                 <p>{item.title}</p>
                                                 <p className="money"><span>￥</span><span>{item.price}</span></p>

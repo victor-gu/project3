@@ -30,7 +30,6 @@ export default (
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
 
-
         <Route path="/search" component={SearchComponentlzf}/>
 
 

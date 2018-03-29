@@ -49,7 +49,9 @@ export default class HomeComponent extends Component{
                 <div className="homeHeader">
                     <div className="homeHeader_1">
                         <div className="homeInput">
+                            <Link to="/search">
                             <input type="button" value="HUAWEI nova 2s 荣耀V10"/>
+                            </Link>
                             <i className="iconfont icon-search"></i>
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
