@@ -48,11 +48,26 @@ export default class CartComponent extends Component{
             for(var i=0; i<hobby.length; i++){
                 var price = hobby[i].parentElement.parentElement.children[1].children[1].children[0].children[0].innerText*1;
                 var num = hobby[i].parentElement.parentElement.children[1].children[1].children[1].children[0].innerText*1;
+                // totalPrice.innerText = 0;
                 if(hobby[i].checked){
                     total += price * num;
                     totalPrice.innerText = total;
                 }
+                if(notCheckAll()){
+                    totalPrice.innerText = 0;
+                }
             }
+        }
+
+        function notCheckAll(){
+            var res = true;
+            for(var i=0;i<hobby.length;i++){
+                if(hobby[i].checked){
+                    res = false;
+                    break;
+                }
+            }
+            return res;
         }
         
         function isCheckAll(){
@@ -64,6 +79,16 @@ export default class CartComponent extends Component{
                 }
             }
             return res;
+        }
+    }
+
+    settle(){
+        var hobby = document.querySelectorAll(".list li .left input");
+        var arr = [];
+        for(var i=0; i<hobby.length; i++){
+            // if(){
+
+            // }
         }
     }
 
@@ -89,7 +114,7 @@ export default class CartComponent extends Component{
                             return (
                                     <li key={Math.random()*1000}>
                                         <div className="left">
-                                            <input className="int" type="checkbox" />
+                                            <input className="int" data-id={item._id} type="checkbox" />
                                             <img src={"./src/static/img/"+item.img}/>
                                         </div>
                                         
@@ -113,7 +138,7 @@ export default class CartComponent extends Component{
                     </p>
                     <div className="right">
                         <p className="total2">总计：￥<span className="totalPrice">0</span></p>
-                        <p className="total3">结算(3)</p>
+                        <p className="total3" onClick={this.settle}>结算(3)</p>
                     </div>
                 </div>
 
