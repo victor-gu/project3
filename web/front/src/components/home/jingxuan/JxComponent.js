@@ -7,8 +7,10 @@ export default class JxComponent extends React.Component{
     //组件通信-----传递产品id到商品详情页
     gotodet(id){
         console.log(id);
-        var path = '/goods/' + id; 
-        hashHistory.push(path);
+        // var path = '/goods/' + id; 
+        // hashHistory.push(path);
+        // window.sessionStorage.setItem("goodsid", id);
+        location.href="#/goods"
         window.sessionStorage.setItem("goodsid", id);
     }
 
