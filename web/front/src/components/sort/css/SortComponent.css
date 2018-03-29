@@ -6,7 +6,7 @@
     #sort .sort-head .i2{position:absolute;left:0.6rem;top:0.173333rem;font-size:0.533333rem;}
     #sort .sort-body{flex:1;display:flex;}
     #sort .sort-body .sort-left ul{border-right:0.006667rem solid #ddd;height:100%;box-shadow:0px 0px 0.16rem 0px #ddd;}
-    #sort .sort-body .sort-left li{height:1.28rem;width:2.266667rem;text-align:center;line-height:1.266667rem;font-weight:bold;font-size:0.373333rem;border-bottom:0.006667rem solid #ddd;}
+    #sort .sort-body .sort-left li{height:1.28rem;width:2.4rem;text-align:center;line-height:1.266667rem;font-weight:bold;font-size:0.373333rem;border-bottom:0.006667rem solid #ddd;}
     #sort .sort-body .sort-right{flex:1;overflow:auto;}
     #sort .sort-body .sort-right .side-bannar{height:1.093333rem;overflow:hidden;}
     #sort .sort-body .sort-right .right-bannar{overflow:auto;height:1.226667rem;}

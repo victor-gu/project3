@@ -1,0 +1,198 @@
+.goods{
+    img{
+        width:100%;
+        height:10.4rem;
+    }
+    .title{
+        font-size:30px;
+        font-weight:bold;
+        padding:0.4rem;
+    }
+    .price{
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+        img{
+            width:2.0rem;
+            height:0.8rem;
+        }
+        p{ 
+            margin-left:0.266667rem;
+        }
+        .price{
+            font-size:34px;
+            color:#BF1F1F;
+            font-weight:bold;
+        }
+        .Oprice{
+            text-decoration:line-through;
+        }
+    }
+    .des{
+        font-size:24px;
+        color:#A3A3A3;
+        span{
+            color:#E01D20;
+        }
+    }
+    .pei{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:0 0.533333rem;
+        font-size:24px;
+        .pei1{
+            display:flex;
+            align-items:center;
+            img{
+                width:1.066667rem;
+                height:1.066667rem;
+                margin-left:0.533333rem;
+            }
+        }
+        i{
+            font-size:24px;
+            margin-left:0.266667rem;
+        }
+    }
+    .ico{
+        padding:0.266667rem 0.533333rem;
+        background:#F6F6F6;
+        display:flex;
+        font-size:24px;
+        justify-content:space-between;
+        i{
+            font-size:28px;
+            color:#E01D20;
+            margin-left:0.133333rem;
+        }
+        .te{
+            color:#ccc;
+        }
+    }
+    dl{
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        font-size:28px;
+        padding:0.266667rem 0.533333rem;
+        border-bottom:0.013333rem solid #ccc;
+        dt{
+            margin-right:0.266667rem;
+        }
+        dd{
+            padding:0.066667rem 0.4rem;
+            border-radius:0.266667rem;
+            border:0.013333rem #000 solid;
+            margin-left:0.266667rem;
+        }
+    }
+    .num{
+        display:flex;
+        align-items:center;
+        font-size:28px;
+        padding:0.266667rem 0.533333rem;
+        .up{
+            width:0.8rem;
+            height:0.8rem;
+            margin-left:0.533333rem;
+            border-top-left-radius:0.266667rem;
+            border-bottom-left-radius:0.266667rem;
+            border:0 none;
+            font-size:40px;
+            background:#EAEAEA;
+        }
+        .text{
+            width:0.8rem;
+            height:0.8rem;
+            border:0.013333rem #ccc solid;
+            font-size:40px;
+            text-align:center;
+        }
+        .down{
+            width:0.8rem;
+            height:0.8rem;
+            border:0 none;
+            border-top-right-radius:0.266667rem;
+            border-bottom-right-radius:0.266667rem;
+            font-size:40px;
+            background:#EAEAEA;
+        }
+    }
+    .fuwu{
+        height:1.333333rem;
+        display:flex;
+        padding:0 0.533333rem;
+        justify-content:space-between;
+        font-size:24px;
+        align-items:center;
+        i{
+            font-size:30px;
+        }
+        span{
+            margin-left:0.533333rem;
+        }
+        .fuwu1{
+            color:red;
+        }
+    }
+}
+
+@media screen and (min-width:992px){
+    .goods .title{ font-size:50px; }
+    .goods .price .price{ font-size:60px; }
+    .goods .des{ font-size:40px; }
+    .goods .pei, .goods .pei i{ font-size:50px; }
+    .goods .ico{ font-size:50px; }
+    .goods .ico i{ font-size:50px; }
+    .goods dl{ font-size:50px; }
+    .goods .num{ font-size:50px; }
+    .goods .num .up, .goods .num .text, .goods .num .down{ font-size:60px; }
+    .goods .fuwu{ font-size:50px; }
+    .goods .fuwu i{ font-size:45px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {font-family: "iconfont";
+  src: url('../font2/iconfont.eot?t=1522151810484'); /* IE9*/
+  src: url('../font2/iconfont.eot?t=1522151810484#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('../font2/iconfont.ttf?t=1522151810484') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('../font2/iconfont.svg?t=1522151810484#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wancheng:before { content: "\e654"; }
+
+.icon-xiangzuo:before { content: "\e636"; }
+
+.icon-xiangyou:before { content: "\e666"; }
+
+.icon-xiangshang:before { content: "\e776"; }
+
+.icon-xiangxia:before { content: "\e518"; }
+

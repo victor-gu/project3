@@ -1,0 +1,24 @@
+img{
+    width:100%;
+}
+.des{
+    font-size:14px;
+    line-height:0.4rem;
+    padding:0.266667rem;
+    .one{
+        color:#C0504D;
+    }
+    .two, .three, .four{
+        text-indent:2em;
+    }
+    span{
+        color:#FE0000;
+    }
+}
+
+
+
+
+@media screen and (min-width:992px){
+    .des{ font-size:40px; }
+}

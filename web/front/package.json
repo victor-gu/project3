@@ -21,7 +21,7 @@
     "file-loader": "^0.9.0",
     "image-webpack-loader": "^3.3.0",
     "material-ui": "^0.18.1",
-    "node-sass": "^4.5.0",
+    "node-sass": "^4.8.3",
     "progress-bar-webpack-plugin": "^1.9.3",
     "react": "^15.5.4",
     "react-addons-update": "^15.6.0",
@@ -33,7 +33,7 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^5.0.1",
     "style-loader": "^0.16.1",
-    "superagent": "^3.5.2",
+    "superagent": "^3.8.2",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
