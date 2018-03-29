@@ -33,6 +33,7 @@ class ProductComponent extends Component{
 			},()=>{
 				// console.log(this.state.config);
 				this.props.refresh(this.state.config);
+
 			})
 		}
 		

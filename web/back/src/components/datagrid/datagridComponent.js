@@ -1,17 +1,21 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
+import $ from 'jquery'
 
 import * as action from './datagridaction'
 import SpinnerComponent from '../../spinner/SpinnerComponent'
 import ModalComponent from '../modal/modalComponent'
 import http from '../../utils/httpclient'
+import TcComponent from '../tanchuang/tcComponent'
+
 import './datagrid.scss'
 
 class DatagridComponent extends Component{
 	state = {
-		filler:['name','title','price','Oprice','number','category','hot'],
+		filler:['name','title','price','Oprice','number','category','hot','username','password','phone','email','gender','age'],
 		show:false,
-		currentData:[]
+		currentData:[],
+		showTc: false
 	}
 
 	componentWillMount(){
@@ -23,6 +27,17 @@ class DatagridComponent extends Component{
   //       console.log('Component WILL RECEIVE PROPS!', newProps)
   //       this.props.refresh(this.props.config)
   //   }
+  	componentDidUpdate(){
+  		if(this.props.config.name == 'student' || this.props.config.name == 'admins'){
+			// console.log($('.delBtn'));
+			for(let i=0;i<$('.delBtn').length;i++){
+				$($('.delBtn')[i]).addClass('yincang')
+			}
+
+		}else{
+			// console.log(231)
+		}
+  	}
   	deCommon(){
   		let ds = this.props.dataset;
 		let name = this.props.config.name;
@@ -56,7 +71,10 @@ class DatagridComponent extends Component{
 	delTr(idx){
 		// console.log('delTr,backDelproduct');
 		let ds = this.deCommon(this);
-		console.log(ds[idx]._id);
+		// console.log(ds[idx]._id);
+		// this.setState({
+		// 	showTc: true
+		// })
 		http.get('backDelproduct',{id: ds[idx]._id}).then((res)=>{
 			console.log(res);
 			if(res.status){
@@ -79,6 +97,9 @@ class DatagridComponent extends Component{
 		// 	ds = ds.dataset || [];
 		// }
 		let ds = this.deCommon(this);
+		let del = null;
+		
+		// del = <input type="button" className="btn btn-danger btn-sm" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
 
 		return (
 			<div>
@@ -111,7 +132,7 @@ class DatagridComponent extends Component{
 										}
 										<td className="last-td">
 											<input type="button" className="btn btn-secondary btn-sm" value={this.props.txt.compile} onClick={this.compile.bind(this,idx)}/>
-											<input type="button" className="btn btn-danger btn-sm" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
+											<input type="button" className="btn btn-danger btn-sm delBtn" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
 										</td>
 									</tr>
 								)
@@ -120,7 +141,7 @@ class DatagridComponent extends Component{
 					</tbody>
 				</table>
 				<SpinnerComponent show={this.props.show}/>
-				
+				<TcComponent show={this.state.showTc}/>
 			</div>
 		)
 	}
