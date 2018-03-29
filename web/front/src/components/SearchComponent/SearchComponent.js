@@ -18,7 +18,7 @@ export default class SearchComponet extends Component{
         ajaxdataset : []
     }
 
-    // 模糊搜索获取信息功能
+    // 模糊搜索获取信息功能---边输入边获取数据
     getval(){
         this.setState({
             proParams: this.refs.productsTitle.value
@@ -47,6 +47,7 @@ export default class SearchComponet extends Component{
             proParams: event.target.innerText
         }, ()=>{
             this.refs.productsTitle.value = this.state.proParams
+            this.realsearch();
         })
     }
 
@@ -66,8 +67,7 @@ export default class SearchComponet extends Component{
 
     //fuzzy搜索
     realsearch(){
-        var currentkeyword = this.refs.productsTitle.value;
-       
+        var currentkeyword = this.refs.productsTitle.value;     
         if(this.state.proParams !== ''){
             http.get('backproducts', {title: currentkeyword}).then((res)=>{
                 // console.log(res);
@@ -77,9 +77,10 @@ export default class SearchComponet extends Component{
                     HotDataset : []
                 })
             })
-        }    
+        } 
     }
 
+    //组件通信-----传递产品id到商品详情页
     gotodet(id){
         // console.log(id);
         var path = '/goods/' + id; 
@@ -166,7 +167,7 @@ export default class SearchComponet extends Component{
                     <Link to = "mine"><i className="iconfont lzf_left">&#xe602;</i></Link>
                     <div className="inputvalbox">
                         <i className="iconfont lzf_big">&#xe60b;</i>
-                        <input placeholder = "HUAWEI nova 2s 荣耀V10" type="text" onChange={this.getval.bind(this)} ref="productsTitle"/>
+                        <input type="text" onChange={this.getval.bind(this)} ref="productsTitle"/>
                         <i className = "clearitem" onClick={this.clearsuggest.bind(this)}>x</i>
                     </div>
                     <div className="lzf_search_click" onClick={this.realsearch.bind(this)}>搜索</div>
