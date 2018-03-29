@@ -30,7 +30,7 @@ class DatagridComponent extends Component{
   	componentDidUpdate(){
 
   		if(this.props.error){
-  			// console.log(this.props.error)
+  			console.log(this.props.error)
 			return this.props.router.push('/login')
 		}
   		if(this.props.config.name == 'student' || this.props.config.name == 'admins'){

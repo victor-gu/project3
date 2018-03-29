@@ -10,23 +10,7 @@ import * as action from '../datagrid/datagridaction'
 class PageComponent extends Component{
 	state = {
 		num:3,
-
-	}
-	componentWillMount(){
-		this.setState({
-			page: this.props.config.data.page - 1
-		})
-		//这个钩子函数只执行一次
-		// console.log('componentDidMount');
-		// $('.p1').hide();
-		// $('.p2').hide();
-		// this.setState({
-		// 	idx: 1
-		// },()=>{
-		// 	// console.log(this.state);
-		// })
-		// $('.one').addClass('active');
-
+		page: 0
 	}
 	componentDidUpdate(prevPros,prevState){
 		// console.log(prevState,'11',this.state.num);
@@ -57,7 +41,7 @@ class PageComponent extends Component{
 					break;
 			}
 		}
-		
+
 		// 第一页高亮
 		if(prevState.page==0 && $('.search-input').val()){
 			// console.log('gaoliang');

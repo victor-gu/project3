@@ -25,6 +25,7 @@ class ProductComponent extends Component{
 	componentDidUpdate(){
 		// console.log(this);
 		if(this.props.error){
+			console.log(this.props.error)
 			return this.props.router.push('/login')
 		}
 	}
