@@ -17,12 +17,10 @@ export default class CartComponent extends React.Component{
                 dataset:res.data[0]
             })
             console.log(this.state.dataset);
+            window.sessionStorage.setItem("products", JSON.stringify({img:this.state.dataset.img, title:this.state.dataset.title, price:this.state.dataset.price, number:$(".text").val()}));
         })
     }
 
-    
-        // window.sessionStorage.setItem("products", JSON.stringify({img:this.state.dataset.img, title:this.state.dataset.title, price:this.state.dataset.price, number:$(".text").val()}));
-    
 
     up(){
         this.setState({

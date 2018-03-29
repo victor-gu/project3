@@ -5,7 +5,7 @@ module.exports = {
     register:(app) => {
         
         // 商品的模糊查询，可以传一个title，不传title代表查询所有，也可以传page和limit来进行分页查询
-        app.get("/backproducts", (req, res) => {
+        app.get("/backproducts", filter, (req, res) => {
             let title = req.query.title;
             let page = req.query.page;
             let limit = req.query.limit;
@@ -18,7 +18,7 @@ module.exports = {
         })
 
         // 查找所有管理员信息,及分页
-        app.get("/backAdmin", (req, res) => {
+        app.get("/backAdmin", filter, (req, res) => {
             let page = req.query.page;
             let limit = req.query.limit;
             page1 = page ? (page-1)*limit : 0;
@@ -29,7 +29,7 @@ module.exports = {
         })
 
         // 查找所有用户信息,及分页
-        app.get("/backUsers", (req, res) => {
+        app.get("/backUsers", filter, (req, res) => {
             let page = req.query.page;
             let limit = req.query.limit;
             page1 = page ? (page-1)*limit : 0;
@@ -41,7 +41,7 @@ module.exports = {
 
 
         // 商品的价格范围查询, 可以传一个start代表价格大于start的商品，可以传一个end代表价格小于end的商品，传入end和start代表价格在start和end之间，不传参数代表查询所有
-        app.get("/rangeproducts", (req, res) => {
+        app.get("/rangeproducts", filter, (req, res) => {
             let start = req.query.start;
             let end = req.query.end;
             if(start == undefined && end == undefined){
@@ -60,7 +60,7 @@ module.exports = {
         })
 
         // 添加商品路由
-        app.get("/backAddproduct", (req, res) => {
+        app.get("/backAddproduct", filter, (req, res) => {
             let pramas = req.query;
             let objMarge = Object.assign({name:"荣耀V10", title:"荣耀V10 全网通高配版 6GB+64GB（魅丽红）", price:"2099", Oprice:"2199", img:"11.jpg", number:24, category:"荣耀手机", hot:""}, pramas);
             db.mongodb.insert("products", objMarge).then((result) => {
@@ -69,7 +69,7 @@ module.exports = {
         })
 
         // 删除商品路由
-        app.get("/backDelproduct", (req, res) => {
+        app.get("/backDelproduct", filter, (req, res) => {
             let id = req.query.id;
             let oid = db.mongodb.objectid(id);
             db.mongodb.delete("products", {"_id":oid}).then((result) => {
@@ -78,7 +78,7 @@ module.exports = {
         })
 
         // 更新商品路由
-        app.get("/backUpdproduct", (req, res) => {
+        app.get("/backUpdproduct", filter, (req, res) => {
             let id = req.query._id;
             let name = req.query.name;
             let title = req.query.title;

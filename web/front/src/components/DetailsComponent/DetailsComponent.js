@@ -27,9 +27,11 @@ export default class DetailsComponent extends React.Component{
         var product = Object.assign(
                 {user_id:window.sessionStorage.getItem("userid")},
                 JSON.parse(window.sessionStorage.getItem("products"))
-                )
+                );
         http.get("insertOrder", product).then((res)=>{
-            console.log("fff");
+            if(!res.status == true){
+                this.props.router.push({pathname:"/login"})
+            }
         })
     }
 
@@ -58,7 +60,7 @@ export default class DetailsComponent extends React.Component{
                         <i className="iconfont icon-gouwuche"></i>
                         购物车
                     </p>
-                    <p className="two" onClick={this.add}>加入购物车</p>
+                    <p className="two" onClick={this.add.bind(this)}>加入购物车</p>
                     <p className="three">立即购买</p>
                 </div>
             </div>
