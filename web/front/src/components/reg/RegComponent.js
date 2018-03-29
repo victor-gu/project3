@@ -13,7 +13,6 @@ export default class SortComponent extends Component{
                    // * 长度6-20
                 this.refs.user.style.background="#FFBFBF";
                 this.refs.user.value=null;
-                this.refs.user.focus();
         }else{
             this.refs.user.style.background="#EFEFEF"
         }
@@ -25,7 +24,6 @@ export default class SortComponent extends Component{
                 //   不能包含空格
                 this.refs.pass.style.background="#FFBFBF";
                 this.refs.pass.value=null;
-                this.refs.pass.focus();
             }else{
                 this.refs.pass.style.background="#EFEFEF"
             }
@@ -34,7 +32,6 @@ export default class SortComponent extends Component{
         if(this.refs.pass.value!=this.refs.pass2.value){
                 this.refs.pass2.style.background="#FFBFBF";
                 this.refs.pass2.value=null;
-                this.refs.pass2.focus();
             }else{
                 this.refs.pass2.style.background="#EFEFEF"
             }  
@@ -43,7 +40,6 @@ export default class SortComponent extends Component{
         if(!/^1[34578]\d{9}$/.test(this.refs.phone.value)){
                 this.refs.phone.style.background="#FFBFBF";
                 this.refs.phone.value=null;
-                this.refs.phone.focus();
             }else{
                 this.refs.phone.style.background="#EFEFEF"
             }
@@ -52,7 +48,6 @@ export default class SortComponent extends Component{
         if(!/^[a-z0-9_\-\.]{2,}@[a-z\d\-]{1,63}(\.[a-z\u2E80-\u9FFF]{2,6})+$/.test(this.refs.email.value)){
             this.refs.email.style.background="#FFBFBF";
             this.refs.email.value=null;
-            this.refs.email.focus();
         }else{
             this.refs.email.style.background="#EFEFEF"
         }
@@ -61,7 +56,6 @@ export default class SortComponent extends Component{
         if(!/^[0-9]{1,2}$/.test(this.refs.age.value)){
             this.refs.age.style.background="#FFBFBF";
             this.refs.age.value=null;
-            this.refs.age.focus();
         }else{
             this.refs.age.style.background="#EFEFEF"
         }

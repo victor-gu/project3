@@ -10,6 +10,7 @@ export default class SortComponent extends Component{
                 if(res.status){
                     window.sessionStorage.setItem('xxtoken',res.data)
                     window.sessionStorage.setItem('userid',res.data1[0]._id)
+
                     window.sessionStorage.setItem('username',this.refs.name.value)
                     location.href ='/'
                 }else{

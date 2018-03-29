@@ -5,7 +5,7 @@ export default function(api){
     return function(dispatch){
         //dispatch
         return function(action){
-            let {type, types, url, data, method = 'get', name} = action;
+            let {type, types, url, data, method = 'get', name,pageDefault = 0} = action;
             // console.log(JSON.stringify(action));
             if(!url){
                 //手动调用 reducer
@@ -16,13 +16,23 @@ export default function(api){
            
             http[method](url, data).then((res) => {
                 // console.log(res);
-                let _action = {
-                    type: constants.Requested,
-                    name,
-                    result: res.data,
-                    count:res.count
+                if(res.status){
+                    let _action = {
+                        type: constants.Requested,
+                        name,
+                        result: res.data,
+                        count:res.count,
+                        pageDefault
+                    }
+                    dispatch(_action)
+                }else{
+                    // 路由跳转
+                    // console.log(121212);
+                    dispatch({
+                        type:constants.RequestError,
+                        error: res.error
+                    });
                 }
-                dispatch(_action)
             }).catch((error) => {
                 dispatch({type: constants.RequestError})
             })

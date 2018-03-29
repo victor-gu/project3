@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {Link} from 'react-router'
+import {Link,hashHistory} from 'react-router'
 import NavComponent from '../nav/NavComponent'
 
 import Section1Component from './section/Section1Component'
@@ -39,7 +39,7 @@ export default class HomeComponent extends Component{
         wayslData:[],
         spinnerShow:true,
     }
-   
+    
     render(){
         return (
             <div className="home homepage">

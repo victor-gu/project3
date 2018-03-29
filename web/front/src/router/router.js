@@ -37,9 +37,7 @@ export default (
         <Route path="/nav" component={ContentNavComponent1} />
         <Route path="/tetui" component={TetuiComponent1} />
 
-        
         <Route path="/search" component={SearchComponentlzf}/>
-
 
         <Route path="/news" component={NewComponent} />
 

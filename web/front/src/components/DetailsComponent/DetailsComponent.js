@@ -3,16 +3,43 @@ import {Link} from "react-router";
 
 import "./DetailsComponent.scss";
 
+import http from "../../utils/httpclient";
+
 export default class DetailsComponent extends React.Component{
-   componentWillMount(){
-        console.log(this);
-        this.props.router.push({pathname:'goods'})
+
+
+
+   // componentWillMount(){
+   //      // this.props.router.push({pathname:'goods'})
+   //  }
+
+    back(){
+        history.back();
     }
+
+    shou(){
+        this.props.router.push({pathname:"/"});
+    }
+    cart(){
+        this.props.router.push({pathname:"/cart"});
+    }
+    add(){
+        var product = Object.assign(
+                {user_id:window.sessionStorage.getItem("userid")},
+                JSON.parse(window.sessionStorage.getItem("products"))
+                );
+        http.get("insertOrder", product).then((res)=>{
+            if(!res.status == true){
+                this.props.router.push({pathname:"/login"})
+            }
+        })
+    }
+
     render(){
         return (
             <div className="details">
                 <ul className="top">
-                    <li><i className="iconfont icon-fanhui"></i></li>
+                    <li><i className="iconfont icon-fanhui" onClick={this.back}></i></li>
                     <li><Link to="goods">商品</Link></li>
                     <li><Link to="picture">详情</Link></li>
                     <li><Link to="params">参数</Link></li>
@@ -25,15 +52,15 @@ export default class DetailsComponent extends React.Component{
                 </div>
 
                 <div className="bottom">
-                    <p className="one">
+                    <p className="one" onClick={this.shou.bind(this)}>
                         <i className="iconfont icon-shouye"></i>
                         首页
                     </p>
-                    <p className="one">
+                    <p className="one" onClick={this.cart.bind(this)}>
                         <i className="iconfont icon-gouwuche"></i>
                         购物车
                     </p>
-                    <p className="two">加入购物车</p>
+                    <p className="two" onClick={this.add.bind(this)}>加入购物车</p>
                     <p className="three">立即购买</p>
                 </div>
             </div>

@@ -1,11 +1,24 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
 import './home.scss'
 
 import HeaderComponent from './header/headerComponent'
 import NavComponent from './nav/navComponent'
 import AdminComponent from './admin/adminComponent'
+import http from '../../utils/httpclient'
 
-export default class HomeComponent extends Component{
+class HomeComponent extends Component{
+	
+	componentWillMount(){
+		http.get('backproducts').then((res)=>{
+			// console.log(res);
+			if(res.error && !res.status){
+				// console.log(this)
+				this.props.router.push('/login')
+			}
+		})
+	}
+
 	render(){
 		return (
 			<div>
@@ -27,3 +40,13 @@ export default class HomeComponent extends Component{
 		)
 	}
 }
+
+const mapPro = (state)=>{
+	// console.log(state)
+	return {
+		proData: state.datagrid,
+		txt: state.dictionary.txt,
+		error: state.datagrid.error
+	}
+}
+export default connect(mapPro)(HomeComponent)

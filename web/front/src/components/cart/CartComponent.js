@@ -1,11 +1,99 @@
 import React,{Component} from 'react' 
 import NavComponent from '../nav/NavComponent';
+import http from "../../utils/httpclient";
 import '../../common/common.css'
 
 import "./CartComponent.scss";
 
 export default class CartComponent extends Component{
+
+    state = {
+        dataset:[]
+    }
+
+    componentWillMount(){
+        http.get("userOrder", {id:window.sessionStorage.getItem('userid')}).then((res)=>{
+            console.log(res)
+            if(res.status == true){
+                this.setState({
+                    dataset:res.data
+                })
+            }else{
+                this.props.router.push({pathname:"/login"})
+            }
+        })
+    }
+
+    componentDidUpdate(){
+        var all = document.querySelector(".all");
+        var hobby = document.querySelectorAll(".list li .left input");
+        var totalPrice = document.querySelector(".totalPrice");
+
+        console.log(hobby);
+        all.onclick = function(){
+            for(var i=0;i<hobby.length;i++){
+                hobby[i].checked = all.checked;
+                count()
+            }
+        }
+        for(var i=0;i<hobby.length;i++){
+            hobby[i].onclick = function(){
+                all.checked = isCheckAll();
+                count()
+            }
+        }
+
+        function count(){
+            var total = 0;
+            for(var i=0; i<hobby.length; i++){
+                var price = hobby[i].parentElement.parentElement.children[1].children[1].children[0].children[0].innerText*1;
+                var num = hobby[i].parentElement.parentElement.children[1].children[1].children[1].children[0].innerText*1;
+                // totalPrice.innerText = 0;
+                if(hobby[i].checked){
+                    total += price * num;
+                    totalPrice.innerText = total;
+                }
+                if(notCheckAll()){
+                    totalPrice.innerText = 0;
+                }
+            }
+        }
+
+        function notCheckAll(){
+            var res = true;
+            for(var i=0;i<hobby.length;i++){
+                if(hobby[i].checked){
+                    res = false;
+                    break;
+                }
+            }
+            return res;
+        }
+        
+        function isCheckAll(){
+            var res = true;
+            for(var i=0;i<hobby.length;i++){
+                if(!hobby[i].checked){
+                    res = false;
+                    break;
+                }
+            }
+            return res;
+        }
+    }
+
+    settle(){
+        var hobby = document.querySelectorAll(".list li .left input");
+        var arr = [];
+        for(var i=0; i<hobby.length; i++){
+            // if(){
+
+            // }
+        }
+    }
+
     render(){
+        
         return (
           <div  className="home">
             <div className="homeHeader"></div>
@@ -19,129 +107,38 @@ export default class CartComponent extends Component{
                     </p>
                 </div>
 
-                <ul className="list">
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <div className="left">
-                            <input className="int" type="checkbox" />
-                            <img src="./src/components/cart/img/1.jpg"/>
-                        </div>
-                        
-                        <div className="tit">
-                            <p className="des">荣耀移动电源10000mAh快充版（白色）</p>
-                            <p className="price">
-                                <span className="price1">￥169</span>
-                                <span className="num">x1</span>
-                            </p>
-                        </div>
-                    </li>
+                <ul className="list" ref="chex">
+                   
+                    {
+                        this.state.dataset.map(function(item){
+                            return (
+                                    <li key={Math.random()*1000}>
+                                        <div className="left">
+                                            <input className="int" data-id={item._id} type="checkbox" />
+                                            <img src={"./src/static/img/"+item.img}/>
+                                        </div>
+                                        
+                                        <div className="tit">
+                                            <p className="des">{item.title}</p>
+                                            <p className="price">
+                                            <span className="price1">￥<i>{item.price}</i></span>
+                                            <span className="num">x<i>{item.number}</i></span>
+                                            </p>
+                                        </div>
+                                    </li>
+                                )
+                        })
+                    }
                 </ul>
 
                 <div className="total">
                     <p className="total1">
-                        <input type="checkbox"/>
+                        <input type="checkbox" className="all"/>
                         <span>全选</span>
                     </p>
                     <div className="right">
-                        <p className="total2">总计：<span>￥3266.00</span></p>
-                        <p className="total3">结算(3)</p>
+                        <p className="total2">总计：￥<span className="totalPrice">0</span></p>
+                        <p className="total3" onClick={this.settle}>结算(3)</p>
                     </div>
                 </div>
 

@@ -13,6 +13,8 @@ export default class TetuiComponent1 extends React.Component{
                 <div className="tlistnav">
                     <img src="../../../../src/components/home/img/OPR2.jpg" />
                     <img src="../../../../src/components/home/img/OPR3.jpg" />
+                    <img src="../../../../src/components/home/img/OPR4.jpg" />
+
                 </div>
             </div>
         )
