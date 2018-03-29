@@ -18,6 +18,9 @@
     padding-left: 0.333333rem;
     padding-right: 0.266667rem;
 }
+.homeHeader_bc{
+    background-color: white;
+}
 .homepage .homeHeader .homeHeader_1 .homeInput{
     height:0.8rem;
     width:7.066667rem;
@@ -56,7 +59,7 @@
     overflow:hidden;
 }
 
-
+/*************lunbo***********/
 .homepage .homeContent .lunbo,.el-carousel{
     height:5.333333rem;
     width:100%;
@@ -87,12 +90,15 @@
     top:44%;
 }
 
+/*************banner***********/
+
 .homepage .homeContent .contenBanner {
     background-color: white;
     height:2.133333rem;
     width:100%;
     display:flex;
     justify-content: center;
+    padding-top: 10px;
 }
 .homepage .homeContent .contenBanner ul{
     height:2.133333rem;
@@ -124,6 +130,8 @@
     flex:0.8;
 }
 
+/*************tetui***********/
+
 .homepage .homeContent .tetui ul{
     width:100%;
     display:flex;
@@ -147,6 +155,8 @@
     height:6.8rem;
     width:4.933333rem;
 }
+
+/*************news***********/
 
 .homepage .homeContent .news{
     height:1.066667rem;
@@ -173,6 +183,7 @@
     font-size: 0.426667rem;
 }
 
+/*************zhuanqu***********/
 
 .homepage .homeContent .Zhuanqu{
     margin-top: 0.12rem;
@@ -186,6 +197,8 @@
     height:1.386667rem;
     width:4.933333rem;
 }
+
+/*************Jxproudect***********/
 
 .homepage .wayslJxproduct{
     background-color: white;
@@ -245,7 +258,7 @@
     margin-top:0.066667rem;
 }
 .name_h6{
-     width:3.586667rem;
+    width:3.586667rem;
     text-overflow:ellipsis; 
     overflow:hidden; 
     white-space: nowrap; 
@@ -301,22 +314,34 @@
     flex:1;
     text-align: center;
     margin-bottom: 0.133333rem;
-    min-width: 5.0rem;
+    min-width:4.9rem;
     height:4.88rem;
 }
-.homepage .Sections .section .section_son ul li:nth(2n+1){
+/*.homepage .Sections .section .section_son ul li:nth(2n+1){
     margin-right: 0.133333rem;
-}
+}*/
 
 .homepage .Sections .section .section_son ul li img{
-   width:100%;
-   height:3.066667rem;
+    width:100%;
+    width: 4.8rem;
+    height:3.066667rem;
+    margin-left: 0.1rem;
 }
 .homepage .Sections .section .section_son ul li h6{
-   
+    width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap;
+    margin-left: 0.8rem;
 }
 .homepage .Sections .section .section_son ul li p{
-   color:lightgray;
+    color:lightgray;
+    width:3.586667rem;
+    text-overflow:ellipsis; 
+    overflow:hidden; 
+    white-space: nowrap; 
+    text-align: center;
+    margin-left: 0.8rem;
 }
 .homepage .Sections .section .section_son ul li p span ,.money{
    color:red;
