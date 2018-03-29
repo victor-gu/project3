@@ -21,29 +21,49 @@ export default class MyselfComponent extends Component{
         }
     }
     
-    componentDidMount(){     
-        let randomid = Math.ceil(Math.random()*10);
-        // console.log(randomid);
-        http.get('backproducts',{page:randomid, limit:3}).then((res)=>{
-            // console.log(res.data);
+    componentWillMount(){     
+        let randomid = Math.ceil(Math.random()*10);      
+        http.get('frontProducts',{page:randomid, limit:3}).then((res)=>{
+            console.log(res);
             this.setState({
-                dataset: res.data
+                dataset: res.data || []
             })
         })
     }
 
     //点击跳转传递商品id参数到详情页/goods
     gotodet(id){
-        // console.log(id);
         var path = '/goods/' + id; 
         hashHistory.push(path);
         window.sessionStorage.setItem("goodsid", id);
     }
 
+    loginout(){
+        sessionStorage.removeItem("username");
+        sessionStorage.removeItem("userid");
+        hashHistory.push('/mine');
+    }
 
+    //---------------------------------------------------------------------------------------------
     render(){
         let baseurl = 'src/static/img/'
         let currenttime = new Date().toLocaleTimeString();
+
+        let loginplace;
+        let beforeloginhtml = (
+            <div id="loginnotice">
+                <span>登录即可查看全部动态消息</span>
+                <Link to ="login"><span className="loginlink">现在登录</span></Link>
+            </div>
+        )
+
+        let afterloginhtml = (
+            <div id="loginnotice">
+                <span className="loginlink" onClick={this.loginout.bind(this)}>退出登录</span>
+            </div>
+        )
+        loginplace = sessionStorage.getItem("username") ? afterloginhtml : beforeloginhtml;
+        
         return (
             <div className="home">             
                <div className="homeHeader"></div>
@@ -197,11 +217,10 @@ export default class MyselfComponent extends Component{
                                     )}
                                  </ul>
                              </div>
-
-                             <div id="loginnotice">
-                                 <span>登录即可查看全部动态消息</span>
-                                 <Link to ="login"><span className="loginlink">现在登录</span></Link>
+                             <div>
+                                {loginplace}
                              </div>
+                            
 
                              <div id="aboutus" className="lzf_liststyle0">
                                  <div className="lzf_login1">
