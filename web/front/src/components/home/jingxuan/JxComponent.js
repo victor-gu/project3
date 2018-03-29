@@ -6,10 +6,6 @@ export default class JxComponent extends React.Component{
 
     //组件通信-----传递产品id到商品详情页
     gotodet(id){
-        console.log(id);
-        // var path = '/goods/' + id; 
-        // hashHistory.push(path);
-        // window.sessionStorage.setItem("goodsid", id);
         location.href="#/goods"
         window.sessionStorage.setItem("goodsid", id);
     }
@@ -27,7 +23,7 @@ export default class JxComponent extends React.Component{
                                     return (
                                         <li key={item._id} onClick={this.gotodet.bind(this,item._id)}>
                                             <p className="imgp">
-                                                <img src="./src/components/home/img/1495546164782.jpg" />
+                                                <img src={"./src/static/img/"+item.img} />
                                             </p>
                                             
                                             <h6>{item.name}</h6>

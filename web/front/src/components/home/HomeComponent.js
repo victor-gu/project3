@@ -39,6 +39,12 @@ export default class HomeComponent extends Component{
         wayslData:[],
         spinnerShow:true,
     }
+
+    zhuangtai(){
+
+        var username = window.sessionStorage.getItem('username');
+
+    }
     
     render(){
         return (
@@ -59,31 +65,31 @@ export default class HomeComponent extends Component{
 
                 <div className="homeContent wayslContent" id="userOrder" ref = "userOrder">
                     <div className="lunbo" ref="lunbo">
-                        <LunboComponent config={["src/components/home/img/lunbo1.jpg","src/components/home/img/lunbo2.jpg","src/components/home/img/lunbo3.jpg","src/components/home/img/lunbo4.jpg","src/components/home/img/lunbo5.jpg","src/components/home/img/lunbo6.jpg","src/components/home/img/lunbo7.jpg","src/components/home/img/lunbo8.jpg"]}></LunboComponent>
+                        <LunboComponent config={["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
                         <ul>
                             <li>
                                 <Link to="/nav">
-                                    <div><img src="./src/components/home/img/nav1.jpg" /></div>
+                                    <div><img src="./src/static/img/nav1.jpg" /></div>
                                     <span>优选配件</span>
                                 </Link>   
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav2.jpg" /></div>
+                                <div><img src="./src/static/img/nav2.jpg" /></div>
                                 <span>会员领劵</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav3.jpg" /></div>
+                                <div><img src="./src/static/img/nav3.jpg" /></div>
                                 <span>新品预定</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav4.jpg" /></div>
+                                <div><img src="./src/static/img/nav4.jpg" /></div>
                                 <span>以旧换新</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav5.jpg"/></div>
+                                <div><img src="./src/static/img/nav5.jpg"/></div>
                                 <span>数码特惠</span></Link>
                             </li>
                            
@@ -91,7 +97,7 @@ export default class HomeComponent extends Component{
                     </div>
                     
                     <div className="tetui">
-                        <TetuiComponent></TetuiComponent>
+                        <TetuiComponent tetui={this.state.wayslData}></TetuiComponent>
                     </div>
                     
                     <div className="news">

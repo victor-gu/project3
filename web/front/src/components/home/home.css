@@ -17,7 +17,6 @@
     line-height: 1.066667rem;
     padding-left: 0.333333rem;
     padding-right: 0.266667rem;
-    /*background-color: white;*/
 }
 .homeHeader_bc{
     background-color: white;
@@ -61,9 +60,10 @@
 }
 
 /*************lunbo***********/
-.homepage .homeContent .lunbo,.el-carousel{
+.homepage .homeContent .lunbo{
     height:5.333333rem;
     width:100%;
+    overflow:hidden;
 }
 #userOrder .el-carousel{
     overflow-x:visible;
