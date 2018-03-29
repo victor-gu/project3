@@ -3,14 +3,15 @@ import {Link} from "react-router";
 
 import "./DetailsComponent.scss";
 
+import http from "../../utils/httpclient";
+
 export default class DetailsComponent extends React.Component{
 
 
 
-   componentWillMount(){
-        console.log(this);
-        this.props.router.push({pathname:'goods'})
-    }
+   // componentWillMount(){
+   //      // this.props.router.push({pathname:'goods'})
+   //  }
 
     back(){
         history.back();
@@ -22,8 +23,16 @@ export default class DetailsComponent extends React.Component{
     cart(){
         this.props.router.push({pathname:"/cart"});
     }
+    add(){
+        var product = Object.assign(
+                {user_id:window.sessionStorage.getItem("userid")},
+                JSON.parse(window.sessionStorage.getItem("products"))
+                )
+        http.get("insertOrder", product).then((res)=>{
+            console.log("fff");
+        })
+    }
 
-    
     render(){
         return (
             <div className="details">
@@ -49,7 +58,7 @@ export default class DetailsComponent extends React.Component{
                         <i className="iconfont icon-gouwuche"></i>
                         购物车
                     </p>
-                    <p className="two">加入购物车</p>
+                    <p className="two" onClick={this.add}>加入购物车</p>
                     <p className="three">立即购买</p>
                 </div>
             </div>

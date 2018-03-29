@@ -12,12 +12,11 @@ export default class CartComponent extends React.Component{
     }
 
     componentWillMount(){
-        http.get("frontIdproduct", {id:"5ab77f4cbc7aad6eaa65a8a0"}).then((res)=>{
+        http.get("frontIdproduct", {id:window.sessionStorage.getItem("goodsid")}).then((res)=>{
             this.setState({
                 dataset:res.data[0]
             })
             console.log(this.state.dataset);
-            
         })
     }
 
@@ -29,12 +28,14 @@ export default class CartComponent extends React.Component{
         this.setState({
             num:this.refs.text.value*1>=this.state.dataset.number ? this.state.dataset.number : ++this.refs.text.value
         })
+        window.sessionStorage.setItem("products", JSON.stringify({img:this.state.dataset.img, title:this.state.dataset.title, price:this.state.dataset.price, number:$(".text").val()}));
     }
 
     down(){
         this.setState({
             num:this.refs.text.value*1<=1 ? 1 : --this.refs.text.value
         })
+        window.sessionStorage.setItem("products", JSON.stringify({img:this.state.dataset.img, title:this.state.dataset.title, price:this.state.dataset.price, number:$(".text").val()}));
     }
 
     componentDidMount(){
@@ -113,7 +114,7 @@ export default class CartComponent extends React.Component{
                     <p>数量</p>
                     <div>
                         <input ref="up" onClick={this.up.bind(this)} className="up" type="button" value="+"/>
-                        <input ref="text" className="text" defaultValue={this.state.num} type="text" />
+                        <input ref="text" className="text" defaultValue={this.state.num} type="text" readOnly />
                         <input ref="down" onClick={this.down.bind(this)} className="down" type="button" value="-"/>
                     </div>
                 </div>
