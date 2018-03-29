@@ -16,7 +16,7 @@ export default class CartComponent extends React.Component{
             this.setState({
                 dataset:res.data[0]
             })
-            // console.log(this.state.dataset);
+            console.log(this.state.dataset);
             
         })
     }
@@ -47,8 +47,6 @@ export default class CartComponent extends React.Component{
 
     render(){
         var dataset=this.state.dataset.img?this.state.dataset.img:"";
-        console.log(666)
-        console.log(this.state.dataset);
         return (
             <div className="goods">
                 <img src={this.state.url+dataset}/>
