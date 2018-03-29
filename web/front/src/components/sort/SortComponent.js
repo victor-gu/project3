@@ -5,6 +5,7 @@ import './css/SortComponent.css'
 import http from '../../utils/httpclient'
 import SpinnerComponent from '../../spinner/SpinnerComponent'
 import HotComponent from './hotComponent'
+import {Link} from 'react-router'
 
 export default class SortComponent extends Component{
     componentWillMount(){
@@ -24,7 +25,7 @@ export default class SortComponent extends Component{
         data:[],
         show:false,
         hot:false,
-        title:''
+        title:null
     }
     li1(e){
         this.refs.hotli.className="sorttab"
@@ -39,6 +40,10 @@ export default class SortComponent extends Component{
                   show:false
               })
         })
+    }
+    gotodet(id){
+        location.href="#/goods"
+        window.sessionStorage.setItem("goodsid", id);
     }
     tab(e){
       if(e.target.tagName=="LI"){
@@ -68,8 +73,8 @@ export default class SortComponent extends Component{
             <div id="sort">
                   <SpinnerComponent show={this.state.show}/>
                   <div className="sort-head">
-                      <input type="text" placeholder="HUAWEI nova 2s 荣耀V10 "/>
-                      <i className="icon-qunfengxiaoxitishilingdang iconfont i1"></i>
+                      <Link to="/search"><input type="text" placeholder="HUAWEI nova 2s 荣耀V10 "/></Link>
+                      <Link to="/login"><i className="icon-qunfengxiaoxitishilingdang iconfont i1"></i></Link>
                       <i className="i2 icon-search iconfont"></i>
                   </div>
                   <div className="sort-body">
@@ -96,9 +101,9 @@ export default class SortComponent extends Component{
                           <div className="right-body">
                               <ul>
                                   {
-                                    this.state.data.map(function(item){
+                                    this.state.data.map((item)=>{
                                         return (
-                                          <li key={item._id}>
+                                          <li key={item._id} onClick={this.gotodet.bind(this,item._id)}>
                                               <img src={'./src/components/sort/imgs/'+item.img}/>
                                               <span>{item.name}</span>
                                           </li>
