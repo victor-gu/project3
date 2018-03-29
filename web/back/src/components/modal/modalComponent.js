@@ -15,6 +15,14 @@ class ModalComponent extends Component{
 	shutdown(){
 		this.props.cb();
 	}
+	componentDidUpdate(){
+		// console.log($('.pagination'),this.props.config.show);
+		if(this.props.config.show){
+			$('.pagination').addClass('pagination-hidden')
+		}else{
+			$('.pagination').removeClass('pagination-hidden')
+		}
+	}
 	updproduct(){
 		// console.log($('.showPar'));
 		let objGood = {};
@@ -46,7 +54,6 @@ class ModalComponent extends Component{
 
 	}
 	render(){
-		// console.log(this.props.txt);
 		let currentData = this.props.config.currentData;
 		let content = null;
 		// if(this.props.config.type == 'compile'){
