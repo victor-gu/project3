@@ -1,12 +1,15 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router'
 import NavComponent from '../nav/NavComponent'
+
 import Section1Component from './section/Section1Component'
 import Section2Component from './section/Section2Component'
 import Section3Component from './section/Section3Component'
 import Section4Component from './section/Section4Component'
 import Section5Component from './section/Section5Component'
 import Section6Component from './section/Section6Component'
+import Section7Component from './section/Section7Component'
+
 
 import LunboComponent from '../home/lunbo/LunboComponent'
 import JxComponent from '../home/jingxuan/JxComponent'
@@ -17,39 +20,36 @@ import SpinnerComponent from '../../spinner/SpinnerComponent'
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
-  
+    
     componentDidMount(){ 
-        window.addEventListener('scroll',this.orderScroll.bind(this));
-             
+         
     }
-     componentWillUnmount(){
-        window.removeEventListener('scroll', this.orderScroll.bind(this));
-    }
-    orderScroll(){
-        console.log('浏览器滚动事件')
-    }
-    state = {
-        wayslData:[],
-        spinnerShow:false,
-    }
+    
+    
     componentWillMount(){
         this.setState({spinnerShow:true})
         http.get('frontApoproducts',{}).then((res)=>{
             this.setState({
                 wayslData: res.data,
-                spinnerShow:false, 
+                spinnerShow:true, 
             })
         })
     }
+    state = {
+        wayslData:[],
+        spinnerShow:true,
+    }
+   
     render(){
-        console.log(this.state.wayslData)
         return (
             <div className="home homepage">
                 <SpinnerComponent spinnerShow={this.state.spinnerShow}/>
                 <div className="homeHeader">
                     <div className="homeHeader_1">
                         <div className="homeInput">
+                            <Link to="/search">
                             <input type="button" value="HUAWEI nova 2s 荣耀V10"/>
+                            </Link>
                             <i className="iconfont icon-search"></i>
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
@@ -58,31 +58,33 @@ export default class HomeComponent extends Component{
                 </div>
 
                 <div className="homeContent wayslContent" id="userOrder" ref = "userOrder">
-                    <div className="lunbo">
+                    <div className="lunbo" ref="lunbo">
                         <LunboComponent config={["src/components/home/img/lunbo1.jpg","src/components/home/img/lunbo2.jpg","src/components/home/img/lunbo3.jpg","src/components/home/img/lunbo4.jpg","src/components/home/img/lunbo5.jpg","src/components/home/img/lunbo6.jpg","src/components/home/img/lunbo7.jpg","src/components/home/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
                         <ul>
                             <li>
-                                <div><img src="./src/components/home/img/nav1.jpg" /></div>
-                                <span>优选配件</span>
+                                <Link to="/nav">
+                                    <div><img src="./src/components/home/img/nav1.jpg" /></div>
+                                    <span>优选配件</span>
+                                </Link>   
                             </li>
-                            <li>
+                            <li><Link to="/nav">
                                 <div><img src="./src/components/home/img/nav2.jpg" /></div>
-                                <span>会员领劵</span>
+                                <span>会员领劵</span></Link>
                             </li>
-                            <li>
+                            <li><Link to="/nav">
                                 <div><img src="./src/components/home/img/nav3.jpg" /></div>
-                                <span>新品预定</span>
+                                <span>新品预定</span></Link>
                             </li>
-                            <li>
+                            <li><Link to="/nav">
                                 <div><img src="./src/components/home/img/nav4.jpg" /></div>
-                                <span>以旧换新</span>
+                                <span>以旧换新</span></Link>
                             </li>
-                            <li>
+                            <li><Link to="/nav">
                                 <div><img src="./src/components/home/img/nav5.jpg"/></div>
-                                <span>数码特惠</span>
+                                <span>数码特惠</span></Link>
                             </li>
                            
                         </ul>
@@ -144,6 +146,12 @@ export default class HomeComponent extends Component{
                     <div className="wayslStproduct Sections">
                          <Section6Component Section6={[this.state.wayslData,"生态产品"]}></Section6Component>
                     </div>
+
+                    <div className="wayslStproduct Sections">
+                         <Section7Component Section7={[this.state.wayslData,"通用配件"]}></Section7Component>
+                    </div>
+
+
 
                     <div className="wayslContent_buttom">
                         <div className="content_buttom_1">
