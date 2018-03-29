@@ -11,7 +11,7 @@ export default class SearchComponet extends Component{
     state = {
         proParams: '',
             
-        HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X'],
+        HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X'],
 
         inputeventdata : [], 
 
@@ -35,7 +35,7 @@ export default class SearchComponet extends Component{
             }else{
                 this.setState({
                     inputeventdata : [],
-                    HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
+                    HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
                 })
             }
         })
@@ -60,7 +60,7 @@ export default class SearchComponet extends Component{
             this.setState({
                 ajaxdataset : [],
                 inputeventdata:[],
-                HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', '荣耀v10', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
+                HotDataset : ['荣耀畅玩7C', 'HUAWEI nova 3e', 'HUAWEI Mate 10', '荣耀9青春版', '生态产品', '荣耀手环', '华为智能体脂秤', '荣耀畅玩7X']
             })
         })
     }
@@ -85,6 +85,7 @@ export default class SearchComponet extends Component{
         // console.log(id);
         var path = '/goods/' + id; 
         hashHistory.push(path);
+        window.sessionStorage.setItem("goodsid", id);
     }
 
 
@@ -148,7 +149,7 @@ export default class SearchComponet extends Component{
         let searchnull = (
             <ul>
                 {
-                    <li className="noneproducts">{"对不起查找不到相关产品"}</li>
+                    <li className="noneproducts">{"对不起，查找不到相关产品"}</li>
                 }
             </ul>
         )
