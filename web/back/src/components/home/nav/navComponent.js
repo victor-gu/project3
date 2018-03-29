@@ -21,6 +21,9 @@ class NavComponent extends Component{
 		            <li className="">
 		            	<Link to='/admin' className="tza">{this.props.txt.admin}</Link>
 		            </li>
+		            <li className="">
+		            	<Link to='/car' className="tza">{this.props.txt.carList}</Link>
+		            </li>
 		        </ul> 
 			</div>
 		)

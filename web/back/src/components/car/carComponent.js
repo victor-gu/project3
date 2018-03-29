@@ -8,8 +8,8 @@ import http from '../../utils/httpclient'
 export default class OrderComponent extends Component{
 	state = {
 		config: {
-			url: 'selectOrder',
-			name: 'order',
+			url: 'selectCart',
+			name: 'car',
 			data: {page: 1, limit:6}
 		}
 	}

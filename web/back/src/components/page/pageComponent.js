@@ -117,10 +117,10 @@ class PageComponent extends Component{
 		let name = this.props.config.name;
 		if(name){
 			ds = ds[name] ? ds[name].count : 0
-			dp = ds[name] ? ds[name].pageDefault :0
+			// dp = ds[name] ? ds[name].pageDefault :0
 		}else{
 			ds = ds.count || 0;
-			dp = ds.defaultPage || 0;
+			// dp = ds.defaultPage || 0;
 		}
 		// console.log(kt) 
 		return kt ? ds : dp;
