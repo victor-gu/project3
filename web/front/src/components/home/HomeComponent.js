@@ -1,7 +1,13 @@
 import React,{Component} from 'react'
 import {Link} from 'react-router'
 import NavComponent from '../nav/NavComponent'
-import SectionsComponent from './SectionsComponent'
+import Section1Component from './section/Section1Component'
+import Section2Component from './section/Section2Component'
+import Section3Component from './section/Section3Component'
+import Section4Component from './section/Section4Component'
+import Section5Component from './section/Section5Component'
+import Section6Component from './section/Section6Component'
+
 import LunboComponent from '../home/lunbo/LunboComponent'
 import JxComponent from '../home/jingxuan/JxComponent'
 import TetuiComponent from '../home/tetui/TetuiComponent'
@@ -11,6 +17,17 @@ import SpinnerComponent from '../../spinner/SpinnerComponent'
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
+  
+    componentDidMount(){ 
+        window.addEventListener('scroll',this.orderScroll.bind(this));
+             
+    }
+     componentWillUnmount(){
+        window.removeEventListener('scroll', this.orderScroll.bind(this));
+    }
+    orderScroll(){
+        console.log('浏览器滚动事件')
+    }
     state = {
         wayslData:[],
         spinnerShow:false,
@@ -25,6 +42,7 @@ export default class HomeComponent extends Component{
         })
     }
     render(){
+        console.log(this.state.wayslData)
         return (
             <div className="home homepage">
                 <SpinnerComponent spinnerShow={this.state.spinnerShow}/>
@@ -39,7 +57,7 @@ export default class HomeComponent extends Component{
                     </div>
                 </div>
 
-                <div className="homeContent wayslContent">
+                <div className="homeContent wayslContent" id="userOrder" ref = "userOrder">
                     <div className="lunbo">
                         <LunboComponent config={["src/components/home/img/lunbo1.jpg","src/components/home/img/lunbo2.jpg","src/components/home/img/lunbo3.jpg","src/components/home/img/lunbo4.jpg","src/components/home/img/lunbo5.jpg","src/components/home/img/lunbo6.jpg","src/components/home/img/lunbo7.jpg","src/components/home/img/lunbo8.jpg"]}></LunboComponent>
                     </div>
@@ -47,23 +65,23 @@ export default class HomeComponent extends Component{
                     <div className="contenBanner">
                         <ul>
                             <li>
-                                <div><img src="../../../src/components/home/img/nav1.jpg" /></div>
+                                <div><img src="./src/components/home/img/nav1.jpg" /></div>
                                 <span>优选配件</span>
                             </li>
                             <li>
-                                <div><img src="../../../src/components/home/img/nav2.jpg" /></div>
+                                <div><img src="./src/components/home/img/nav2.jpg" /></div>
                                 <span>会员领劵</span>
                             </li>
                             <li>
-                                <div><img src="../../../src/components/home/img/nav3.jpg" /></div>
+                                <div><img src="./src/components/home/img/nav3.jpg" /></div>
                                 <span>新品预定</span>
                             </li>
                             <li>
-                                <div><img src="../../../src/components/home/img/nav4.jpg" /></div>
+                                <div><img src="./src/components/home/img/nav4.jpg" /></div>
                                 <span>以旧换新</span>
                             </li>
                             <li>
-                                <div><img src="../../../src/components/home/img/nav5.jpg"/></div>
+                                <div><img src="./src/components/home/img/nav5.jpg"/></div>
                                 <span>数码特惠</span>
                             </li>
                            
@@ -104,68 +122,27 @@ export default class HomeComponent extends Component{
                     </div>
 
                     <div className="wayslPhoneproduct Sections">
-                        <SectionsComponent allproduct = {[this.state.wayslData,"华为手机"]}></SectionsComponent>
+                        <Section1Component Section1={[this.state.wayslData,"华为手机"]}></Section1Component>
                     </div>
-
+    
                     <div className="wayslPbproduct Sections">
-                        <div className="Rx_heard">
-                            <p>
-                                <span>精品平板</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                         <div className="section">
-                            
-                        </div>
+                        <Section2Component Section2={[this.state.wayslData,"荣耀手机"]}></Section2Component>
                     </div>
 
                     <div className="wayslCdproduct Sections">
-                        <div className="Cd_heard">
-                            <p>
-                                <span>智能穿戴</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                         <div className="section">
-                            
-                        </div>
+                         <Section3Component Section3={[this.state.wayslData,"笔记本&平板"]}></Section3Component>
                     </div>
 
                     <div className="wayslJjproduct Sections">
-                        <div className="Jj_heard">
-                            <p>
-                                <span>智能家居</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                         <div className="section">
-                            
-                        </div>
+                         <Section4Component Section4={[this.state.wayslData,"智能穿戴"]}></Section4Component>
                     </div>
 
                     <div className="wayslRxproduct Sections">
-                        <div className="Rx_heard">
-                            <p>
-                                <span>热销配件</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                         <div className="section">
-                            
-                        </div>
+                         <Section5Component Section5={[this.state.wayslData,"智能家居"]}></Section5Component>
                     </div>
 
                     <div className="wayslStproduct Sections">
-
-                        <div className="St_heard">
-                            <p>
-                                <span>生态产品</span>
-                                <span>更多<i className="iconfont icon-arrow_right"></i></span>
-                            </p>
-                        </div>
-                         <div className="section">
-                            
-                        </div>
+                         <Section6Component Section6={[this.state.wayslData,"生态产品"]}></Section6Component>
                     </div>
 
                     <div className="wayslContent_buttom">
