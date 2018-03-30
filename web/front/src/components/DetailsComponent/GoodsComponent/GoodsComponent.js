@@ -3,12 +3,28 @@ import React from "react";
 import "./GoodsComponent.scss";
 import http from "../../../utils/httpclient";
 
+import MenuComponent from "./MenuComponent/MenuComponent";
+
 export default class CartComponent extends React.Component{
 
     state = {
         dataset:{},
         url:"./src/static/img/",
-        num:1
+        num:1,
+        show:false,
+        baseImg:"./src/static/img/"
+    }
+
+    showMenu(){
+        this.setState({
+            show:true
+        })
+    }
+
+    hiddenMenu(){
+        this.setState({
+            show:false
+        })
     }
 
     componentWillMount(){
@@ -51,7 +67,7 @@ export default class CartComponent extends React.Component{
                 <img src={this.state.url+dataset}/>
                 <p className="title">{this.state.dataset.title}</p>
                 <div className="price">
-                    <img src="./src/components/DetailsComponent/img/details29.png"/>
+                    <img src={this.state.baseImg+"details29.png"}/>
                     <p className="price">￥<span>{this.state.dataset.price}</span></p>
                     <p className="Oprice">￥<span>{this.state.dataset.Oprice}</span></p>
                 </div>
@@ -59,9 +75,9 @@ export default class CartComponent extends React.Component{
                 <div className="pei">
                     <div className="pei1">
                         配
-                        <img src="./src/components/DetailsComponent/img/details30.jpg"/>
+                        <img src={this.state.baseImg+"details30.jpg"}/>
                     </div>
-                    <div>
+                    <div onClick={this.showMenu.bind(this)}>
                         选择
                         <i className="iconfont icon-xiangyou"></i>
                     </div>
@@ -124,6 +140,8 @@ export default class CartComponent extends React.Component{
                     </div>
                     <i className="iconfont icon-xiangyou"></i>
                 </div>
+
+                <MenuComponent show={this.state.show} hide={this.hiddenMenu.bind(this)}/>
             </div>
             )
     }

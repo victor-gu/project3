@@ -61,19 +61,28 @@ export default class SortComponent extends Component{
         }
     }
     toreg(){
-        if(this.refs.user.value==''||this.refs.pass.value==''||(this.refs.nan.checked==false&&this.refs.nv.checked==false)||this.refs.pass2.value==''||this.refs.phone.value==''||this.refs.email.value==''||this.refs.age.value==''){
-            alert("请完整填写信息");
-        }else{
-            http.get('register',{username:this.refs.user.value,password:this.refs.pass.value}).then((res) => {
-                if(res.status){
-                    alert("恭喜您注册成功");
-                    location.href ='#/login'
-                }else{
-                    alert('error')
-                }
-            }) 
+            if(this.refs.user.value==''){
+                this.refs.user.style.background="#FFBFBF"
+            }else if(this.refs.pass.value==''){
+                this.refs.pass.style.background="#FFBFBF"
+            }else if(this.refs.phone.value==''){
+                this.refs.phone.style.background="#FFBFBF"
+            }else if(this.refs.email.value==''){
+                this.refs.email.style.background="#FFBFBF"
+            }else if(this.refs.age.value==''){
+                this.refs.age.style.background="#FFBFBF"
+            }else if(this.refs.pass2.value==''){
+                this.refs.pass2.style.background="#FFBFBF"
+            }else{
+                http.get('register',{username:this.refs.user.value,password:this.refs.pass.value}).then((res) => {
+                    if(res.status){
+                        location.href ='#/login'
+                    }else{
+                        alert('error')
+                    }
+                }) 
+            }
         }
-    }
     render(){
         return (          
                <div id="reg">

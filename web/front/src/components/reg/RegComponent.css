@@ -1,6 +1,6 @@
         #reg{font-size:0.32rem;}
         #reg .reg-head{padding:1.146667rem 0.64rem 0.213333rem 0.64rem;text-align:center;}
-        #reg .reg-head h1{font-weight:normal;color:#111;margin:0.133333rem 0;}
+        #reg .reg-head h1{font-weight:normal;color:#111;margin:0.133333rem 0;font-size:0.613333rem;}
         #reg .reg-head p{font-size:0.346667rem;color:rgba(0,0,0,0.5);}
         #reg .reg-body{padding:0 1.093333rem;}
         #reg .reg-body #username,#password,#password2,#phone,#email,#age,#birthday{float:right;}
@@ -11,4 +11,4 @@
         #reg .reg-body #gender input{height:0.266667rem;width:0.266667rem;margin-left:0.266667rem;}
         #reg .reg-body #gender label{margin-right:1.066667rem;}
         #reg .reg-body #birthday{color:#666;}
-        #reg .reg-body #btn-reg{background:#C8E2FC;color:#fff;margin-left:1.013333rem;margin-top:0.333333rem;}
+        #reg .reg-body #btn-reg{background:#007DFF;color:#fff;margin-left:1.013333rem;margin-top:0.333333rem;}

@@ -53,7 +53,20 @@
 .lzf_fapiao{
     margin-bottom:0.2rem;
 }
-.lzf_fapiao h4{
+.lzf_fapiao img{
+    width:100%;
+    height:1.2111rem;
+}
+
+
+/*<p>
+    电子普通发票
+</p>
+<h4 className="lzf_fapiao_right">
+    <span>个人</span>
+    <i className="iconfont">&#xe633;</i>
+</h4>*/
+/*.lzf_fapiao h4{
     position:relative;
     display:flex;
     justify-content:flex-start;
@@ -65,7 +78,7 @@
 .lzf_fapiao h4 .iconfont{
     position:absolute;
     right:-0.2333rem;
-}
+}*/
 
 /*------------------------------------------------*/
 .lzf_transport{

@@ -5,21 +5,33 @@ import http from '../../utils/httpclient'
 import {Link} from 'react-router'
 
 export default class SortComponent extends Component{
+    name(){
+        this.refs.name.style.background="#EFEFEF"
+    }
+    pass(){
+        this.refs.pass.style.background="#EFEFEF"
+    }
     tologin(){
-        http.get('login',{username:this.refs.name.value,password:this.refs.pass.value}).then((res) => {
-                if(res.status){
-                    window.sessionStorage.setItem('xxtoken',res.data)
-                    window.sessionStorage.setItem('userid',res.data1[0]._id)
+        if(this.refs.name.value==''){
+                this.refs.name.style.background="#FFBFBF"
+            }else if(this.refs.pass.value==''){
+                this.refs.pass.style.background="#FFBFBF"
+            }else{
+            http.get('login',{username:this.refs.name.value,password:this.refs.pass.value}).then((res) => {
+                    if(res.status){
+                        window.sessionStorage.setItem('xxtoken',res.data)
+                        window.sessionStorage.setItem('userid',res.data1[0]._id)
 
-                    window.sessionStorage.setItem('username',this.refs.name.value)
-                    location.href ='/'
-                }else{
-                    alert("用户名或密码有误");
-                    this.refs.name.value=null;
-                    this.refs.name.focus();
-                    this.refs.pass.value=null;
-                }
-            })
+                        window.sessionStorage.setItem('username',this.refs.name.value)
+                        location.href ='/'
+                    }else{
+                        this.refs.name.style.background="#FFBFBF"
+                        this.refs.name.value=null;
+                        this.refs.name.focus();
+                        this.refs.pass.value=null;
+                    }
+                })
+            }
     }
     render(){
         return (          
@@ -31,10 +43,10 @@ export default class SortComponent extends Component{
                     </div>
                     <div className="login-body">
                         <div>
-                            <input type="text" placeholder="用户名" ref="name"/>
+                            <input type="text" placeholder="用户名" ref="name" onBlur={this.name.bind(this)}/>
                         </div>
                         <div>
-                            <input type="password" placeholder="密码" ref="pass"/>
+                            <input type="password" placeholder="密码" ref="pass" onBlur={this.pass.bind(this)}/>
                         </div>
                         <div>
                             <input type="button" value="登录" className="btn" onClick={this.tologin.bind(this)}/>

@@ -14,12 +14,10 @@ export default class ConfirmOrderComponent extends Component{
         dataset:[]
     }
     componentWillMount(){
-        let userid = sessionStorage.getItem("userid");
-        
+        let userid = sessionStorage.getItem("userid");     
         http.get("userOrder", {userid: userid, status:0}).then((res)=>{
             console.log(res);  
-            // console.log(res.data[0]);
-            // console.log(res.data[0].products);   
+
             console.log(JSON.parse(res.data[0].products));
             let realDataset = JSON.parse(res.data[0].products);
 
@@ -28,14 +26,15 @@ export default class ConfirmOrderComponent extends Component{
             })
         })
     }
-    //点击支付成功
+    //点击支付成功--查找条件为state为0的订单数据并将它的state变成1
     paid(){
         let arr = this.state.dataset;
         console.log(arr);
-        http.get("UpdOrder", {userid:sessionStorage.getItem("userid"), status:1, products:JSON.stringify(arr)}).then((res)=>{
-            // console.log(333);
-            // hashHistory.push('/mine');
-
+        hashHistory.push('/mine');
+        http.get("UpdOrder", {userid:sessionStorage.getItem("userid"), condition:0, status:1, products:JSON.stringify(arr)}).then((res)=>{
+            
+            // 跳转到个人页面
+            hashHistory.push('/mine');
         })    
     }
 
@@ -59,14 +58,8 @@ export default class ConfirmOrderComponent extends Component{
                         <img src = {require('./lzfaddress.png')}/>
                     </div>
 
-                    <div className="lzf_fapiao confirm_main0">
-                        <p>
-                            电子普通发票
-                        </p>
-                        <h4 className="lzf_fapiao_right">
-                            <span>个人</span>
-                            <i className="iconfont">&#xe633;</i>
-                        </h4>
+                    <div className="lzf_fapiao">
+                        <img src = {require('./lzffapiao.png')}/>
                     </div>
 
                     <div className="lzf_transport confirm_main0">
