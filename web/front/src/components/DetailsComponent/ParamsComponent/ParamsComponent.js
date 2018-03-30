@@ -2,10 +2,13 @@ import React from "react";
 import "./ParamsComponent.scss";
 
 export default class CartComponent extends React.Component{ 
+    state = {
+        baseImg:"./src/static/img/"
+    }
     render(){
         return (
             <div>
-                <img src="./src/components/DetailsComponent/img/details23.png"/>
+                <img src={this.state.baseImg+"details23.png"}/>
                 <div className="des">
                     <p className="one">特别提醒：</p>
                     <p className="two">※以上页面中的产品图片及屏幕内容仅作示意，实物产品效果（包括但不限于外观、颜色、尺寸）和屏幕显示内容（包括但不限于背景、UI、配图）可能略有差异，请以实物为准。</p>

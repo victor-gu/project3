@@ -26,7 +26,7 @@ export default class DetailsComponent extends React.Component{
                 {user_id:window.sessionStorage.getItem("userid")},
                 JSON.parse(window.sessionStorage.getItem("products"))
                 );
-        http.get("insertOrder", product).then((res)=>{
+        http.get("insertCart", product).then((res)=>{
             if(!res.status == true){
                 this.props.router.push({pathname:"/login"})
             }
