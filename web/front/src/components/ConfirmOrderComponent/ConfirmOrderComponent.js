@@ -15,15 +15,34 @@ export default class ConfirmOrderComponent extends Component{
     }
     componentWillMount(){
         let userid = sessionStorage.getItem("userid");
+        
         http.get("userOrder", {userid: userid, status:0}).then((res)=>{
-            console.log(res.data);       
+            console.log(res);  
+            // console.log(res.data[0]);
+            // console.log(res.data[0].products);   
+            console.log(JSON.parse(res.data[0].products));
+            let realDataset = JSON.parse(res.data[0].products);
+
             this.setState({
-                dataset: res.data || []
+                dataset: realDataset || []
             })
         })
     }
+    //点击支付成功
+    paid(){
+        let arr = this.state.dataset;
+        console.log(arr);
+        http.get("UpdOrder", {userid:sessionStorage.getItem("userid"), status:1, products:JSON.stringify(arr)}).then((res)=>{
+            // console.log(333);
+            // hashHistory.push('/mine');
+
+        })    
+    }
+
     render(){
         let baseurl = 'src/static/img/'
+        let totalCost = 0;
+
         return (
             <div className="lzf_confirm_all">
 
@@ -58,8 +77,11 @@ export default class ConfirmOrderComponent extends Component{
                     <ul className="lzf_prolist">                   
                         {
                             this.state.dataset.map((item) =>{
+                                
+                                totalCost += Number(item.number) * Number(item.price);
+
                                 return (
-                                    <li key={Math.random()}><div className="lzf_prolist_white"><img  src={baseurl + item.products.img}/><h3 className="prolist_title">{item.products.title}</h3><h4>x{item.products.qty}</h4><h5>￥{item.products.price}</h5></div><div className="lzf_prolist_gray"><span>配</span><h3>天翼通1GB全球通用流量套餐</h3><h4>x 1</h4></div></li>
+                                    <li key={Math.random()}><div className="lzf_prolist_white"><img  src={baseurl + item.img}/><h3 className="prolist_title">{item.title}</h3><h4>x{item.number}</h4><h5>￥{item.price}</h5></div><div className="lzf_prolist_gray"><span>配</span><h3>天翼通1GB全球通用流量套餐</h3><h4>x 1</h4></div></li>
                                 )                           
                             })
                         }                      
@@ -74,8 +96,8 @@ export default class ConfirmOrderComponent extends Component{
 
                         <div className="lzf_account confirm_main0">
                             <div  className="lzf_account_child">
-                                <span>优惠：-￥item.price</span>
-                                <span>小计：<i>￥item.price</i></span>
+                                <span>优惠：-￥0.00</span>
+                                <span>小计：<i>￥{totalCost.toFixed(2)}</i></span>
                             </div>
                            
                         </div>
@@ -91,8 +113,8 @@ export default class ConfirmOrderComponent extends Component{
                 </div>
 
                 <div className="lzf_confirm_footer">
-                    <div>应付总额：<span>￥item.price</span></div>
-                    <div className="lzf_paid">提交订单</div>
+                    <div>应付总额：<span>￥{totalCost.toFixed(2)}</span></div>
+                    <div className="lzf_paid" onClick={this.paid.bind(this)}>提交订单</div>
                 </div>
 
             </div>

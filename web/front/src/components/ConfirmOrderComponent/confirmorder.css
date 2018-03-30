@@ -163,6 +163,8 @@
     width:100%;
     height:1.066667rem;
     background:white;
+
+    padding-right:1.0rem;
 }
 .lzf_account{
     height:1.6rem;
@@ -175,9 +177,12 @@
     font-size:0.45rem;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:flex-start;
+    justify-content:space-around;
+    align-items:center;
     text-align:right;
+}
+.lzf_account .lzf_account_child span{
+    text-align:center;
 }
 .lzf_account .lzf_account_child span i{
     font-size:0.54rem;
