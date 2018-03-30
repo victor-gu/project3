@@ -13,10 +13,10 @@
     z-index: 100;
     font-size: 0.426667rem;
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     line-height: 1.066667rem;
     padding-left: 0.333333rem;
-    padding-right: 0.266667rem;
+    /*padding-right: 0.266667rem;*/
 }
 .homeHeader_bc{
     background-color: white;
@@ -45,6 +45,14 @@
     left:0.266667rem;
     transform: translate(0, -50%);
     color:gray;
+}
+.homepage .homeHeader .homeHeader_1 .dengluzt{
+    display:inline-block;
+    width:1.333333rem;
+    /*padding-right: 0.133333rem;*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .homepage .homeHeader .homeHeader_1>i{
     font-size: 0.64rem;
