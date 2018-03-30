@@ -15,7 +15,8 @@ class DatagridComponent extends Component{
 		filler:['name','title','price','Oprice','number','category','hot','username','password','phone','email','gender','age','userid','status','products'],
 		show:false,
 		currentData:[],
-		showTc: false
+		showTc: false,
+		delIdx: 0
 	}
 
 	componentWillMount(){
@@ -23,16 +24,7 @@ class DatagridComponent extends Component{
 		this.props.refresh(this.props.config);
 	}
 
-	 // componentWillReceiveProps(newProps){
-  //       console.log('Component WILL RECEIVE PROPS!', newProps)
-  //       this.props.refresh(this.props.config)
-  //   }
   	componentDidUpdate(){
-
-  		if(this.props.error){
-  			console.log(this.props.error)
-			return this.props.router.push('/login')
-		}
   		if(this.props.config.name == 'student' || this.props.config.name == 'admins'){
 			// console.log($('.delBtn'));
 			for(let i=0;i<$('.delBtn').length;i++){
@@ -60,19 +52,38 @@ class DatagridComponent extends Component{
 	}
 	compile(idx){
 		let type= 'compile';
+		// console.log(idx,'compile')
 		
 		this.props.add(idx,type);
 	}
 	delTr(idx){
 		// console.log('delTr,backDelproduct');
 		let ds = this.deCommon(this);
-		http.get('backDelproduct',{id: ds[idx]._id}).then((res)=>{
-			console.log(res);
-			if(res.status){
-				alert('删除成功！');
-				this.props.refresh(this.props.config);
-			}
+		// console.log(this.props.config.name);
+		if(this.props.config.name === 'product'){
+			
+			http.get('backDelproduct',{id: ds[idx]._id}).then((res)=>{
+				// console.log(res);
+				if(res.status){
+					alert('删除成功！');
+					this.props.refresh(this.props.config);
+				}
+			})
+		}
+	}
+
+	tanchuangDown(){
+		this.setState({
+			showTc: false
 		})
+	}
+	tanchuangUp(idx){
+		// console.log(idx)
+		this.setState({
+			showTc: true,
+			delIdx: idx
+		})
+		
 	}
 	fillState(){
 		// 引用父组件方法
@@ -82,6 +93,13 @@ class DatagridComponent extends Component{
 	}
 	render(){
 		let ds = this.deCommon(this);
+		// console.log(ds[0])
+		if(ds[0]){
+			if(ds[0].products){
+				// console.log(ds[0].products)
+			}
+			
+		}
 		let del = null;
 		
 		// del = <input type="button" className="btn btn-danger btn-sm" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
@@ -116,7 +134,7 @@ class DatagridComponent extends Component{
 										}
 										<td className="last-td">
 											<input type="button" className="btn btn-secondary btn-sm" value={this.props.txt.compile} onClick={this.compile.bind(this,idx)}/>
-											<input type="button" className="btn btn-danger btn-sm delBtn" value={this.props.txt.del} onClick={this.delTr.bind(this,idx)}/>
+											<input type="button" className="btn btn-danger btn-sm delBtn" value={this.props.txt.del} onClick={this.tanchuangUp.bind(this,idx)}/>
 										</td>
 									</tr>
 								)
@@ -125,7 +143,7 @@ class DatagridComponent extends Component{
 					</tbody>
 				</table>
 				<SpinnerComponent show={this.props.show}/>
-				<TcComponent show={this.state.showTc}/>
+				<TcComponent show={this.state} cb={this.tanchuangDown.bind(this)} del={this.delTr.bind(this)} tc={this.tanchuangUp.bind(this)}/>
 			</div>
 		)
 	}

@@ -21,6 +21,10 @@ export default class AdminComponent extends Component{
 								<div className="infor-name fl ">姓名：</div>
 								<div className="infor-value fl ">admin</div>						
 							</div>
+							<div className="infor-row">
+								<div className="infor-name fl ">电话：</div>
+								<div className="infor-value fl ">10086</div>						
+							</div>
 							
 						</div>
 					</div>
