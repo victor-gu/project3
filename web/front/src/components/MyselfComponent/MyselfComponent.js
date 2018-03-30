@@ -24,7 +24,7 @@ export default class MyselfComponent extends Component{
     componentWillMount(){     
         let randomid = Math.ceil(Math.random()*10);      
         http.get('frontProducts',{page:randomid, limit:3}).then((res)=>{
-            console.log(res);
+            // console.log(res);
             this.setState({
                 dataset: res.data || []
             })
@@ -112,7 +112,7 @@ export default class MyselfComponent extends Component{
                                  <ul className="lzf_fivelist">
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
-                                         <span>待付款</span>
+                                            <Link to = "confirmOrder"><span>待付款</span></Link>
                                      </li>
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
