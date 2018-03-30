@@ -19,16 +19,12 @@ import SpinnerComponent from '../../spinner/SpinnerComponent'
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
-    // componentDidMount(){
-    //     console.log(this.refs.lbcomponent)
-    //     this.remove(this.refs.lbcomponent)
-    // }
     componentDidMount(){ 
         var username = window.sessionStorage.getItem('username');
         if(username == null){
             this.refs.zhuangtai.innerHTML = '<Link to="/login">登录</Link>'
         }else{
-            this.refs.zhuangtai.innerHTML = username;
+            this.refs.zhuangtai.innerHTML = '<Link to="/mine">'+username+'</Link>';
         }
        console.log(this.refs.zhuangtai)
        console.log(username)
