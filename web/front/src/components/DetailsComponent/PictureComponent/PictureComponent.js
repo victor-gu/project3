@@ -3,32 +3,37 @@ import "./PictureComponent.scss";
 
 
 export default class CartComponent extends React.Component{
+
+
+    state = {
+        baseImg:"./src/static/img/"
+    }
     render(){
         return (
             <div>
                 <div className="picture">
-                    <img src="./src/components/DetailsComponent/img/details1.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details2.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details3.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details4.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details5.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details6.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details7.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details8.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details9.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details10.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details11.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details12.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details13.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details14.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details15.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details16.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details17.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details18.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details19.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details20.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details21.jpg"/>
-                    <img src="./src/components/DetailsComponent/img/details22.jpg"/>
+                    <img src={this.state.baseImg+"details1.jpg"}/>
+                    <img src={this.state.baseImg+"details2.jpg"}/>
+                    <img src={this.state.baseImg+"details3.jpg"}/>
+                    <img src={this.state.baseImg+"details4.jpg"}/>
+                    <img src={this.state.baseImg+"details5.jpg"}/>
+                    <img src={this.state.baseImg+"details6.jpg"}/>
+                    <img src={this.state.baseImg+"details7.jpg"}/>
+                    <img src={this.state.baseImg+"details8.jpg"}/>
+                    <img src={this.state.baseImg+"details9.jpg"}/>
+                    <img src={this.state.baseImg+"details10.jpg"}/>
+                    <img src={this.state.baseImg+"details11.jpg"}/>
+                    <img src={this.state.baseImg+"details12.jpg"}/>
+                    <img src={this.state.baseImg+"details13.jpg"}/>
+                    <img src={this.state.baseImg+"details14.jpg"}/>
+                    <img src={this.state.baseImg+"details15.jpg"}/>
+                    <img src={this.state.baseImg+"details16.jpg"}/>
+                    <img src={this.state.baseImg+"details17.jpg"}/>
+                    <img src={this.state.baseImg+"details18.jpg"}/>
+                    <img src={this.state.baseImg+"details19.jpg"}/>
+                    <img src={this.state.baseImg+"details20.jpg"}/>
+                    <img src={this.state.baseImg+"details21.jpg"}/>
+                    <img src={this.state.baseImg+"details22.jpg"}/>
                 </div>
                 <div className="des">
                     <p className="one">特别提醒：</p>

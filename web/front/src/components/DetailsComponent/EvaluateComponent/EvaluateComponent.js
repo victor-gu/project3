@@ -3,6 +3,9 @@ import "./EvaluateComponent.scss";
 
 
 export default class CartComponent extends React.Component{
+    state = {
+        baseImg:"./src/static/img/"
+    }
     render(){
         return (
             <div className="evaluate">
@@ -28,17 +31,17 @@ export default class CartComponent extends React.Component{
                     </ul>
                     <div className="user">
                         <div className="left">
-                            <img className="like" src="./src/components/DetailsComponent/img/details26.png"/>
+                            <img className="like" src={this.state.baseImg+"details26.png"}/>
                             <p>18680*****@***</p>
                         </div>
-                        <img className="star" src="./src/components/DetailsComponent/img/details27.png"/>
+                        <img className="star" src={this.state.baseImg+"details27.png"}/>
                     </div>
                     <p className="com">很不错，是华为的老粉了，一家人用华为已有6.7年了，上个月自己在实体店买了nova2s这个月又在商城给老公买了V10，正在体验中。</p>
                     <div className="pic">
-                        <img src="./src/components/DetailsComponent/img/details23.jpg"/>
-                        <img src="./src/components/DetailsComponent/img/details24.jpg"/>
-                        <img src="./src/components/DetailsComponent/img/details25.jpg"/>
-                        <img src="./src/components/DetailsComponent/img/details28.jpg"/>
+                        <img src={this.state.baseImg+"details23.jpg"}/>
+                        <img src={this.state.baseImg+"details24.jpg"}/>
+                        <img src={this.state.baseImg+"details25.jpg"}/>
+                        <img src={this.state.baseImg+"details28.jpg"}/>
                     </div>
                 </div>
             </div>

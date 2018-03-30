@@ -36,6 +36,15 @@ module.exports = {
         })
     },
 
+// 特殊情况
+    update1:(_collection, id, _condition) => {
+        return new Promise((resolve, reject) => {
+            db.db("project3").collection(_collection).update({userid:id}, _condition).then((result, error) => {
+                resolve(result);
+            })
+        })
+    },
+
     // 插入
     insert:(_colletion, _condition) => {
         return new Promise((resolve, reject) => {

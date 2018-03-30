@@ -12,7 +12,7 @@ export default class CartComponent extends Component{
     }
 
     componentWillMount(){
-        http.get("userOrder", {id:window.sessionStorage.getItem('userid')}).then((res)=>{
+        http.get("userCart", {id:window.sessionStorage.getItem('userid')}).then((res)=>{
             console.log(res)
             if(res.status == true){
                 this.setState({
@@ -85,11 +85,30 @@ export default class CartComponent extends Component{
     settle(){
         var hobby = document.querySelectorAll(".list li .left input");
         var arr = [];
+        var obj = this.state.dataset;
         for(var i=0; i<hobby.length; i++){
-            // if(){
-
-            // }
+            if(hobby[i].checked){
+                for(var j=0; j<obj.length; j++){
+                    if(obj[j]._id == hobby[i].dataset.id){
+                        arr.push(obj[j])
+                    }
+                }
+            }
         }
+
+        // 先在订单表中查找用户订单并且是为付款的，如果有了订单则更新订单数据，如果没有订单则插入订单
+        http.get("userOrder", {userid:window.sessionStorage.getItem('userid'), status:0}).then((res)=>{
+            console.log(res)
+            if(res.data.length==0){
+                http.get("insertOrder", {userid:window.sessionStorage.getItem('userid'), status:0, products:JSON.stringify(arr)}).then((res)=>{
+                    // console.log(res);
+                })
+            }else{
+                http.get("UpdOrder", {userid:window.sessionStorage.getItem('userid'), status:0, products:JSON.stringify(arr)}).then((res)=>{
+                    // console.log(res);
+                })
+            }
+        })
     }
 
     render(){
@@ -138,7 +157,7 @@ export default class CartComponent extends Component{
                     </p>
                     <div className="right">
                         <p className="total2">总计：￥<span className="totalPrice">0</span></p>
-                        <p className="total3" onClick={this.settle}>结算(3)</p>
+                        <p className="total3" onClick={this.settle.bind(this)}>结算(3)</p>
                     </div>
                 </div>
 
