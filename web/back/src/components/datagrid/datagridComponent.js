@@ -93,10 +93,32 @@ class DatagridComponent extends Component{
 	}
 	render(){
 		let ds = this.deCommon(this);
-		// console.log(ds[0])
+		// console.log(ds)
+		let dsOrder = null;
+		let dsArr = [];
 		if(ds[0]){
 			if(ds[0].products){
-				// console.log(ds[0].products)
+				// console.log(ds[0].products);
+				dsOrder = JSON.parse(JSON.stringify(ds));
+				// console.log(dsOrder);
+				if(typeof(dsOrder[0].products) === 'string'){
+					// console.log(JSON.parse(dsOrder[0].products).length)
+
+					for(let i=0;i<dsOrder.length;i++){
+						let products = JSON.parse(dsOrder[i].products);
+
+						for(let j=0;j<products.length;j++){
+							// console.log('i:',i,'j:',j);
+							products[j].userid = dsOrder[i].userid;
+							products[j].status = dsOrder[i].status;
+							dsArr.push(products[j])
+
+						}
+					}
+					// console.log(dsArr)
+					ds = dsArr;
+				}
+				
 			}
 			
 		}
@@ -124,7 +146,7 @@ class DatagridComponent extends Component{
 						{
 							ds.map((item,idx)=>{
 								return (
-									<tr key={item._id || Math.random()}>
+									<tr key={Math.random()}>
 										{
 											this.getKeys(item).map((key)=>{
 												if(this.state.filler.indexOf(key) >-1){
