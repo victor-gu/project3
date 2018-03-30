@@ -22,9 +22,9 @@ export default class Section1Component extends React.Component{
                         <ul>
                             {
                                 this.props.Section1[0].map((item)=>{
-                                        if(item.category == this.props.Section1[1]){
-                                    i--;
-                                    if(i>=0){
+                                    if(item.category == this.props.Section1[1]){
+                                        i--;
+                                        if(i>=0){
                                             return(
                                                 <li key={item._id} onClick = {this.gotodet.bind(this,item._id)}>
                                                     <img src={"./src/static/img/"+item.img} />
