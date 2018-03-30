@@ -104,11 +104,14 @@ export default class CartComponent extends Component{
                     // console.log(res);
                 })
             }else{
-                http.get("UpdOrder", {userid:window.sessionStorage.getItem('userid'), status:0, products:JSON.stringify(arr)}).then((res)=>{
-                    // console.log(res);
+                http.get("UpdOrder", {userid:window.sessionStorage.getItem('userid'), condition:0, status:0, products:JSON.stringify(arr)}).then((res)=>{
+                    console.log(res);
                 })
             }
         })
+
+        this.props.router.push({pathname:"/confirmOrder"})
+
     }
 
     render(){

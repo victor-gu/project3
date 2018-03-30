@@ -19,6 +19,14 @@ module.exports = {
                 res.send({status:true, data:result});
             }) 
         })
+
+        //根据用户id对订单进行查询
+        app.get("/useridOrder" , (req, res) => {
+            let userid = req.query.userid;
+            db.mongodb.select("order", {userid}).then((result) => {
+                res.send({status:true, data:result});
+            }) 
+        })
         
 
         // 更新用户订单
@@ -26,7 +34,8 @@ module.exports = {
             let userid = req.query.userid;
             let status = req.query.status;
             let products = req.query.products;
-            db.mongodb.update1("order", userid, {userid,status,products}).then((result) => {
+            let condition = req.query.condition;
+            db.mongodb.update1("order", {userid:userid, status:condition}, {userid,status,products}).then((result) => {
                 res.send({status:true, data:result});
             })  
         })
