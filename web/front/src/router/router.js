@@ -15,6 +15,8 @@ import RegComponent from '../components/reg/RegComponent'
 
 
 import SearchComponentlzf from '../components/SearchComponent/SearchComponent.js'
+import ConfirmOrderComponent from '../components/ConfirmOrderComponent/ConfirmOrderComponent.js'
+
 import NewComponent from '../components/home/lunbo/LunboComponent'
 
 
@@ -50,6 +52,9 @@ export default (
             <Route path="/params" component={ParamsComponent}/>
             <Route path="/evaluate" component={EvaluateComponent}/>
         </Route>
+
+
+        <Route path="/confirmOrder" component={ConfirmOrderComponent}/>
 
     </Route>
   

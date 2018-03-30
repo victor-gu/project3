@@ -91,7 +91,7 @@ export default class SearchComponet extends Component{
 
 
 
-    //----------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------
     render(){
         let baseurl = 'src/static/img/'
         let hotcontent;
@@ -132,6 +132,7 @@ export default class SearchComponet extends Component{
         )
 
         inputeventcontent = this.state.inputeventdata.length > 0 ? inputeventhtml : null;
+        
         //-------------------------------------------------------------------
 
         let searchcontent;
