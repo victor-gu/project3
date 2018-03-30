@@ -25,6 +25,7 @@ export default class SortComponent extends Component{
                         window.sessionStorage.setItem('username',this.refs.name.value)
                         location.href ='/'
                     }else{
+                        this.refs.name.style.background="#FFBFBF"
                         this.refs.name.value=null;
                         this.refs.name.focus();
                         this.refs.pass.value=null;
