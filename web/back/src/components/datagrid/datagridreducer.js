@@ -12,10 +12,12 @@ export default function datagrid(state={},action){
 				 _state[action.name] = _state[action.name] || {};
 				 _state[action.name].dataset = action.result;
 				 _state[action.name].count = action.count
+				 _state[action.name].pageDefault = action.pageDefault;
 
 			}else{
 				_state.dataset = action.result;
 				_state.count = action.count;
+				_state.pageDefault = action.pageDefault
 			}
 			break;
 		case constants.RequestError:

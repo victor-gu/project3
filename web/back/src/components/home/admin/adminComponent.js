@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import './admin.scss'
 
 export default class AdminComponent extends Component{
+	
 	render(){
 		return (
 			<div>

@@ -10,7 +10,6 @@ import Section5Component from './section/Section5Component'
 import Section6Component from './section/Section6Component'
 import Section7Component from './section/Section7Component'
 
-
 import LunboComponent from '../home/lunbo/LunboComponent'
 import JxComponent from '../home/jingxuan/JxComponent'
 import TetuiComponent from '../home/tetui/TetuiComponent'
@@ -20,13 +19,20 @@ import SpinnerComponent from '../../spinner/SpinnerComponent'
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
-    
     componentDidMount(){ 
-         
+        var username = window.sessionStorage.getItem('username');
+        if(username == null){
+            this.refs.zhuangtai.innerHTML = '<Link to="/login">登录</Link>'
+        }else{
+            this.refs.zhuangtai.innerHTML = '<Link to="/mine">'+username+'</Link>';
+        }
+       console.log(this.refs.zhuangtai)
+       console.log(username)
     }
     
     
     componentWillMount(){
+       
         this.setState({spinnerShow:true})
         http.get('frontApoproducts',{}).then((res)=>{
             this.setState({
@@ -37,7 +43,12 @@ export default class HomeComponent extends Component{
     }
     state = {
         wayslData:[],
+        moredata:[],
         spinnerShow:true,
+    }
+
+    zhuangtai(){
+         var username = window.sessionStorage.getItem('username');
     }
     
     render(){
@@ -53,37 +64,37 @@ export default class HomeComponent extends Component{
                             <i className="iconfont icon-search"></i>
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
-                        <span>登录</span>
+                        <span ref="zhuangtai">登录</span>
                     </div>
                 </div>
 
-                <div className="homeContent wayslContent" id="userOrder" ref = "userOrder">
+                <div className="homeContent wayslContent" >
                     <div className="lunbo" ref="lunbo">
-                        <LunboComponent config={["src/components/home/img/lunbo1.jpg","src/components/home/img/lunbo2.jpg","src/components/home/img/lunbo3.jpg","src/components/home/img/lunbo4.jpg","src/components/home/img/lunbo5.jpg","src/components/home/img/lunbo6.jpg","src/components/home/img/lunbo7.jpg","src/components/home/img/lunbo8.jpg"]}></LunboComponent>
+                        <LunboComponent config={["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"]} ref="lbcomponent"></LunboComponent>
                     </div>
 
                     <div className="contenBanner">
                         <ul>
                             <li>
                                 <Link to="/nav">
-                                    <div><img src="./src/components/home/img/nav1.jpg" /></div>
+                                    <div><img src="./src/static/img/nav1.jpg" /></div>
                                     <span>优选配件</span>
                                 </Link>   
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav2.jpg" /></div>
+                                <div><img src="./src/static/img/nav2.jpg" /></div>
                                 <span>会员领劵</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav3.jpg" /></div>
+                                <div><img src="./src/static/img/nav3.jpg" /></div>
                                 <span>新品预定</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav4.jpg" /></div>
+                                <div><img src="./src/static/img/nav4.jpg" /></div>
                                 <span>以旧换新</span></Link>
                             </li>
                             <li><Link to="/nav">
-                                <div><img src="./src/components/home/img/nav5.jpg"/></div>
+                                <div><img src="./src/static/img/nav5.jpg"/></div>
                                 <span>数码特惠</span></Link>
                             </li>
                            
@@ -91,7 +102,7 @@ export default class HomeComponent extends Component{
                     </div>
                     
                     <div className="tetui">
-                        <TetuiComponent></TetuiComponent>
+                        <TetuiComponent tetui={this.state.wayslData}></TetuiComponent>
                     </div>
                     
                     <div className="news">

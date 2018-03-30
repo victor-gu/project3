@@ -12,7 +12,8 @@ class ProductComponent extends Component{
 		config: {
 			url:'backproducts',
 			name:"product",
-			data:{page:1,limit:6}
+			data:{page:1,limit:6},
+			
 		},
 		pro: {
 			filler:['name','title','price','Oprice','number','category','hot'],
@@ -20,15 +21,25 @@ class ProductComponent extends Component{
 			currentData:[]
 		}
 	}
+
+	componentDidUpdate(){
+		// console.log(this);
+		if(this.props.error){
+			console.log(this.props.error)
+			return this.props.router.push('/login')
+		}
+	}
 	search(n,el){
-		// console.log(this.refs['search-input'].value)
+
+		// console.log(this.props)
 		if(n==1 || n.keyCode === 13){
 			
 			this.setState({
 				config: {
 					url: 'backproducts',
 					name: 'product',
-					data: {page:1,limit:6,title:this.refs['search-input'].value}
+					data: {page:1,limit:6,title:this.refs['search-input'].value},
+					pageDefault: 0
 				}
 			},()=>{
 				// console.log(this.state.config);
@@ -69,7 +80,7 @@ class ProductComponent extends Component{
 				</div>
 				<DatagridComponent config={this.state.config} ref="datagrid" add={this.add.bind(this)}/>
 				<ModalComponent config = {this.state.pro} cb={this.fillState.bind(this)} upt={this.state.config}/>
-				<PageComponent config={this.state.config}/>
+				<PageComponent config={this.state.config} ref="page"/>
 			</div>
 			
 		)
@@ -78,10 +89,11 @@ class ProductComponent extends Component{
 }
 
 const mapPro = (state)=>{
-	// console.log(state.datagrid)
+	// console.log(state)
 	return {
 		proData: state.datagrid,
-		txt: state.dictionary.txt
+		txt: state.dictionary.txt,
+		error: state.datagrid.error
 	}
 }
 

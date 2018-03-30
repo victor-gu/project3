@@ -33,6 +33,10 @@ class HeaderComponent extends Component{
 			email: 'Email',
 			gender: 'Gender',
 			age: 'Age',
+			userid: 'Userid',
+			status: 'Status',
+			products: 'Products',
+			carList: 'CarList'
 
 		},
 		cn: {
@@ -60,6 +64,10 @@ class HeaderComponent extends Component{
 			email: '邮件',
 			gender: '性别',
 			age: '年龄',
+			userid: '订单id',
+			status: '订单状态',
+			products: '订单商品',
+			carList: '购物车订单'
 		}
 	}
 	componentWillMount(){

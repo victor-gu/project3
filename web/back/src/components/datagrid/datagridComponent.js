@@ -12,7 +12,7 @@ import './datagrid.scss'
 
 class DatagridComponent extends Component{
 	state = {
-		filler:['name','title','price','Oprice','number','category','hot','username','password','phone','email','gender','age'],
+		filler:['name','title','price','Oprice','number','category','hot','username','password','phone','email','gender','age','userid','status','products'],
 		show:false,
 		currentData:[],
 		showTc: false
@@ -28,6 +28,11 @@ class DatagridComponent extends Component{
   //       this.props.refresh(this.props.config)
   //   }
   	componentDidUpdate(){
+
+  		if(this.props.error){
+  			console.log(this.props.error)
+			return this.props.router.push('/login')
+		}
   		if(this.props.config.name == 'student' || this.props.config.name == 'admins'){
 			// console.log($('.delBtn'));
 			for(let i=0;i<$('.delBtn').length;i++){
@@ -54,48 +59,28 @@ class DatagridComponent extends Component{
 		return item ? Object.keys(item) : [];
 	}
 	compile(idx){
-		let ds = this.deCommon(this);
 		let type= 'compile';
-		// console.log(ds[idx]);引用
-		// this.setState({
-		// 	show:true,
-		// 	currentData: ds[idx] || ds[0],
-		// 	type:'compile'
-		// },()=>{
-		// 	// console.log(this.state)
-		// })
-		// console.log(this.props.add)
-		// 调用父组件的方法
+		
 		this.props.add(idx,type);
 	}
 	delTr(idx){
 		// console.log('delTr,backDelproduct');
 		let ds = this.deCommon(this);
-		// console.log(ds[idx]._id);
-		// this.setState({
-		// 	showTc: true
-		// })
 		http.get('backDelproduct',{id: ds[idx]._id}).then((res)=>{
 			console.log(res);
 			if(res.status){
 				alert('删除成功！');
+				this.props.refresh(this.props.config);
 			}
 		})
 	}
 	fillState(){
-		// 引用父元素方法
+		// 引用父组件方法
 		this.setState({
 			show: false
 		})
 	}
 	render(){
-		// let ds = this.props.dataset;
-		// let name = this.props.config.name;
-		// if(name){
-		// 	ds = ds[name] ? ds[name].dataset : []
-		// }else{
-		// 	ds = ds.dataset || [];
-		// }
 		let ds = this.deCommon(this);
 		let del = null;
 		
@@ -109,7 +94,6 @@ class DatagridComponent extends Component{
 							{
 								this.getKeys(ds[0]).map((key,idx) =>{
 									if(this.state.filler.indexOf(key)> -1){
-										// console.log(key);
 										return <th key= {Math.random()}>{this.props.txt[key] || key}</th>
 									}
 									
@@ -152,7 +136,8 @@ const mapStateToProps = (state) =>{
 	return {
 		dataset: state.datagrid,
 		show: state.datagrid.show,
-		txt: state.dictionary.txt
+		txt: state.dictionary.txt,
+		error:state.datagrid.error
 	}
 }
 
