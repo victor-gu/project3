@@ -95,7 +95,7 @@ export default class SortComponent extends Component{
             }else if(!this.refs.nan.checked&&!this.refs.nv.checked){
                 alert("请选择您的性别")
             }else{
-                http.get('register',{username:this.refs.user.value,password:this.refs.pass.value,phone:this.refs.phone.value,email:this.refs.email.value,birthday:this.refs.bir.value,gender:this.state.gen}).then((res) => {
+                http.get('register',{username:this.refs.user.value,password:this.refs.pass.value,phone:this.refs.phone.value,email:this.refs.email.value,birthday:this.refs.bir.value,gender:this.state.gen,age:this.refs.age.value}).then((res) => {
                     if(res.status){
                         location.href ='#/login'
                     }else{
