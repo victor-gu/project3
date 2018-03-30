@@ -5,6 +5,12 @@ import http from '../../utils/httpclient'
 import {Link} from 'react-router'
 
 export default class SortComponent extends Component{
+    name(){
+        this.refs.name.style.background="#EFEFEF"
+    }
+    pass(){
+        this.refs.pass.style.background="#EFEFEF"
+    }
     tologin(){
         if(this.refs.name.value==''){
                 this.refs.name.style.background="#FFBFBF"
@@ -36,10 +42,10 @@ export default class SortComponent extends Component{
                     </div>
                     <div className="login-body">
                         <div>
-                            <input type="text" placeholder="用户名" ref="name"/>
+                            <input type="text" placeholder="用户名" ref="name" onBlur={this.name.bind(this)}/>
                         </div>
                         <div>
-                            <input type="password" placeholder="密码" ref="pass"/>
+                            <input type="password" placeholder="密码" ref="pass" onBlur={this.pass.bind(this)}/>
                         </div>
                         <div>
                             <input type="button" value="登录" className="btn" onClick={this.tologin.bind(this)}/>
