@@ -11,10 +11,13 @@ export default class PhoneMoreComponent extends React.Component{
                 moredata:res.data,
             }) 
         })
-        console.log(this)
     }
     state={
         moredata:[]
+    }
+    gotodet(id){
+        location.href="#/goods"
+        window.sessionStorage.setItem("goodsid", id);
     }
     render(){
         console.log(this.state.moredata)
@@ -37,14 +40,21 @@ export default class PhoneMoreComponent extends React.Component{
                     </ul>
                 </div>
                 <div className="phoneMore_content">
-                    <div className="PhoneMore_content_header">
-                        <div className="phoneMore_content_l"></div>
-                        <div className="phoneMore_content_r">
-                            <p className="phoneMore_content_rt">你i阿发放哈哈分iuahfiushisasdf</p>
-                            <p className="phoneMore_content_rb"><span>￥</span>1009</p>
-                        </div>
-
-                    </div>
+                    {
+                        this.state.moredata.map((item)=>{
+                            return (
+                                <div className="PhoneMore_content_header" key={item._id}>
+                                    <div className="phoneMore_content_l" onClick = {this.gotodet.bind(this,item._id)}>
+                                        <img src={"./src/static/img/"+item.img} />
+                                    </div>
+                                    <div className="phoneMore_content_r">
+                                        <p className="PhoneMore_content_rt">{item.title}</p>
+                                        <p className="phoneMore_content_rb"><span>￥</span>{item.price}</p>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         )

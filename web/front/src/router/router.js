@@ -5,6 +5,7 @@ import HomeComponent from '../components/home/HomeComponent'
 import ContentNavComponent1 from '../components/home/contentNav/ContentNavComponent1'
 import TetuiComponent1 from '../components/home/tetui/TetuiComponent1'
 import PhoneMoreComponent from '../components/home/more/PhoneMoreComponent'
+import LunboComponent from '../components/home/lunbo2/LunboComponent'
 
 import SortComponent from '../components/sort/SortComponent'
 import CartComponent from '../components/cart/CartComponent'
@@ -36,6 +37,8 @@ export default (
         <Route path="/nav" component={ContentNavComponent1} />
         <Route path="/tetui" component={TetuiComponent1} />
         <Route path="/phone" component={PhoneMoreComponent} />
+        <Route path="/lunbo2" component={LunboComponent} />
+
         
         <Route path="/search" component={SearchComponentlzf}/>
 

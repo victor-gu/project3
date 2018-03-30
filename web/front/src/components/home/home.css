@@ -63,19 +63,19 @@
 .homepage .homeContent .lunbo{
     height:5.333333rem;
     width:100%;
-    overflow:hidden;
+    /*overflow:hidden;*/
 }
 #userOrder .el-carousel{
     overflow-x:visible;
 }
 .block{
     z-index: -1000;
+    overflow:hidden;
 }
 
 .homepage .homeContent .lunbo img,.el-carousel,.el-carousel__container{
     height:5.32rem;
     width:100%;
-
 }
 
 .homepage .homeContent .lunbo .el-icon-arrow-right{
