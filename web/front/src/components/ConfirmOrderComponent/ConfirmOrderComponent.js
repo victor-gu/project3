@@ -28,7 +28,7 @@ export default class ConfirmOrderComponent extends Component{
             <div className="lzf_confirm_all">
 
                 <div className="lzf_confirm_header">
-                    <i className="iconfont lzf_confirm_left">&#xe61e;</i>
+                    <Link to ="mine"><i className="iconfont lzf_confirm_left">&#xe61e;</i></Link>
                     <h3>
                         确认订单
                     </h3>
@@ -59,7 +59,7 @@ export default class ConfirmOrderComponent extends Component{
                         {
                             this.state.dataset.map((item) =>{
                                 return (
-                                    <li key={item._id}><div className="lzf_prolist_white"><img  src={baseurl + item.img}/><h3 className="prolist_title">{item.title}</h3><h4>x{item.qty}</h4><h5>￥{item.price}</h5></div><div className="lzf_prolist_gray"><span>配</span><h3>天翼通1GB全球通用流量套餐</h3><h4>x 1</h4></div></li>
+                                    <li key={Math.random()}><div className="lzf_prolist_white"><img  src={baseurl + item.products.img}/><h3 className="prolist_title">{item.products.title}</h3><h4>x{item.products.qty}</h4><h5>￥{item.products.price}</h5></div><div className="lzf_prolist_gray"><span>配</span><h3>天翼通1GB全球通用流量套餐</h3><h4>x 1</h4></div></li>
                                 )                           
                             })
                         }                      

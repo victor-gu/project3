@@ -4,6 +4,7 @@ import {Route} from 'react-router'
 import HomeComponent from '../components/home/HomeComponent'
 import ContentNavComponent1 from '../components/home/contentNav/ContentNavComponent1'
 import TetuiComponent1 from '../components/home/tetui/TetuiComponent1'
+import PhoneMoreComponent from '../components/home/more/PhoneMoreComponent'
 
 import SortComponent from '../components/sort/SortComponent'
 import CartComponent from '../components/cart/CartComponent'
@@ -33,10 +34,11 @@ export default (
         <Route path="/mine" component={MyselfComponent} />
         <Route path="/login" component={LoginComponent} />
         <Route path="/reg" component={RegComponent} />
-
+        
         <Route path="/nav" component={ContentNavComponent1} />
         <Route path="/tetui" component={TetuiComponent1} />
-
+        <Route path="/phone" component={PhoneMoreComponent} />
+        
         <Route path="/search" component={SearchComponentlzf}/>
 
         <Route path="/news" component={NewComponent} />

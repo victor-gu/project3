@@ -7,8 +7,6 @@ import http from "../../utils/httpclient";
 
 export default class DetailsComponent extends React.Component{
 
-
-
    // componentWillMount(){
    //      // this.props.router.push({pathname:'goods'})
    //  }

@@ -7,11 +7,11 @@ export default class ContentNavComponent1 extends React.Component{
             <div className="cnav">
                     <div className="cnav_header">
                         <Link to="/">
-                            <img src="../../../../src/components/home/img/cnav_h.jpg"/>
+                            <img src="./src/static/img//cnav_h.jpg"/>
                         </Link>
                     </div>
                 <div className="cnav">
-                    <img src="../../../../src/components/home/img/cnav_h2.jpg" />
+                    <img src="./src/static/img/cnav_h2.jpg" />
                 </div>
             </div>
         )
