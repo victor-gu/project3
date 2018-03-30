@@ -143,13 +143,6 @@ export default class HomeComponent extends Component{
                        <JxComponent jingxuan={this.state.wayslData}></JxComponent>
                     </div>
 
-                    <div className="wayslPhoneproduct Sections">
-                        <Section1Component Section1={[this.state.wayslData,"华为手机"]}></Section1Component>
-                    </div>
-    
-                    <div className="wayslPbproduct Sections">
-                        <Section2Component Section2={[this.state.wayslData,"荣耀手机"]}></Section2Component>
-                    </div>
 
                     <div className="wayslCdproduct Sections">
                          <Section3Component Section3={[this.state.wayslData,"笔记本&平板"]}></Section3Component>
@@ -159,6 +152,20 @@ export default class HomeComponent extends Component{
                          <Section4Component Section4={[this.state.wayslData,"智能穿戴"]}></Section4Component>
                     </div>
 
+
+                    <div className="wayslPhoneproduct Sections">
+                        <Section1Component Section1={[this.state.wayslData,"华为手机"]}></Section1Component>
+                    </div>
+
+                     <div className="wayslStproduct Sections">
+                         <Section7Component Section7={[this.state.wayslData,"通用配件"]}></Section7Component>
+                    </div>
+    
+                    <div className="wayslPbproduct Sections">
+                        <Section2Component Section2={[this.state.wayslData,"荣耀手机"]}></Section2Component>
+                    </div>
+
+                   
                     <div className="wayslRxproduct Sections">
                          <Section5Component Section5={[this.state.wayslData,"智能家居"]}></Section5Component>
                     </div>
@@ -167,9 +174,7 @@ export default class HomeComponent extends Component{
                          <Section6Component Section6={[this.state.wayslData,"生态产品"]}></Section6Component>
                     </div>
 
-                    <div className="wayslStproduct Sections">
-                         <Section7Component Section7={[this.state.wayslData,"通用配件"]}></Section7Component>
-                    </div>
+                   
 
 
 

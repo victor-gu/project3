@@ -41,6 +41,7 @@ export default class MyselfComponent extends Component{
     loginout(){
         sessionStorage.removeItem("username");
         sessionStorage.removeItem("userid");
+        sessionStorage.removeItem("xxtoken");
         hashHistory.push('/mine');
     }
 
