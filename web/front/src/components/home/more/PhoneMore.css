@@ -55,9 +55,10 @@
     display:flex;
     flex:1;
     overflow: auto;
+    flex-direction: column;
 }
 .PhoneMore_content_header{
-    height:2.986667rem;
+    min-height:2.986667rem;
     border: 0.013333rem solid #ccc;
     width:100%;
     padding:0 0.666667rem;
@@ -66,26 +67,23 @@
     font-size: 0.4rem;
 }
 .phoneMore .phoneMore_content .phoneMore_content_l{
-    width:2.133333rem;
+    width:3.133333rem;
     height:2.133333rem;
     border:0.013333rem solid #ccc;
-    margin:0.4rem 0;
+    margin:0.4rem 0.4rem 0.4rem 0;
+
 }
 .phoneMore .phoneMore_content .phoneMore_content_r{
     height:2.933333rem;
     display:flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: column;
     font-size: 0.4rem;
 }
 .phoneMore .phoneMore_content .phoneMore_content_rt{
-    flex:1;
-    line-height:110px;
-
+    height:1.76rem;
 }
 .phoneMore .phoneMore_content .phoneMore_content_rb{
     color:red;
-    flex:1;
-    line-height:110px;
-
+    height:1.066667rem;
 }

@@ -19,15 +19,20 @@ import SpinnerComponent from '../../spinner/SpinnerComponent'
 import '../../common/common.css'
 import './home.css'
 export default class HomeComponent extends Component{
-    
     componentDidMount(){ 
-        clearInterval(this.timer)
+        var username = window.sessionStorage.getItem('username');
+        if(username == null){
+            this.refs.zhuangtai.innerHTML = '<Link to="/login">登录</Link>'
+        }else{
+            this.refs.zhuangtai.innerHTML = '<Link to="/mine">'+username+'</Link>';
+        }
+       console.log(this.refs.zhuangtai)
+       console.log(username)
     }
     
     
     componentWillMount(){
-        var username = window.sessionStorage.getItem('username');
-        console.log(username)
+       
         this.setState({spinnerShow:true})
         http.get('frontApoproducts',{}).then((res)=>{
             this.setState({
@@ -59,13 +64,13 @@ export default class HomeComponent extends Component{
                             <i className="iconfont icon-search"></i>
                         </div>
                         <i className="iconfont icon-qunfengxiaoxitishilingdang"></i>
-                        <span>登录</span>
+                        <span ref="zhuangtai">登录</span>
                     </div>
                 </div>
 
-                <div className="homeContent wayslContent" id="userOrder" ref = "userOrder">
+                <div className="homeContent wayslContent" >
                     <div className="lunbo" ref="lunbo">
-                        <LunboComponent config={["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"]}></LunboComponent>
+                        <LunboComponent config={["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"]} ref="lbcomponent"></LunboComponent>
                     </div>
 
                     <div className="contenBanner">

@@ -1,6 +1,6 @@
 import React,{Component} from 'react' 
 import {Link,hashHistory,browserHistory} from 'react-router'
-import '../../common/common.css'
+// import '../../common/common.css'
 import './MyselfComponent.css'
 import './base.css'
 import '../MyselfComponent/iconfont/lzffont/iconfont.css'
@@ -24,7 +24,7 @@ export default class MyselfComponent extends Component{
     componentWillMount(){     
         let randomid = Math.ceil(Math.random()*10);      
         http.get('frontProducts',{page:randomid, limit:3}).then((res)=>{
-            console.log(res);
+            // console.log(res);
             this.setState({
                 dataset: res.data || []
             })
@@ -112,7 +112,7 @@ export default class MyselfComponent extends Component{
                                  <ul className="lzf_fivelist">
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
-                                         <span>待付款</span>
+                                            <span><Link to = "confirmOrder">待付款</Link></span>
                                      </li>
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
@@ -235,7 +235,7 @@ export default class MyselfComponent extends Component{
                                          <span>客户端</span>
                                      </li>
                                      <li>
-                                         <i className="iconfont">&#xe61e;</i>
+                                         <i className="iconfont ">&#xe644;</i>
                                          <span>触屏版</span>
                                      </li>
                                      <li>

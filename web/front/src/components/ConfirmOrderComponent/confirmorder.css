@@ -1,0 +1,235 @@
+.lzf_confirm_all{
+    min-height:2.666667rem;
+    width:100%;
+    padding-top: 1.333333rem;
+    background:#efefef;
+}
+
+
+.lzf_confirm_header{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:233;
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    height:1.333333rem;
+    background: white;
+    font-size:0.45rem;
+    line-height:1.333333rem;
+    text-align:center;
+    margin-bottom:0.2rem;
+    border-bottom:0.013333rem solid #ccc;
+}
+.lzf_confirm_header .lzf_confirm_left{
+    margin-left:0.4rem;
+    font-size:0.56rem;
+}
+.lzf_confirm_header h3{
+    margin-left:0.293333rem;
+}
+
+/*--------------------------------*/
+.lzf_confirm_main{
+    margin-bottom:1.333333rem;
+    background:#efefef;
+}
+.lzf_address img{
+    width:100%;
+    height:2.133333rem;
+    margin-bottom:0.2rem;
+}
+.confirm_main0{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    padding-left:0.5rem;
+    padding-right:0.234rem;
+    height:1.066667rem;
+    font-size:0.373333rem;
+    background:white;
+}
+.lzf_fapiao{
+    margin-bottom:0.2rem;
+}
+.lzf_fapiao h4{
+    position:relative;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+.lzf_fapiao h4 span{
+    margin-left:5.0rem;
+}
+.lzf_fapiao h4 .iconfont{
+    position:absolute;
+    right:-0.2333rem;
+}
+
+/*------------------------------------------------*/
+.lzf_transport{
+    border-bottom:0.013333rem solid #ccc;
+}
+.lzf_transport img{
+    width:0.4rem;
+    height:0.4rem;
+    margin-right:0.22rem;
+}
+.lzf_transport span{
+    font-weight:bold;
+}
+/*----------------------------------------------------*/
+.lzf_prolist{
+    width:100%;
+    min-height:2.133333rem;
+    font-size:0.29rem;
+    background:white;
+}
+.lzf_prolist .lzf_prolist_white{
+    width:100%;
+    height:2.0rem;
+    text-align:center;
+    background:white;
+    padding-left:0.5rem;
+}
+.lzf_prolist .lzf_prolist_white img{
+    float:left;
+    margin-top:0.144rem;
+    margin-right:0.15rem;
+    height:1.7rem;
+    width:1.6rem;
+}
+.lzf_prolist .lzf_prolist_white .prolist_title{
+    float:left;
+    display:flex;
+    align-items:center;
+    width:4.5rem;
+    height:2.0rem;
+    line-height:0.44rem;
+    vertical-align:middle;
+   /* overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;*/
+}
+.lzf_prolist .lzf_prolist_white h4{
+    float:left;
+    width:1.333333rem;
+    height:2rem;
+    line-height:2rem;
+}
+.lzf_prolist .lzf_prolist_white h5{
+    float:left;
+    width:1.866667rem;
+    height:2rem;
+    line-height:2rem;
+}
+
+/*----------------------------------------*/
+
+.lzf_prolist .lzf_prolist_gray{
+    width:100%;
+    height:0.933333rem;
+    line-height:0.9333rem;
+    text-align:center;
+    padding-left:0.5rem;
+    background:#efefef;
+    font-size:0.3rem;
+}
+.lzf_prolist_gray span{
+    display:inline-block;
+    float:left;
+    width:1.78rem;
+}
+.lzf_prolist_gray h3{
+    float:left;
+    width:4.44rem;  
+    /*background:pink;*/
+}
+.lzf_prolist_gray h4{
+    float:left;
+    width:1.333333rem;
+}
+
+
+/*----------------------------------------*/
+.lzf_totalcost{
+    margin-bottom:0.333rem;
+}
+.lzf_transport_price{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    height:1.066667rem;
+    background:white;
+
+    padding-right:1.0rem;
+}
+.lzf_account{
+    height:1.6rem;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:flex-end;
+}
+.lzf_account .lzf_account_child{
+    font-size:0.45rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-around;
+    align-items:center;
+    text-align:right;
+}
+.lzf_account .lzf_account_child span{
+    text-align:center;
+}
+.lzf_account .lzf_account_child span i{
+    font-size:0.54rem;
+    color:darkred;
+    font-weight:bold;
+}
+
+.lzf_discount{
+    background:white;
+    font-size:0.31rem;
+    margin-bottom:0.234rem;
+}
+.lzf_discount2 img{
+    width:0.48rem;
+    height:0.48rem;
+    margin-right:0.23rem;
+}
+.lzf_discount3 input{
+    width:0.4rem;
+    height:0.4rem;
+    border:0.013333rem solid #ccc;
+    border-radius:5%;
+    margin-right:0.1234rem;
+}
+
+.lzf_confirm_footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    padding-left:2.666667rem;
+    width:100%;
+    height:1.333333rem;
+    background: white;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    font-size:0.38rem;
+    font-weight: bold;
+    text-align:center;
+}
+.lzf_confirm_footer .lzf_paid{
+    width:2.666667rem;
+    height:1.333333rem;
+    line-height: 1.333333rem;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    background: rgb(202,21,30);
+    border-radius:0.066667rem;
+}
