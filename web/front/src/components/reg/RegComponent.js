@@ -5,6 +5,23 @@ import http from '../../utils/httpclient'
 import {Link} from 'react-router'
 
 export default class SortComponent extends Component{
+    nan(){
+        if(this.refs.nan.checked){
+                this.setState({
+                gen:'男'
+            })
+        }
+    }
+    nv(){
+        if(this.refs.nv.checked){
+                this.setState({
+                gen:'女'
+            })
+        }
+    }
+    state={
+        gen:''
+    }
     user(){
         if(!/^[a-z][a-z0-9\-]{5,19}$/.test(this.refs.user.value)){
                    // * 不能为空，
@@ -73,8 +90,12 @@ export default class SortComponent extends Component{
                 this.refs.age.style.background="#FFBFBF"
             }else if(this.refs.pass2.value==''){
                 this.refs.pass2.style.background="#FFBFBF"
+            }else if(this.refs.bir.value==''){
+                this.refs.bir.style.background="#FFBFBF"
+            }else if(!this.refs.nan.checked&&!this.refs.nv.checked){
+                alert("请选择您的性别")
             }else{
-                http.get('register',{username:this.refs.user.value,password:this.refs.pass.value}).then((res) => {
+                http.get('register',{username:this.refs.user.value,password:this.refs.pass.value,phone:this.refs.phone.value,email:this.refs.email.value,birthday:this.refs.bir.value,gender:this.state.gen,age:this.refs.age.value}).then((res) => {
                     if(res.status){
                         location.href ='#/login'
                     }else{
@@ -114,16 +135,16 @@ export default class SortComponent extends Component{
                         </div>
                         <div id="gender">
                             <label>*性别 :</label>
-                            <input type="radio" name="gender" value="男" ref="nan"/>男
-                            <input type="radio" name="gender" value="女" ref="nv"/>女
+                            <input type="radio" name="gender" value="男" ref="nan" onClick={this.nan.bind(this)}/>男
+                            <input type="radio" name="gender" value="女" ref="nv" onClick={this.nv.bind(this)}/>女
                         </div>
                         <div>
                             <label htmlFor="age">*年龄 :</label>
                             <input type="text" id="age" placeholder="请输入您的年龄" required ref="age" onBlur={this.age.bind(this)}/>
                         </div>
                         <div>
-                            <label htmlFor="birthday">&nbsp;&nbsp;生日 :</label>
-                            <input type="date" id="birthday"/>
+                            <label htmlFor="birthday">*生日 :</label>
+                            <input type="date" id="birthday" ref="bir"/>
                         </div>
                         <div>
                             <input type="button" id="btn-reg" value="立即注册" onClick={this.toreg.bind(this)}/>
