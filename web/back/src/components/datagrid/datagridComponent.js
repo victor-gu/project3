@@ -93,7 +93,7 @@ class DatagridComponent extends Component{
 	}
 	render(){
 		let ds = this.deCommon(this);
-		// console.log(ds)
+		console.log(ds)
 		let dsOrder = null;
 		let dsArr = [];
 		if(ds[0]){
