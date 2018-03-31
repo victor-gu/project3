@@ -13,6 +13,7 @@ module.exports = {
 
         //根据用户id,状态对订单进行查询
         app.get("/userOrder", filter , (req, res) => {
+            console.log(req.query);
             let userid = req.query.userid;
             let status = req.query.status;
             db.mongodb.select("order", {userid, status}).then((result) => {

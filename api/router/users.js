@@ -14,7 +14,7 @@ module.exports = {
                 var user = {username, password};
                 if(result.length>0){
                     token = jwt.sign(user, 'secret', {
-                     'expiresIn': 1440 // 设置过期时间
+                     'expiresIn': '7d' // 设置过期时间
                     });
                 }
                 res.send({status:result && result.length > 0, data:token, data1:result});

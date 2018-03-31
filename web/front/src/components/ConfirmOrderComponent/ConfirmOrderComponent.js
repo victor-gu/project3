@@ -10,43 +10,43 @@ import '../../common/iconfont/iconfont.css'
 
 
 export default class ConfirmOrderComponent extends Component{
-    state = {
-        dataset:[]
+    constructor(props){
+        super(props);
+        this.state = {
+            dataset: []
+        }
     }
+    
     componentWillMount(){
-        let userid = sessionStorage.getItem("userid");     
-        http.get("userOrder", {userid: userid, status:0}).then((res)=>{
-            console.log(res);  
-
-            console.log(JSON.parse(res.data[0].products));
-            let realDataset = JSON.parse(res.data[0].products);
-
-            this.setState({
-                dataset: realDataset || []
-            })
+        http.get("userOrder", {userid: sessionStorage.getItem("userid"), status:0}).then((res)=>{
+            if(res.status == true){
+                this.setState({dataset:JSON.parse(res.data[0].products)})
+            }
         })
     }
+
     //点击支付成功--查找条件为state为0的订单数据并将它的state变成1
     paid(){
         let arr = this.state.dataset;
         console.log(arr);
-        hashHistory.push('/mine');
+
         http.get("UpdOrder", {userid:sessionStorage.getItem("userid"), condition:0, status:1, products:JSON.stringify(arr)}).then((res)=>{
-            
             // 跳转到个人页面
             hashHistory.push('/mine');
         })    
     }
+    
 
     render(){
         let baseurl = 'src/static/img/'
         let totalCost = 0;
+        let userid = sessionStorage.getItem("userid");   
 
         return (
             <div className="lzf_confirm_all">
 
                 <div className="lzf_confirm_header">
-                    <Link to ="mine"><i className="iconfont lzf_confirm_left">&#xe61e;</i></Link>
+                    <Link to ="cart"><i className="iconfont lzf_confirm_left">&#xe61e;</i></Link>
                     <h3>
                         确认订单
                     </h3>
