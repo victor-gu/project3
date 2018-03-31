@@ -1,6 +1,6 @@
 import request from "superagent"
 
-let baseUrl = "http://10.3.136.82:8080/";
+let baseUrl = "http://10.3.136.83:8080/";
 let baseImg = "./src/static/img/";
 
 

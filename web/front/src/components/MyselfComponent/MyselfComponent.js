@@ -17,6 +17,8 @@ export default class MyselfComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
+            payQty :0 ,
+            paidQty: 0 ,
             dataset: []
         }
     }
@@ -27,6 +29,23 @@ export default class MyselfComponent extends Component{
             // console.log(res);
             this.setState({
                 dataset: res.data || []
+            })
+        })
+        //根据当前登录的用户id获取所有订单，包括未支付和已经支付的订单
+        http.get('useridOrder', {userid: sessionStorage.getItem('userid')}).then((result)=>{
+            let outcomeData = result.data || [];
+
+            var pay  = outcomeData.filter(function(item){
+                return item.status == "0"
+            });
+
+            var paid = outcomeData.filter(function(item){
+                return item.status == "1"
+            });
+
+            this.setState({
+                payQty : pay.length,
+                paidQty : paid.length
             })
         })
     }
@@ -63,7 +82,41 @@ export default class MyselfComponent extends Component{
             </div>
         )
         loginplace = sessionStorage.getItem("username") ? afterloginhtml : beforeloginhtml;
-        
+
+        // -----------------------------------------------------------------
+        let payplace;
+        let beforepayhtml = (
+            <i className="lzf_check_paid">
+                <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
+                <span>待付款</span>
+            </i>
+        )
+        let afterpayhtml = (
+            <i className="lzf_check_paid">
+                <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
+                <span><Link to = "confirmOrder">待付款</Link></span>
+                <a className="lzf_qty">{this.state.payQty}</a>
+            </i>
+        )
+        payplace = this.state.payQty ?   afterpayhtml : beforepayhtml;
+
+        // -----------------------------------------------------------------
+        let paidplace;
+        let beforepaidhtml = (
+            <i className="lzf_check_paid">
+                <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
+                <span>待收货</span>
+            </i>
+        )
+        let afterpaidhtml = (
+            <i className="lzf_check_paid">
+                <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
+                <span>待收货</span>
+                <a className="lzf_qty">{this.state.paidQty}</a>
+            </i>
+        )
+        paidplace = this.state.paidQty ?  afterpaidhtml : beforepaidhtml;
+
         return (
             <div className="home">             
                <div className="homeHeader"></div>
@@ -111,16 +164,14 @@ export default class MyselfComponent extends Component{
 
                                  <ul className="lzf_fivelist">
                                      <li>
-                                         <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
-                                            <span>待付款</span>
+                                         {payplace}
                                      </li>
                                      <li>
-                                         <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
-                                         <span>待收货</span>
+                                         {paidplace}
                                      </li>
-                                     <li>
-                                         <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_estimate.png"/>
-                                         <span>待评价</span>
+                                     <li>                                       
+                                        <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_estimate.png"/>
+                                        <span>待评价</span>
                                      </li>
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_returned.png"/>

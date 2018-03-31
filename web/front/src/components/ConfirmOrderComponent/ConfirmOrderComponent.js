@@ -16,7 +16,7 @@ export default class ConfirmOrderComponent extends Component{
             dataset: []
         }
     }
-    
+
     componentWillMount(){
         http.get("userOrder", {userid: sessionStorage.getItem("userid"), status:0}).then((res)=>{
             if(res.status == true){
@@ -109,9 +109,7 @@ export default class ConfirmOrderComponent extends Component{
                     <div>应付总额：<span>￥{totalCost.toFixed(2)}</span></div>
                     <div className="lzf_paid" onClick={this.paid.bind(this)}>提交订单</div>
                 </div>
-
             </div>
-        )
-        
+        )     
     }
 }
