@@ -31,19 +31,32 @@ export default class CartComponent extends Component{
         var all = document.querySelector(".all");
         var hobby = document.querySelectorAll(".list li .left input");
         var totalPrice = document.querySelector(".totalPrice");
+        var number = document.querySelector(".number");
 
         // console.log(hobby);
         all.onclick = function(){
             for(var i=0;i<hobby.length;i++){
                 hobby[i].checked = all.checked;
-                count()
+                count();
+                number.innerText = Number()
             }
         }
         for(var i=0;i<hobby.length;i++){
             hobby[i].onclick = function(){
                 all.checked = isCheckAll();
-                count()
+                count();
+                number.innerText = Number()
             }
+        }
+
+        function Number(){
+            var number = 0;
+            for(var i=0;i<hobby.length;i++){
+                if(hobby[i].checked){
+                    number++;
+                }
+            }
+            return number;
         }
 
         function count(){
@@ -51,7 +64,6 @@ export default class CartComponent extends Component{
             for(var i=0; i<hobby.length; i++){
                 var price = hobby[i].parentElement.parentElement.children[1].children[1].children[0].children[0].innerText*1;
                 var num = hobby[i].parentElement.parentElement.children[1].children[1].children[1].children[0].innerText*1;
-                // totalPrice.innerText = 0;
                 if(hobby[i].checked){
                     total += price * num;
                     totalPrice.innerText = total;
@@ -161,7 +173,7 @@ export default class CartComponent extends Component{
                     </p>
                     <div className="right">
                         <p className="total2">总计：￥<span className="totalPrice">0</span></p>
-                        <p className="total3" onClick={this.settle.bind(this)}>结算</p>
+                        <p className="total3" onClick={this.settle.bind(this)}>结算(<span className="number">0</span>)</p>
                     </div>
                 </div>
 

@@ -28,6 +28,7 @@ export default function(api){
                 }else{
                     // 路由跳转
                     // console.log(121212);
+                    console.log(res)
                     dispatch({
                         type:constants.RequestError,
                         error: res.error

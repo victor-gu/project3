@@ -13,6 +13,7 @@ module.exports = {
 
         //根据用户id,状态对订单进行查询
         app.get("/userOrder", filter , (req, res) => {
+            console.log(req.query);
             let userid = req.query.userid;
             let status = req.query.status;
             db.mongodb.select("order", {userid, status}).then((result) => {
@@ -21,7 +22,7 @@ module.exports = {
         })
 
         //根据用户id对订单进行查询
-        app.get("/useridOrder" , (req, res) => {
+        app.get("/useridOrder", filter, (req, res) => {
             let userid = req.query.userid;
             db.mongodb.select("order", {userid}).then((result) => {
                 res.send({status:true, data:result});
@@ -42,8 +43,12 @@ module.exports = {
 
         // 查询所有订单
         app.get("/selectOrder" ,filter, (req, res) => {
+            let page = req.query.page;
+            let limit = req.query.limit;
+            page1 = page ? (page-1)*limit : 0;
+            limit1 = limit ? page*limit : 99999;
             db.mongodb.select("order", {}).then((result) => {
-                res.send({status:true, count:result.length, data:result});
+                res.send({status:true, count:result.length, data:result.slice(page1, limit1)});
             })  
         })
 

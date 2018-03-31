@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {Link,hashHistory} from 'react-router'
 import NavComponent from '../nav/NavComponent'
+import { Carousel } from 'element-react'
 
 import Section1Component from './section/Section1Component'
 import Section2Component from './section/Section2Component'
@@ -9,6 +10,7 @@ import Section4Component from './section/Section4Component'
 import Section5Component from './section/Section5Component'
 import Section6Component from './section/Section6Component'
 import Section7Component from './section/Section7Component'
+// import CarouselComponent from '../home/CarouselComponent/CarouselComponent'
 
 import LunboComponent from '../home/lunbo/LunboComponent'
 import JxComponent from '../home/jingxuan/JxComponent'
@@ -52,7 +54,7 @@ export default class HomeComponent extends Component{
     }
     state = {
         wayslData:[],
-        moredata:[],
+        lunboimg:["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"],
         spinnerShow:true,
     }
 
@@ -79,7 +81,23 @@ export default class HomeComponent extends Component{
 
                 <div className="homeContent wayslContent" >
                     <div className="lunbo" ref="lunbo" id="userOrder">
-                        <LunboComponent config={["./src/static/img/lunbo1.jpg","./src/static/img/lunbo2.jpg","./src/static/img/lunbo3.jpg","./src/static/img/lunbo4.jpg","./src/static/img/lunbo5.jpg","./src/static/img/lunbo6.jpg","./src/static/img/lunbo7.jpg","./src/static/img/lunbo8.jpg"]} ref="lbcomponent"></LunboComponent>
+                        
+                       
+                        <div className="demo-1 small">
+                          <div className="block">
+                            <Carousel trigger="click" height="5.333333rem" arrow="always">
+                              {
+                                this.state.lunboimg.map((item, index) => {
+                                  return (
+                                    <Carousel.Item key={index}>
+                                        <img src={item}/>
+                                    </Carousel.Item>
+                                  )
+                                })
+                              }
+                            </Carousel>
+                          </div>
+                        </div>
                     </div>
 
                     <div className="contenBanner">
@@ -143,13 +161,6 @@ export default class HomeComponent extends Component{
                        <JxComponent jingxuan={this.state.wayslData}></JxComponent>
                     </div>
 
-                    <div className="wayslPhoneproduct Sections">
-                        <Section1Component Section1={[this.state.wayslData,"华为手机"]}></Section1Component>
-                    </div>
-    
-                    <div className="wayslPbproduct Sections">
-                        <Section2Component Section2={[this.state.wayslData,"荣耀手机"]}></Section2Component>
-                    </div>
 
                     <div className="wayslCdproduct Sections">
                          <Section3Component Section3={[this.state.wayslData,"笔记本&平板"]}></Section3Component>
@@ -159,6 +170,20 @@ export default class HomeComponent extends Component{
                          <Section4Component Section4={[this.state.wayslData,"智能穿戴"]}></Section4Component>
                     </div>
 
+
+                    <div className="wayslPhoneproduct Sections">
+                        <Section1Component Section1={[this.state.wayslData,"华为手机"]}></Section1Component>
+                    </div>
+
+                     <div className="wayslStproduct Sections">
+                         <Section7Component Section7={[this.state.wayslData,"通用配件"]}></Section7Component>
+                    </div>
+    
+                    <div className="wayslPbproduct Sections">
+                        <Section2Component Section2={[this.state.wayslData,"荣耀手机"]}></Section2Component>
+                    </div>
+
+                   
                     <div className="wayslRxproduct Sections">
                          <Section5Component Section5={[this.state.wayslData,"智能家居"]}></Section5Component>
                     </div>
@@ -167,9 +192,7 @@ export default class HomeComponent extends Component{
                          <Section6Component Section6={[this.state.wayslData,"生态产品"]}></Section6Component>
                     </div>
 
-                    <div className="wayslStproduct Sections">
-                         <Section7Component Section7={[this.state.wayslData,"通用配件"]}></Section7Component>
-                    </div>
+                   
 
 
 

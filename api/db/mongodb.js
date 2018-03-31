@@ -6,7 +6,6 @@ let db;
 
 client.connect("mongodb://127.0.0.1:27017/project3", function(_error, _db){
     if(_error){
-        console.error(_error);
         return false;
     }
     db = _db;
@@ -16,7 +15,7 @@ module.exports = {
 
     // 查询
     select:(_collection, _condition) => {
-        return new Promise((resolve, reject) => {console.log(_condition);
+        return new Promise((resolve, reject) => {
             db.db("project3").collection(_collection).find(_condition).toArray((_error, _data) => {
                 if(_error){
                     reject(_error);
