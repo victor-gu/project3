@@ -3,6 +3,9 @@ import NavComponent from '../nav/NavComponent';
 import http from "../../utils/httpclient";
 import '../../common/common.css'
 
+
+import {Link,hashHistory,browserHistory} from 'react-router'
+
 import "./CartComponent.scss";
 
 export default class CartComponent extends Component{
@@ -13,7 +16,7 @@ export default class CartComponent extends Component{
 
     componentWillMount(){
         http.get("userCart", {id:window.sessionStorage.getItem('userid')}).then((res)=>{
-            console.log(res)
+            // console.log(res)
             if(res.status == true){
                 this.setState({
                     dataset:res.data
@@ -29,7 +32,7 @@ export default class CartComponent extends Component{
         var hobby = document.querySelectorAll(".list li .left input");
         var totalPrice = document.querySelector(".totalPrice");
 
-        console.log(hobby);
+        // console.log(hobby);
         all.onclick = function(){
             for(var i=0;i<hobby.length;i++){
                 hobby[i].checked = all.checked;
@@ -98,20 +101,18 @@ export default class CartComponent extends Component{
 
         // 先在订单表中查找用户订单并且是为付款的，如果有了订单则更新订单数据，如果没有订单则插入订单
         http.get("userOrder", {userid:window.sessionStorage.getItem('userid'), status:0}).then((res)=>{
-            console.log(res)
+            // console.log(res)
             if(res.data.length==0){
                 http.get("insertOrder", {userid:window.sessionStorage.getItem('userid'), status:0, products:JSON.stringify(arr)}).then((res)=>{
                     // console.log(res);
                 })
             }else{
                 http.get("UpdOrder", {userid:window.sessionStorage.getItem('userid'), condition:0, status:0, products:JSON.stringify(arr)}).then((res)=>{
-                    console.log(res);
+                    // console.log(res);
                 })
             }
         })
-
         this.props.router.push({pathname:"/confirmOrder"})
-
     }
 
     render(){
@@ -160,7 +161,7 @@ export default class CartComponent extends Component{
                     </p>
                     <div className="right">
                         <p className="total2">总计：￥<span className="totalPrice">0</span></p>
-                        <p className="total3" onClick={this.settle.bind(this)}>结算(3)</p>
+                        <p className="total3" onClick={this.settle.bind(this)}>结算</p>
                     </div>
                 </div>
 

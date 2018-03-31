@@ -112,7 +112,7 @@ export default class MyselfComponent extends Component{
                                  <ul className="lzf_fivelist">
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_unpaid.png"/>
-                                            <span><Link to = "confirmOrder">待付款</Link></span>
+                                            <span>待付款</span>
                                      </li>
                                      <li>
                                          <img src="https://res.vmallres.com/nwap/20180301/images/echannelWap/misc/icon_receipt.png"/>
