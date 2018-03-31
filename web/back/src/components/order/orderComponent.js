@@ -13,6 +13,15 @@ export default class OrderComponent extends Component{
 			data: {page: 1, limit:6}
 		}
 	}
+	componentWillMount(){
+		http.get('selectOrder').then((res)=>{
+			// console.log(res);
+			if(res.error && !res.status){
+				// console.log(this)
+				this.props.router.push('/login')
+			}
+		})
+	}
 
 
 	render(){
