@@ -54,7 +54,7 @@ export default (
         </Route>
 
 
-        <Route path="/confirmOrder" component={ConfirmOrderComponent}/>
+        <Route path="/confirmOrder(/:lzfajaxid)" component={ConfirmOrderComponent}/>
 
     </Route>
   

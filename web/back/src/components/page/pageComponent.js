@@ -163,13 +163,13 @@ class PageComponent extends Component{
 			<div>
 				<ul className="pagination">
 					<li className="page-item"><span onClick={this.pageChange.bind(this)} className="page-link p1" ref="p1">1</span></li>
-					<li className="page-item"><span onClick={this.pageChange.bind(this)} className="page-link p2" ref="p2">...</span></li>
+					<li className="page-item"><span  className="page-link p2" ref="p2">...</span></li>
 					<li className="page-item one"><span onClick={this.pageChange.bind(this)} className="page-link">{this.state.num-2}</span></li>
 					<li className="page-item two"><span onClick={this.pageChange.bind(this)} className="page-link">{this.state.num-1}</span></li>
 					<li className="page-item mid"><span onClick={this.pageChange.bind(this)} className="page-link">{this.state.num}</span></li>
 					<li className="page-item third"><span onClick={this.pageChange.bind(this)} className="page-link">{this.state.num*1 + 1}</span></li>
 					<li className="page-item last"><span onClick={this.pageChange.bind(this)} className="page-link">{this.state.num*1 + 2}</span></li>
-					<li className="page-item"><span onClick={this.pageChange.bind(this)} className="page-link pls">...</span></li>
+					<li className="page-item"><span  className="page-link pls">...</span></li>
 					<li className="page-item"><span onClick={this.pageChange.bind(this)} className="page-link pl pla">{pages}</span></li>
 					<li className=""><span className="">共有{ds}条记录</span></li>
 				</ul>

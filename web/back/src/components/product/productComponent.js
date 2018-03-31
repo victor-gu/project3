@@ -6,6 +6,7 @@ import DatagridComponent from '../datagrid/datagridComponent'
 import PageComponent from '../page/pageComponent'
 import ModalComponent from '../modal/modalComponent'
 import * as action from '../datagrid/datagridaction'
+import http from '../../utils/httpclient'
 
 class ProductComponent extends Component{
 	state = {
@@ -21,12 +22,21 @@ class ProductComponent extends Component{
 			currentData:[]
 		}
 	}
+	// componentWillMount(){
+	// 	http.get('backproducts').then((res)=>{
+	// 		// console.log(res);
+	// 		if(res.error && !res.status){
+	// 			// console.log(this)
+	// 			this.props.router.push('/login')
+	// 		}
+	// 	})
+	// }
 
 	componentDidUpdate(){
 		// console.log(this);
 		if(this.props.error){
-			console.log(this.props.error)
-			return this.props.router.push('/login')
+			console.log(this.props)
+			// return this.props.router.push('/login')
 		}
 	}
 	search(n,el){

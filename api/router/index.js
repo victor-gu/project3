@@ -4,10 +4,10 @@ const app = express();
 const bp = require("body-parser");
 
 const users = require("./users");
-const order = require("./order");
+const cart = require("./cart");
 const frontproducts = require("./frontProducts");
-
-const products = require("./backProduct");
+const order = require("./order.js");
+const backproducts = require("./backProduct");
 const updatefile = require("./updatefile");
 
 // 提供跨域支持
@@ -32,8 +32,9 @@ module.exports = {
     start:(_port) => {
         frontproducts.register(app);
         users.register(app);
-        products.register(app);
+        backproducts.register(app);
         updatefile.register(app);
+        cart.register(app);
         order.register(app);
         // 监听端口
         app.listen(_port || 8080);
