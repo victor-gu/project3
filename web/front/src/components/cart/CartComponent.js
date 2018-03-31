@@ -98,21 +98,21 @@ export default class CartComponent extends Component{
                 }
             }
         }
-
+        console.log(arr)
         // 先在订单表中查找用户订单并且是为付款的，如果有了订单则更新订单数据，如果没有订单则插入订单
         http.get("userOrder", {userid:window.sessionStorage.getItem('userid'), status:0}).then((res)=>{
-            // console.log(res)
             if(res.data.length==0){
                 http.get("insertOrder", {userid:window.sessionStorage.getItem('userid'), status:0, products:JSON.stringify(arr)}).then((res)=>{
-                    // console.log(res);
+                    var path = '/confirmOrder/' + Math.random(); 
+                    hashHistory.push(path);
                 })
             }else{
                 http.get("UpdOrder", {userid:window.sessionStorage.getItem('userid'), condition:0, status:0, products:JSON.stringify(arr)}).then((res)=>{
-                    // console.log(res);
+                    var path = '/confirmOrder/' + Math.random(); 
+                    hashHistory.push(path);
                 })
             }
         })
-        this.props.router.push({pathname:"/confirmOrder"})
     }
 
     render(){
@@ -135,7 +135,7 @@ export default class CartComponent extends Component{
                     {
                         this.state.dataset.map(function(item){
                             return (
-                                    <li key={Math.random()*1000}>
+                                    <li key={Math.random()*1000} id={item._id}>
                                         <div className="left">
                                             <input className="int" data-id={item._id} type="checkbox" />
                                             <img src={"./src/static/img/"+item.img}/>

@@ -17,31 +17,12 @@ export default class ConfirmOrderComponent extends Component{
         }
     }
     
-    // componentWillMount(){     
-    //     let randomid = Math.ceil(Math.random()*10);      
-    //     http.get('frontProducts',{page:randomid, limit:3}).then((res)=>{
-    //         // console.log(res);
-    //         this.setState({
-    //             dataset: res.data || []
-    //         })
-    //     })
-    // }
-
-    componentWillMount(){    
-        // location.reload();
-        console.log(233) 
-        let userid = sessionStorage.getItem("userid");
-        http.get("userOrder", {userid: userid, status:0}).then((res)=>{
+    componentWillMount(){
+        http.get("userOrder", {userid: sessionStorage.getItem("userid"), status:0}).then((res)=>{
             if(res.status == true){
-                // console.log(res);
-                this.setState ({
-                    dataset: JSON.parse(res.data[0].products)
-                },()=>{
-                    // dataset: JSON.parse(res.data[0].products)
-                })
+                this.setState({dataset:JSON.parse(res.data[0].products)})
             }
         })
-        // console.log(this.state.dataset)
     }
 
     //点击支付成功--查找条件为state为0的订单数据并将它的state变成1
@@ -54,6 +35,7 @@ export default class ConfirmOrderComponent extends Component{
             hashHistory.push('/mine');
         })    
     }
+    
 
     render(){
         let baseurl = 'src/static/img/'

@@ -1,5 +1,5 @@
 import http from 'superagent'
-const baseUrl = "http://10.3.136.39:8080"
+const baseUrl = "http://10.3.136.81:8080"
 
 export default {
     // socket(_wsurl){
