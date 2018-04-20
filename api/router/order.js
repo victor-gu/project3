@@ -22,7 +22,7 @@ module.exports = {
         })
 
         //根据用户id对订单进行查询
-        app.get("/useridOrder", filter, (req, res) => {
+        app.get("/useridOrder", (req, res) => {
             let userid = req.query.userid;
             db.mongodb.select("order", {userid}).then((result) => {
                 res.send({status:true, data:result});

@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const path = require("path");
+
 
 const bp = require("body-parser");
 
@@ -22,6 +24,8 @@ app.all('*', function(req, res, next) {
       next();
     }
 });
+
+app.use(express.static(path.join(path.resolve(__dirname,'../'),'/')));
 
 // express的post需要，任何路由都要经过这里
 app.use(bp.urlencoded({extended:false}));
